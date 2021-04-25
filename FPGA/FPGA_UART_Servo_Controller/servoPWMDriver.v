@@ -6,18 +6,20 @@ module servoPWMDriver( 	input [7:0] position,
 		
 	always@ (posedge clk)	begin
 	
-			if (counter > 20_000)
+			// 2500 pwmClk Ticks = 20ms or 1 period
+			if (counter > 2500)
 				counter = 0;
 			else 
 				counter = counter + 1'b1;
 
-
+			// 
 			if (mark > counter)
 				pulse = 1'b1;
 			else
 				pulse= 1'b0;
 				
-				mark = position * 4;
+			// Update Mark with new Input Data
+			mark = position + 7'b1111111;
 	end
 						
 endmodule 
