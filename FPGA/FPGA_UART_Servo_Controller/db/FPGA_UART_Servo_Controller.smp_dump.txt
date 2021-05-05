@@ -1,0 +1,14 @@
+
+State Machine - |FPGA_UART_Servo_Controller|uartReciever:inst2|state
+Name state.stopBit state.bit7 state.bit6 state.bit5 state.bit4 state.bit3 state.bit2 state.bit1 state.bit0 state.startBit state.idle 
+state.idle 0 0 0 0 0 0 0 0 0 0 0 
+state.startBit 0 0 0 0 0 0 0 0 0 1 1 
+state.bit0 0 0 0 0 0 0 0 0 1 0 1 
+state.bit1 0 0 0 0 0 0 0 1 0 0 1 
+state.bit2 0 0 0 0 0 0 1 0 0 0 1 
+state.bit3 0 0 0 0 0 1 0 0 0 0 1 
+state.bit4 0 0 0 0 1 0 0 0 0 0 1 
+state.bit5 0 0 0 1 0 0 0 0 0 0 1 
+state.bit6 0 0 1 0 0 0 0 0 0 0 1 
+state.bit7 0 1 0 0 0 0 0 0 0 0 1 
+state.stopBit 1 0 0 0 0 0 0 0 0 0 1 

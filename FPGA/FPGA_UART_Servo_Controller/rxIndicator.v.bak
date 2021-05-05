@@ -1,0 +1,11 @@
+module rxIndicator( input clk,
+					output reg rxLED);
+					
+		always@ (posedge clk) begin
+			
+				LED = ~LED;
+
+		
+		end
+
+endmodule 
