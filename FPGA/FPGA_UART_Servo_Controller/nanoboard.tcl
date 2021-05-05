@@ -4,7 +4,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
-set_global_assignment -name TOP_LEVEL_ENTITY test
+set_global_assignment -name TOP_LEVEL_ENTITY FPGA_UART_Servo_Controller
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.1"
 set_global_assignment -name LAST_QUARTUS_VERSION "10.1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:52:11 FEBRUARY 09,2011"

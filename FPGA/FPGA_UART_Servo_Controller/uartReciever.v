@@ -1,5 +1,5 @@
 module uartReciever(input clk, rxIn,
-							output reg [7:0] rxData);
+							output reg [7:0] rxData, output reg rxCompleteFlag);
 
 reg [3:0] baudCount, state;
 reg [7:0] rxDataTemp;
@@ -23,6 +23,7 @@ parameter [3:0]
 		
 		case(state)
 			idle: begin
+						rxCompleteFlag = 0;
 						if (rxIn == 0) begin
 							state = startBit;
 							baudCount = 0;
@@ -96,6 +97,7 @@ parameter [3:0]
 			stopBit: begin
 							if (baudCount == 15) begin
 								state = idle;	
+								rxCompleteFlag = 1;
 								rxData = rxDataTemp;
 							end
 						end				
