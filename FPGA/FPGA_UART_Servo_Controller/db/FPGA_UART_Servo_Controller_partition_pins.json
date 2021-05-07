@@ -48,7 +48,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_0[0]",
+					"name" : "GPIO_00",
 					"strict" : false
 				}
 			]
