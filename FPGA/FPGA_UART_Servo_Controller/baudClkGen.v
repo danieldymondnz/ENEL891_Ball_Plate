@@ -6,15 +6,15 @@
 module baudClkGen (	input clk50MHz,
 							output reg baudClk);
 							
-		reg [19:0] count;
+		reg [7:0] count;
 		
 		always @ (posedge clk50MHz) begin
 			if (count > 163) begin
-				count = 20'd0;
+				count = 0;
 				baudClk = !baudClk;
 			end
 			else
-				count = count + 20'd1;
+				count = count + 1;
 		end
 		
 endmodule

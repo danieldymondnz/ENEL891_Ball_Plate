@@ -4,9 +4,9 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -16,7 +16,8 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 */
 (header "graphic" (version "1.4"))
 (pin
@@ -40,7 +41,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -112 96 64 112)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
-	(text "GPIO_0[0]" (rect 9 0 60 12)(font "Arial" ))
+	(text "GPIO_00" (rect 9 0 53 12)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 92 12)(pt 117 12))
@@ -51,41 +52,6 @@ refer to the applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -168 112 -112 136))
-)
-(pin
-	(output)
-	(rect 1000 328 1176 344)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LED[0]" (rect 90 0 124 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-	(annotation_block (location)(rect 1176 344 1240 368))
-)
-(pin
-	(output)
-	(rect 808 8 984 24)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LED[7..1]" (rect 90 0 137 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-	(annotation_block (location)(rect 1008 -80 1072 80))
 )
 (pin
 	(output)
@@ -102,6 +68,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1216 152 1280 176))
 )
 (pin
 	(output)
@@ -118,6 +85,41 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1200 248 1264 272))
+)
+(pin
+	(output)
+	(rect 808 8 984 24)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "LED[7..1]" (rect 90 0 137 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 984 -72 1072 48))
+)
+(pin
+	(output)
+	(rect 1032 328 1208 344)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "LED[0]" (rect 90 0 121 17)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1208 344 1272 368))
 )
 (symbol
 	(rect 96 112 264 192)
@@ -134,7 +136,7 @@ refer to the applicable agreement for further details.
 		(pt 168 32)
 		(output)
 		(text "baudClk" (rect 0 0 40 12)(font "Arial" ))
-		(text "baudClk" (rect 114 27 154 39)(font "Arial" ))
+		(text "baudClk" (rect 114 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
@@ -156,7 +158,7 @@ refer to the applicable agreement for further details.
 		(pt 168 32)
 		(output)
 		(text "pwmClk" (rect 0 0 38 12)(font "Arial" ))
-		(text "pwmClk" (rect 115 27 153 39)(font "Arial" ))
+		(text "pwmClk" (rect 115 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
@@ -164,38 +166,9 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 552 112 752 192)
-	(text "servoSelectController" (rect 5 0 111 12)(font "Arial" ))
-	(text "inst3" (rect 8 64 31 76)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "rxData[7..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "rxData[7..0]" (rect 21 27 80 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 200 32)
-		(output)
-		(text "xPWM[6..0]" (rect 0 0 57 12)(font "Arial" ))
-		(text "xPWM[6..0]" (rect 131 27 188 39)(font "Arial" ))
-		(line (pt 200 32)(pt 184 32)(line_width 3))
-	)
-	(port
-		(pt 200 48)
-		(output)
-		(text "yPWM[6..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "yPWM[6..0]" (rect 130 43 189 55)(font "Arial" ))
-		(line (pt 200 48)(pt 184 48)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 184 64))
-	)
-)
-(symbol
 	(rect 560 304 720 384)
 	(text "rxIndicator" (rect 5 0 56 12)(font "Arial" ))
-	(text "inst4" (rect 8 64 30 81)(font "Intel Clear" ))
+	(text "inst4" (rect 8 64 31 76)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -214,7 +187,7 @@ refer to the applicable agreement for further details.
 		(pt 160 32)
 		(output)
 		(text "rxLED" (rect 0 0 30 12)(font "Arial" ))
-		(text "rxLED" (rect 114 27 144 39)(font "Arial" ))
+		(text "rxLED" (rect 114 27 139 39)(font "Arial" ))
 		(line (pt 160 32)(pt 144 32))
 	)
 	(drawing
@@ -243,14 +216,14 @@ refer to the applicable agreement for further details.
 		(pt 176 32)
 		(output)
 		(text "rxData[7..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "rxData[7..0]" (rect 106 27 165 39)(font "Arial" ))
+		(text "rxData[7..0]" (rect 106 27 155 39)(font "Arial" ))
 		(line (pt 176 32)(pt 160 32)(line_width 3))
 	)
 	(port
 		(pt 176 48)
 		(output)
 		(text "rxCompleteFlag" (rect 0 0 77 12)(font "Arial" ))
-		(text "rxCompleteFlag" (rect 90 43 167 55)(font "Arial" ))
+		(text "rxCompleteFlag" (rect 90 43 155 55)(font "Arial" ))
 		(line (pt 176 48)(pt 160 48))
 	)
 	(parameter
@@ -311,7 +284,7 @@ refer to the applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 160 64))
 	)
-	(annotation_block (parameter)(rect 472 -120 656 112))
+	(annotation_block (parameter)(rect 296 -208 480 24))
 )
 (symbol
 	(rect 816 112 984 192)
@@ -335,7 +308,7 @@ refer to the applicable agreement for further details.
 		(pt 168 32)
 		(output)
 		(text "pulse" (rect 0 0 25 12)(font "Arial" ))
-		(text "pulse" (rect 126 27 151 39)(font "Arial" ))
+		(text "pulse" (rect 126 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
@@ -364,11 +337,47 @@ refer to the applicable agreement for further details.
 		(pt 168 32)
 		(output)
 		(text "pulse" (rect 0 0 25 12)(font "Arial" ))
-		(text "pulse" (rect 126 27 151 39)(font "Arial" ))
+		(text "pulse" (rect 126 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
 		(rectangle (rect 16 16 152 64))
+	)
+)
+(symbol
+	(rect 552 112 752 192)
+	(text "servoSelectController" (rect 5 0 111 12)(font "Arial" ))
+	(text "inst3" (rect 8 64 31 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "rxData[7..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "rxData[7..0]" (rect 21 27 80 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "newData" (rect 0 0 42 12)(font "Arial" ))
+		(text "newData" (rect 21 43 63 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 200 32)
+		(output)
+		(text "xPWM[6..0]" (rect 0 0 57 12)(font "Arial" ))
+		(text "xPWM[6..0]" (rect 131 27 179 39)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32)(line_width 3))
+	)
+	(port
+		(pt 200 48)
+		(output)
+		(text "yPWM[6..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "yPWM[6..0]" (rect 130 43 179 55)(font "Arial" ))
+		(line (pt 200 48)(pt 184 48)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 184 64))
 	)
 )
 (connector
@@ -408,33 +417,12 @@ refer to the applicable agreement for further details.
 	(pt 304 144)
 )
 (connector
-	(pt 720 336)
-	(pt 1000 336)
-)
-(connector
-	(pt 272 160)
-	(pt 272 104)
-)
-(connector
-	(pt 64 104)
-	(pt 272 104)
-)
-(connector
 	(pt 64 144)
 	(pt 80 144)
 )
 (connector
 	(pt 80 144)
 	(pt 96 144)
-)
-(connector
-	(pt 480 144)
-	(pt 552 144)
-	(bus)
-)
-(connector
-	(pt 480 160)
-	(pt 520 160)
 )
 (connector
 	(pt 560 336)
@@ -458,16 +446,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 784 160)
-	(pt 784 240)
-	(bus)
-)
-(connector
-	(pt 752 160)
-	(pt 784 160)
-	(bus)
-)
-(connector
 	(pt 760 200)
 	(pt 800 200)
 )
@@ -480,26 +458,6 @@ refer to the applicable agreement for further details.
 	(pt 800 200)
 )
 (connector
-	(pt 768 144)
-	(pt 768 16)
-	(bus)
-)
-(connector
-	(pt 752 144)
-	(pt 768 144)
-	(bus)
-)
-(connector
-	(pt 768 144)
-	(pt 816 144)
-	(bus)
-)
-(connector
-	(pt 768 16)
-	(pt 808 16)
-	(bus)
-)
-(connector
 	(pt 984 240)
 	(pt 1024 240)
 )
@@ -507,8 +465,64 @@ refer to the applicable agreement for further details.
 	(pt 984 144)
 	(pt 1040 144)
 )
+(connector
+	(pt 784 240)
+	(pt 784 160)
+	(bus)
+)
+(connector
+	(pt 752 160)
+	(pt 784 160)
+	(bus)
+)
+(connector
+	(pt 480 144)
+	(pt 552 144)
+	(bus)
+)
+(connector
+	(pt 784 16)
+	(pt 808 16)
+	(bus)
+)
+(connector
+	(pt 784 16)
+	(pt 784 144)
+	(bus)
+)
+(connector
+	(pt 752 144)
+	(pt 784 144)
+	(bus)
+)
+(connector
+	(pt 784 144)
+	(pt 816 144)
+	(bus)
+)
+(connector
+	(pt 480 160)
+	(pt 520 160)
+)
+(connector
+	(pt 520 160)
+	(pt 552 160)
+)
+(connector
+	(pt 720 336)
+	(pt 1032 336)
+)
+(connector
+	(pt 272 160)
+	(pt 272 104)
+)
+(connector
+	(pt 64 104)
+	(pt 272 104)
+)
 (junction (pt 80 144))
 (junction (pt 760 248))
 (junction (pt 296 144))
-(junction (pt 768 144))
+(junction (pt 784 144))
+(junction (pt 520 160))
 (text "UART RX Pin" (rect -104 72 -28 91)(font "Intel Clear" (font_size 8)))
