@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed May 05 19:08:30 2021
+Analysis & Synthesis Status : Successful - Thu May 06 11:20:49 2021
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : FPGA_UART_Servo_Controller
 Top-level Entity Name : FPGA_UART_Servo_Controller
 Family : Cyclone IV E
-Total logic elements : 185
-    Total combinational functions : 168
+Total logic elements : 184
+    Total combinational functions : 167
     Dedicated logic registers : 105
 Total registers : 105
 Total pins : 12

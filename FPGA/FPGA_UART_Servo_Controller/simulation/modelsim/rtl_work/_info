@@ -1,0 +1,148 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/simulation/modelsim
+vbaudClkGen
+Z1 !s110 1620256410
+!i10b 1
+!s100 lkC=ddl5ZRF38aOBbR]=l3
+IooAloUICcoFQnU1CjZnOJ2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1620252889
+8C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v
+FC:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v
+L0 6
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1620256410.000000
+!s107 C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller|C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller
+Z7 tCvgOpt 0
+nbaud@clk@gen
+vpwmClkGen
+R1
+!i10b 1
+!s100 Dg7WnzQckU>1m4QRc2kBL0
+I0JVfXd3oYC?MK[1S2z=VK0
+R2
+R0
+w1620198283
+8C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v
+FC:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller|C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v|
+!i113 1
+R5
+R6
+R7
+npwm@clk@gen
+vrxIndicator
+R1
+!i10b 1
+!s100 UDGE4z`I@?L6@XDXaiJ531
+Im2JF<CA[8H2TAI?;m_ZVY3
+R2
+R0
+w1620179152
+8C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v
+FC:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller|C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v|
+!i113 1
+R5
+R6
+R7
+nrx@indicator
+vservoPWMDriver
+R1
+!i10b 1
+!s100 0ZdInm:4d6dSo]O`J8G921
+I3V@9M6WPYEN03Al@3>7P90
+R2
+R0
+w1620198472
+8C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v
+FC:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller|C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v|
+!i113 1
+R5
+R6
+R7
+nservo@p@w@m@driver
+vservoSelectController
+R1
+!i10b 1
+!s100 chY4Zbhe<0JTFg;9G:S@`0
+I5_zg?IDejl>P]bYOFP0403
+R2
+R0
+w1620189820
+8C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v
+FC:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller|C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v|
+!i113 1
+R5
+R6
+R7
+nservo@select@controller
+vuartReciever
+R1
+!i10b 1
+!s100 =^1P4Lie5cd_A;8c;1V:_0
+ICYZG<6JcBDRbLP92k8XU43
+R2
+R0
+w1620179969
+8C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v
+FC:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller|C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v|
+!i113 1
+R5
+R6
+R7
+nuart@reciever
