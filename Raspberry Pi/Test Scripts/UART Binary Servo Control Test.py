@@ -22,14 +22,16 @@ if __name__ == '__main__':
 
         # Conver number into byte
         # pos = 181
-        byte = [pos]
-        byteToTx = bytearray(byte)
-
+        byteX = [pos]
+        byteY = [pos + 128]
+        byteToTxX = bytearray(byteX)
+        byteToTxY = bytearray(byteY)
         # Show verbose
-        print("Tx'd: " + str(byteToTx))
+        print("Tx'd: X=" + str(pos) + ", Y=" + str(pos + 128))
 
         # Send and Recieve via UART2/3
-        size = ser2.write(byteToTx)
+        size = ser2.write(byteToTxX)
+        size = ser2.write(byteToTxY)
         #byteFrRx = ser3.readline().decode('utf-8').rstrip()
 
         # Show verbose
