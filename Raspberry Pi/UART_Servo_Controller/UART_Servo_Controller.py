@@ -1,6 +1,8 @@
 # Servo Controller
 # Sets a UART Controller on specified UART device with baud of 9600
 
+import serial
+
 class UART_Servo_Controller:
 
     serialPort
