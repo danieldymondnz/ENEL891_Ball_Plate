@@ -4,7 +4,7 @@
 #   Daniel Dymond 2021
 
 import time
-from UART_Servo_Controller.py import UART_Servo_Controller
+from UART_Servo_Controller import UART_Servo_Controller
 if __name__ == '__main__':
 
     # Create new Controller Object on UART2 for RPi-IoT
@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
         # Set angle for this increment
         angle += 10
-        if (angle > 180)
+        if (angle > 180):
             angle = 0
 
         # Show Verbose
@@ -29,4 +29,4 @@ if __name__ == '__main__':
         controller.sendYServo(angle)
 
         # Pause for 5s
-        time.sleep(1)
+        time.sleep(5)

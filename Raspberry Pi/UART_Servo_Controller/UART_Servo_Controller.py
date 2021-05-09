@@ -5,24 +5,25 @@ import serial
 
 class UART_Servo_Controller:
 
-    serialPort
-
     # The Constructor which sets the Serial Port
     def __init__(self, uartDevicePath):
+        global serialPort
         serialPort = serial.Serial(uartDevicePath, 9600, timeout=1)
         serialPort.flush()
 
     # Function to handle X Servo Angle and Control Ouputs
+    @staticmethod
     def sendXServo(servoXAngle):
-        xAngleBits = convertAngle(servoXAngle)
-        xByte = generateUARTData(xAngleBits, 0)
-        uartTX(xByte)
+        xAngleBits = UART_Servo_Controller.convertAngle(servoXAngle)
+        xByte = UART_Servo_Controller.generateUARTData(xAngleBits, 0)
+        UART_Servo_Controller.uartTX(xByte)
 
-    # Function to handle Y Servo Angle and Control Outputs    
+    # Function to handle Y Servo Angle and Control Outputs
+    @staticmethod 
     def sendYServo(servoYAngle):
-        yAngleBits = convertAngle(servoYAngle)
-        yByte = generateUARTData(yAngleBits, 1)
-        uartTX(yByte)
+        yAngleBits = UART_Servo_Controller.convertAngle(servoYAngle)
+        yByte = UART_Servo_Controller.generateUARTData(yAngleBits, 1)
+        UART_Servo_Controller.uartTX(yByte)
 
     # Private methods to be set private
 
@@ -47,9 +48,9 @@ class UART_Servo_Controller:
     def generateUARTData(binaryPosition, isYServo):
 
         # Assembles the byte
-        if (isYServo == 1)
+        if (isYServo == 1):
             byteInt = binaryPosition + 128
-        else
+        else:
             byteInt = binaryPosition
         
         byte = [byteInt]
@@ -59,4 +60,5 @@ class UART_Servo_Controller:
 
     # Performs the UART TX for some given data
     def uartTX(data):
+        global serialPort
         size = serialPort.write(data)
