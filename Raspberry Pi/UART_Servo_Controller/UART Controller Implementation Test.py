@@ -8,7 +8,10 @@ from UART_Servo_Controller import UART_Servo_Controller
 if __name__ == '__main__':
 
     # Create new Controller Object on UART2 for RPi-IoT
-    controller = UART_Servo_Controller('/dev/ttyAMA1')
+    # controller = UART_Servo_Controller('/dev/ttyAMA1')
+
+    # Create new Controller Object on USB Device 0 for RPi-IoT
+    controller = UART_Servo_Controller('/dev/ttyUSB0')
 
     # Initial position of 0 degrees
     angle = 0
