@@ -48,7 +48,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO_00",
+					"name" : "GPIO_24",
 					"strict" : false
 				}
 			]

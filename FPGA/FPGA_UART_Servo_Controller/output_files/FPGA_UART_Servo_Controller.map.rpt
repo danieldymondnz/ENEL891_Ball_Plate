@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_UART_Servo_Controller
-Fri May 07 17:28:31 2021
+Thu May 13 12:58:29 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -46,7 +46,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 07 17:28:31 2021       ;
+; Analysis & Synthesis Status        ; Successful - Thu May 13 12:58:29 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_UART_Servo_Controller                  ;
 ; Top-level Entity Name              ; FPGA_UART_Servo_Controller                  ;
@@ -154,7 +154,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
+; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -162,24 +162,23 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-6         ;   0.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                             ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                   ; Library ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
-; FPGA_UART_Servo_Controller.bdf   ; yes             ; User Block Diagram/Schematic File  ; H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/FPGA_UART_Servo_Controller.bdf ;         ;
-; baudClkGen.v                     ; yes             ; User Verilog HDL File              ; H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v                   ;         ;
-; pwmClkGen.v                      ; yes             ; User Verilog HDL File              ; H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v                    ;         ;
-; uartReciever.v                   ; yes             ; User Verilog HDL File              ; H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v                 ;         ;
-; servoSelectController.v          ; yes             ; User Verilog HDL File              ; H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v        ;         ;
-; servoPWMDriver.v                 ; yes             ; User Verilog HDL File              ; H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v               ;         ;
-; rxIndicator.v                    ; yes             ; User Verilog HDL File              ; H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v                  ;         ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                        ; Library ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
+; FPGA_UART_Servo_Controller.bdf   ; yes             ; User Block Diagram/Schematic File  ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/FPGA_UART_Servo_Controller.bdf ;         ;
+; baudClkGen.v                     ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v                   ;         ;
+; pwmClkGen.v                      ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v                    ;         ;
+; uartReciever.v                   ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v                 ;         ;
+; servoSelectController.v          ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v        ;         ;
+; servoPWMDriver.v                 ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v               ;         ;
+; rxIndicator.v                    ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v                  ;         ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------+
@@ -369,7 +368,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri May 07 17:28:21 2021
+    Info: Processing started: Thu May 13 12:58:22 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_UART_Servo_Controller -c FPGA_UART_Servo_Controller
 Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -377,17 +376,17 @@ Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors
 Info (12021): Found 1 design units, including 1 entities, in source file fpga_uart_servo_controller.bdf
     Info (12023): Found entity 1: FPGA_UART_Servo_Controller
 Info (12021): Found 1 design units, including 1 entities, in source file baudclkgen.v
-    Info (12023): Found entity 1: baudClkGen File: H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 6
+    Info (12023): Found entity 1: baudClkGen File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file pwmclkgen.v
-    Info (12023): Found entity 1: pwmClkGen File: H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v Line: 1
+    Info (12023): Found entity 1: pwmClkGen File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file uartreciever.v
-    Info (12023): Found entity 1: uartReciever File: H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v Line: 1
+    Info (12023): Found entity 1: uartReciever File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file servoselectcontroller.v
-    Info (12023): Found entity 1: servoSelectController File: H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v Line: 1
+    Info (12023): Found entity 1: servoSelectController File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file servopwmdriver.v
-    Info (12023): Found entity 1: servoPWMDriver File: H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v Line: 1
+    Info (12023): Found entity 1: servoPWMDriver File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file rxindicator.v
-    Info (12023): Found entity 1: rxIndicator File: H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 1
+    Info (12023): Found entity 1: rxIndicator File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 1
 Warning (12019): Can't analyze file -- file SPIPLL.v is missing
 Warning (12019): Can't analyze file -- file DE0_NANO.v is missing
 Warning (12019): Can't analyze file -- file ADC_CTRL.v is missing
@@ -401,7 +400,7 @@ Info (12128): Elaborating entity "pwmClkGen" for hierarchy "pwmClkGen:inst1"
 Info (12128): Elaborating entity "servoSelectController" for hierarchy "servoSelectController:inst3"
 Info (12128): Elaborating entity "uartReciever" for hierarchy "uartReciever:inst2"
 Info (12128): Elaborating entity "baudClkGen" for hierarchy "baudClkGen:inst"
-Warning (10230): Verilog HDL assignment warning at baudClkGen.v(17): truncated value with size 32 to match size of target (8) File: H:/GitHub/ENEL891_Ball_Plate/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 17
+Warning (10230): Verilog HDL assignment warning at baudClkGen.v(17): truncated value with size 32 to match size of target (8) File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 17
 Info (12128): Elaborating entity "rxIndicator" for hierarchy "rxIndicator:inst4"
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
@@ -412,9 +411,9 @@ Info (21057): Implemented 188 device resources after synthesis - the final resou
     Info (21059): Implemented 10 output pins
     Info (21061): Implemented 176 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4780 megabytes
-    Info: Processing ended: Fri May 07 17:28:31 2021
-    Info: Elapsed time: 00:00:10
+    Info: Peak virtual memory: 4781 megabytes
+    Info: Processing ended: Thu May 13 12:58:29 2021
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:15
 
 
