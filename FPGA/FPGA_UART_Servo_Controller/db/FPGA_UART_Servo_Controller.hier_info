@@ -2,7 +2,7 @@
 GPIO_15 <= servoPWMDriver:PWM_X_DRIVER.pulse
 CLOCK_50 => pwmClkGen:inst1.clk50MHz
 CLOCK_50 => baudClkGen:inst.clk50MHz
-GPIO_00 => uartReciever:inst2.rxIn
+GPIO_24 => uartReciever:inst2.rxIn
 GPIO_17 <= servoPWMDriver:PWM_Y_DRIVER.pulse
 LED[0] <= rxIndicator:inst4.rxLED
 LED[1] <= servoSelectController:inst3.xPWM[0]

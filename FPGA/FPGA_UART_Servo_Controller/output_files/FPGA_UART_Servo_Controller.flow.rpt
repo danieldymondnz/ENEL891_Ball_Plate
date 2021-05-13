@@ -1,5 +1,5 @@
 Flow report for FPGA_UART_Servo_Controller
-Fri May 07 17:28:56 2021
+Thu May 13 12:58:41 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri May 07 17:28:56 2021       ;
+; Flow Status                        ; Successful - Thu May 13 12:58:41 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_UART_Servo_Controller                  ;
 ; Top-level Entity Name              ; FPGA_UART_Servo_Controller                  ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+----------------------------+
 ; Option            ; Setting                    ;
 +-------------------+----------------------------+
-; Start date & time ; 05/07/2021 17:28:22        ;
+; Start date & time ; 05/13/2021 12:58:22        ;
 ; Main task         ; Compilation                ;
 ; Revision Name     ; FPGA_UART_Servo_Controller ;
 +-------------------+----------------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+---------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                                         ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+---------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 251682017089250.162036530215052                               ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 198696040586140.162086750212328                               ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                                            ; --            ; --          ; uart_Testbench ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; uart_Testbench                                                ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                                                   ; --            ; --          ; eda_simulation ;
@@ -104,12 +104,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4780 MB             ; 00:00:15                           ;
-; Fitter               ; 00:00:07     ; 1.0                     ; 5660 MB             ; 00:00:06                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4681 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.0                     ; 4808 MB             ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4646 MB             ; 00:00:01                           ;
-; Total                ; 00:00:24     ; --                      ; --                  ; 00:00:25                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4781 MB             ; 00:00:15                           ;
+; Fitter               ; 00:00:05     ; 1.0                     ; 5662 MB             ; 00:00:06                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4684 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4809 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4646 MB             ; 00:00:01                           ;
+; Total                ; 00:00:15     ; --                      ; --                  ; 00:00:25                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -118,11 +118,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; wz419-619wcw     ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; wz419-619wcw     ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; wz419-619wcw     ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; wz419-619wcw     ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; wz419-619wcw     ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; wz419-599wcw     ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; wz419-599wcw     ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; wz419-599wcw     ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; wz419-599wcw     ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; wz419-599wcw     ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
