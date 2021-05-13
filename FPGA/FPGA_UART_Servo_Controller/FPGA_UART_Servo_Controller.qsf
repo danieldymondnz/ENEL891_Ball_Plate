@@ -40,7 +40,7 @@ set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 10.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:52:11 FEBRUARY 09,2011"
-set_global_assignment -name LAST_QUARTUS_VERSION 10.1
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -392,9 +392,11 @@ set_global_assignment -name VERILOG_FILE ADC_CTRL.v
 set_global_assignment -name SDC_FILE DE_NANO.SDC
 set_location_assignment PIN_D3 -to GPIO_00
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_00
-set_global_assignment -name TOP_LEVEL_ENTITY FPGA_UART_Servo_Controller
 set_location_assignment PIN_D3 -to GPIO_0[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0]
 set_location_assignment PIN_C15 -to GPIO_24
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_24
+set_global_assignment -name TOP_LEVEL_ENTITY FPGA_UART_Servo_Controller
+set_location_assignment PIN_C15 -to GPIO_2[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[4]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

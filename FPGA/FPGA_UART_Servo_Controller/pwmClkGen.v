@@ -4,7 +4,8 @@ module pwmClkGen (input clk50MHz,
 	reg [7:0] count;
 		
 		always @ (posedge clk50MHz) begin
-			if (count > 194) begin
+		// Was 194
+			if (count > 117) begin
 				count = 8'd0;
 				pwmClk = !pwmClk;
 			end

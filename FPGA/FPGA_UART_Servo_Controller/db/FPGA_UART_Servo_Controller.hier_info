@@ -15,13 +15,13 @@ LED[7] <= servoSelectController:inst3.xPWM[6]
 
 
 |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER
-position[0] => Add1.IN14
-position[1] => Add1.IN13
-position[2] => Add1.IN12
-position[3] => Add1.IN11
-position[4] => Add1.IN10
-position[5] => Add1.IN9
-position[6] => Add1.IN8
+position[0] => mark[0].DATAIN
+position[1] => mark[1].DATAIN
+position[2] => mark[2].DATAIN
+position[3] => mark[3].DATAIN
+position[4] => mark[4].DATAIN
+position[5] => mark[5].DATAIN
+position[6] => mark[6].DATAIN
 clk => mark[0].CLK
 clk => mark[1].CLK
 clk => mark[2].CLK
@@ -210,13 +210,13 @@ baudClk <= baudClk~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER
-position[0] => Add1.IN14
-position[1] => Add1.IN13
-position[2] => Add1.IN12
-position[3] => Add1.IN11
-position[4] => Add1.IN10
-position[5] => Add1.IN9
-position[6] => Add1.IN8
+position[0] => mark[0].DATAIN
+position[1] => mark[1].DATAIN
+position[2] => mark[2].DATAIN
+position[3] => mark[3].DATAIN
+position[4] => mark[4].DATAIN
+position[5] => mark[5].DATAIN
+position[6] => mark[6].DATAIN
 clk => mark[0].CLK
 clk => mark[1].CLK
 clk => mark[2].CLK

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_UART_Servo_Controller
-Thu May 13 12:58:29 2021
+Thu May 13 14:23:50 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -46,15 +46,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 13 12:58:29 2021       ;
+; Analysis & Synthesis Status        ; Successful - Thu May 13 14:23:50 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_UART_Servo_Controller                  ;
 ; Top-level Entity Name              ; FPGA_UART_Servo_Controller                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 168                                         ;
-;     Total combinational functions  ; 137                                         ;
-;     Dedicated logic registers      ; 107                                         ;
-; Total registers                    ; 107                                         ;
+; Total logic elements               ; 163                                         ;
+;     Total combinational functions  ; 118                                         ;
+;     Dedicated logic registers      ; 105                                         ;
+; Total registers                    ; 105                                         ;
 ; Total pins                         ; 12                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -186,20 +186,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Estimated Total logic elements              ; 168                     ;
+; Estimated Total logic elements              ; 163                     ;
 ;                                             ;                         ;
-; Total combinational functions               ; 137                     ;
+; Total combinational functions               ; 118                     ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 40                      ;
-;     -- 3 input functions                    ; 30                      ;
-;     -- <=2 input functions                  ; 67                      ;
+;     -- 4 input functions                    ; 42                      ;
+;     -- 3 input functions                    ; 41                      ;
+;     -- <=2 input functions                  ; 35                      ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 73                      ;
-;     -- arithmetic mode                      ; 64                      ;
+;     -- normal mode                          ; 70                      ;
+;     -- arithmetic mode                      ; 48                      ;
 ;                                             ;                         ;
-; Total registers                             ; 107                     ;
-;     -- Dedicated logic registers            ; 107                     ;
+; Total registers                             ; 105                     ;
+;     -- Dedicated logic registers            ; 105                     ;
 ;     -- I/O registers                        ; 0                       ;
 ;                                             ;                         ;
 ; I/O pins                                    ; 12                      ;
@@ -208,8 +208,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                         ;
 ; Maximum fan-out node                        ; baudClkGen:inst|baudClk ;
 ; Maximum fan-out                             ; 45                      ;
-; Total fan-out                               ; 664                     ;
-; Average fan-out                             ; 2.48                    ;
+; Total fan-out                               ; 643                     ;
+; Average fan-out                             ; 2.60                    ;
 +---------------------------------------------+-------------------------+
 
 
@@ -218,14 +218,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name                ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
-; |FPGA_UART_Servo_Controller      ; 137 (0)             ; 107 (0)                   ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
+; |FPGA_UART_Servo_Controller      ; 118 (0)             ; 105 (0)                   ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
 ;    |baudClkGen:inst|             ; 11 (11)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|baudClkGen:inst             ; baudClkGen                 ; work         ;
-;    |pwmClkGen:inst1|             ; 13 (13)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|pwmClkGen:inst1             ; pwmClkGen                  ; work         ;
+;    |pwmClkGen:inst1|             ; 12 (12)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|pwmClkGen:inst1             ; pwmClkGen                  ; work         ;
 ;    |rxIndicator:inst4|           ; 27 (27)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|rxIndicator:inst4           ; rxIndicator                ; work         ;
-;    |servoPWMDriver:PWM_X_DRIVER| ; 46 (46)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoPWMDriver:PWM_Y_DRIVER| ; 18 (18)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoPWMDriver:PWM_X_DRIVER| ; 37 (37)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoPWMDriver:PWM_Y_DRIVER| ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
 ;    |servoSelectController:inst3| ; 0 (0)               ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
-;    |uartReciever:inst2|          ; 22 (22)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|uartReciever:inst2          ; uartReciever               ; work         ;
+;    |uartReciever:inst2|          ; 23 (23)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|uartReciever:inst2          ; uartReciever               ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -255,8 +255,8 @@ Encoding Type:  One-Hot
 +-----------------------------------------+------------------------------------------------------+
 ; Register name                           ; Reason for Removal                                   ;
 +-----------------------------------------+------------------------------------------------------+
-; servoPWMDriver:PWM_Y_DRIVER|mark[8..12] ; Stuck at GND due to stuck port data_in               ;
-; servoPWMDriver:PWM_X_DRIVER|mark[8..12] ; Stuck at GND due to stuck port data_in               ;
+; servoPWMDriver:PWM_Y_DRIVER|mark[7..12] ; Stuck at GND due to stuck port data_in               ;
+; servoPWMDriver:PWM_X_DRIVER|mark[7..12] ; Stuck at GND due to stuck port data_in               ;
 ; servoSelectController:inst3|xPWM[6]     ; Merged with servoSelectController:inst3|xPWMStore[6] ;
 ; servoSelectController:inst3|xPWM[1]     ; Merged with servoSelectController:inst3|xPWMStore[1] ;
 ; servoSelectController:inst3|xPWM[0]     ; Merged with servoSelectController:inst3|xPWMStore[0] ;
@@ -288,7 +288,7 @@ Encoding Type:  One-Hot
 ; uartReciever:inst2|state~14             ; Lost fanout                                          ;
 ; uartReciever:inst2|state~15             ; Lost fanout                                          ;
 ; uartReciever:inst2|state~16             ; Lost fanout                                          ;
-; Total Number of Removed Registers = 41  ;                                                      ;
+; Total Number of Removed Registers = 43  ;                                                      ;
 +-----------------------------------------+------------------------------------------------------+
 
 
@@ -297,7 +297,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 107   ;
+; Total registers                              ; 105   ;
 ; Number of registers using Synchronous Clear  ; 16    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -333,23 +333,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 12                          ;
-; cycloneiii_ff         ; 107                         ;
+; cycloneiii_ff         ; 105                         ;
 ;     ENA               ; 37                          ;
 ;     SCLR              ; 16                          ;
-;     plain             ; 54                          ;
-; cycloneiii_lcell_comb ; 137                         ;
-;     arith             ; 64                          ;
-;         2 data inputs ; 40                          ;
-;         3 data inputs ; 24                          ;
-;     normal            ; 73                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 20                          ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 40                          ;
+;     plain             ; 52                          ;
+; cycloneiii_lcell_comb ; 118                         ;
+;     arith             ; 48                          ;
+;         2 data inputs ; 26                          ;
+;         3 data inputs ; 22                          ;
+;     normal            ; 70                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 42                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.70                        ;
-; Average LUT depth     ; 2.45                        ;
+; Max LUT depth         ; 5.20                        ;
+; Average LUT depth     ; 2.53                        ;
 +-----------------------+-----------------------------+
 
 
@@ -368,9 +367,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu May 13 12:58:22 2021
+    Info: Processing started: Thu May 13 14:23:44 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_UART_Servo_Controller -c FPGA_UART_Servo_Controller
-Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file fpga_uart_servo_controller.bdf
@@ -391,10 +389,6 @@ Warning (12019): Can't analyze file -- file SPIPLL.v is missing
 Warning (12019): Can't analyze file -- file DE0_NANO.v is missing
 Warning (12019): Can't analyze file -- file ADC_CTRL.v is missing
 Info (12127): Elaborating entity "FPGA_UART_Servo_Controller" for the top level hierarchy
-Warning (275089): Not all bits in bus "GPIO_1[7..5]" are used
-Warning (275080): Converted elements in bus name "GPIO_1" using legacy naming rules. Make any assignments on the new names, not on the original names.
-    Warning (275081): Converted element name(s) from "GPIO_1[5]" to "GPIO_15"
-    Warning (275081): Converted element name(s) from "GPIO_1[7]" to "GPIO_17"
 Info (12128): Elaborating entity "servoPWMDriver" for hierarchy "servoPWMDriver:PWM_X_DRIVER"
 Info (12128): Elaborating entity "pwmClkGen" for hierarchy "pwmClkGen:inst1"
 Info (12128): Elaborating entity "servoSelectController" for hierarchy "servoSelectController:inst3"
@@ -406,14 +400,14 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 188 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 184 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 176 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info (21061): Implemented 172 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 4781 megabytes
-    Info: Processing ended: Thu May 13 12:58:29 2021
-    Info: Elapsed time: 00:00:07
+    Info: Processing ended: Thu May 13 14:23:50 2021
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:15
 
 
