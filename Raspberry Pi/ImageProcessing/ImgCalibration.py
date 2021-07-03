@@ -36,6 +36,12 @@ while True:
     uppOrange = np.array([ HU, SU, VU])
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     mask = cv.inRange(hsv, lowOrange, uppOrange)
+    
+    # Print x,y grid and centre - if desired
+    cv.line(frame, (midWidth,0), (midWidth,camHeight), (0,255,0), 1)  # Green colour
+    cv.line(frame, (0,midHeight), (camWidth,midHeight), (0,255,0), 1) # Green colour
+    cv.circle(frame, (midWidth,midHeight), 6, (0,0,255), 2)  # Red colour
+
     cv.imshow("Frame", frame)
     cv.imshow("Mask", mask)
     if cv.waitKey(1) == ord('q'):
