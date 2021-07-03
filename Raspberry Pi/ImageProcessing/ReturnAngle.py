@@ -25,6 +25,7 @@ Kp = 2
 Ki = 0.3
 Kd = 1.8
 timestep = 1/30  # 1/fps
+Ui = 0
 last_error = 0
 setpoint = [0,0]
 
@@ -61,9 +62,10 @@ def getState(pos):
 
 def PIDsys(pos, setpoint, timestep):
     global last_error
+    global Ui
     error = setpoint - pos
     # if error +/- 0.03: error = 0
-    Ui = error * timestep
+    Ui = (error * timestep) + Ui
     Ud = (error - last_error) / timestep
     output = (Kp*error) + (Ki*Ui) + (Kd*Ud)
     last_error = error
