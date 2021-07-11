@@ -36,14 +36,21 @@ while True:
     uppOrange = np.array([ HU, SU, VU])
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     mask = cv.inRange(hsv, lowOrange, uppOrange)
+    #kernel = np.ones((5,5),np.uint8)
+    #opening = cv.morphologyEx(mask, cv.MORPH_OPEN, kernel)
+    #closing = cv.morphologyEx(mask, cv.MORPH_CLOSE, kernel)
+
     
-    # Print x,y grid and centre - if desired
+    # Print x,y grid and centre
     cv.line(frame, (midWidth,0), (midWidth,camHeight), (0,255,0), 1)  # Green colour
     cv.line(frame, (0,midHeight), (camWidth,midHeight), (0,255,0), 1) # Green colour
     cv.circle(frame, (midWidth,midHeight), 6, (0,0,255), 2)  # Red colour
 
+    
     cv.imshow("Frame", frame)
     cv.imshow("Mask", mask)
+    #cv.imshow("Open", opening)
+    #cv.imshow("Close", closing)
     if cv.waitKey(1) == ord('q'):
         break
 

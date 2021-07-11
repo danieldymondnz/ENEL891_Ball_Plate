@@ -19,7 +19,7 @@ P_aY = 0 # plate angle Y initial value
 S_angleX = 90  # initial angle of servos
 S_angleY = 90  # initial angle of servos
 d = 0.05 # servo arm length
-L = 0.10 # distance from servo plate connection to centre pivot point
+Length = 0.10 # distance from servo plate connection to centre pivot point
 # PID specs
 Kp = 2
 Ki = 0.3
@@ -46,19 +46,12 @@ def getPosition(circFind):  # returns ball position (x,y) [meters]
             BP_y = (BP_y / pxMetric) / 100           
     return ball_x, ball_y, BP_x, BP_y
 
-def tiltAdjust(pos,angle):
+#def tiltAdjust(pos,angle):
     # Adjust for plate tilt 
     # cos is for radians
-    angle = angle / toRads
-    pos = np.cos(angle) * pos
-    return pos
-
-def getState(pos):
-    if pos >= 0:
-        state = True
-    else: 
-        state = False
-    return state
+    #angle = angle / toRads
+    #pos = np.cos(angle) * pos
+    #return pos
 
 def PIDsys(pos, setpoint, timestep):
     global last_error
@@ -84,30 +77,22 @@ while True:
         cv.circle(frame, (ball_x, ball_y), 35, (255, 0, 255), 2)
         cv.circle(frame, (ball_x, ball_y), 3, (255, 0, 255), -1)
         # Adjust for plate tilt
-        if 10 < P_aX < -10:  # if angle 0-70 or 120-180
-            Xm = tiltAdjust(Xm,P_aX)
-        if 10 < P_aY < -10:  # if angle 0-70 or 120-180
-            Ym = tiltAdjust(Ym,P_aY)
+        #if 10 < P_aX < -10:  # if angle 0-70 or 120-180
+            #Xm = tiltAdjust(Xm,P_aX)
+        #if 10 < P_aY < -10:  # if angle 0-70 or 120-180
+            #Ym = tiltAdjust(Ym,P_aY)
         # Send ball X,Y into PID, return Output angle
         UX = PIDsys(Xm, setpoint[0], timestep)
         UY = PIDsys(Ym, setpoint[1], timestep)
         P_aX = UX
         P_aY = UY
 
-        stateX = getState(P_aX)
-        stateY = getState(P_aY)
         # Convert output from plate angle to servo angle
-        S_angleX = (L/d) * P_aX
-        S_angleY = (L/d) * P_aY
+        S_angleX = (Length/d) * P_aX
+        S_angleY = (Length/d) * P_aY
 
-        if stateX is True:
-            S_angleX = 90 + S_angleX   # servo down 90-180
-        else:
-            S_angleX = 90 - S_angleX   # servo up 0-90
-        if stateY is True:
-            S_angleY = 90 - S_angleY    # servo up 0-90
-        else:
-            S_angleY = 90 + S_angleY    # servo down 90-180
+        S_angleX = 90 + S_angleX
+        S_angleY = 90 - S_angleY
 
         print("Ball position: {} , {}".format(Xm,Ym))
         print("Output X: {}".format(UX))
