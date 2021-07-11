@@ -28,7 +28,7 @@ Kp = 2.66
 Ki = 0
 Kd = 1.68
 timestep = 1/30  # 1/fps
-UiSum = 0
+Ui = 0
 last_error = 0
 setpoint = [0,0]  # centre
 
@@ -40,7 +40,7 @@ setpoint = [0,0]  # centre
     #return pos
 def PIDsys(pos, setpoint, timestep):
     global last_error
-    global UiSum
+    global Ui
     error = setpoint - pos
     # if error +/- 0.5: error = 0
     #check this is ok
@@ -49,14 +49,14 @@ def PIDsys(pos, setpoint, timestep):
         last_error = error
         return error
     
-    Ui = (error * timestep) + UiSum
+    Ui = (error * timestep) + Ui
     Ud = (error - last_error) / timestep
     output = (Kp*error) + (Ki*Ui) + (Kd*Ud)
     last_error = error
-    UiSum = UiSum + Ui
+    
     ## If using Intergrator, need to stop windup
-    #if UiSum > UiMax:
-        #UiSum = UiMax
+    #if Ui > UiMax:
+        #Ui = UiMax
     
     return output
 
