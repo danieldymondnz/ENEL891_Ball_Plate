@@ -29,12 +29,6 @@ clk => mark[3].CLK
 clk => mark[4].CLK
 clk => mark[5].CLK
 clk => mark[6].CLK
-clk => mark[7].CLK
-clk => mark[8].CLK
-clk => mark[9].CLK
-clk => mark[10].CLK
-clk => mark[11].CLK
-clk => mark[12].CLK
 clk => pulse~reg0.CLK
 clk => counter[0].CLK
 clk => counter[1].CLK
@@ -43,12 +37,6 @@ clk => counter[3].CLK
 clk => counter[4].CLK
 clk => counter[5].CLK
 clk => counter[6].CLK
-clk => counter[7].CLK
-clk => counter[8].CLK
-clk => counter[9].CLK
-clk => counter[10].CLK
-clk => counter[11].CLK
-clk => counter[12].CLK
 pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -62,6 +50,8 @@ clk50MHz => count[4].CLK
 clk50MHz => count[5].CLK
 clk50MHz => count[6].CLK
 clk50MHz => count[7].CLK
+clk50MHz => count[8].CLK
+clk50MHz => count[9].CLK
 pwmClk <= pwmClk~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -224,12 +214,6 @@ clk => mark[3].CLK
 clk => mark[4].CLK
 clk => mark[5].CLK
 clk => mark[6].CLK
-clk => mark[7].CLK
-clk => mark[8].CLK
-clk => mark[9].CLK
-clk => mark[10].CLK
-clk => mark[11].CLK
-clk => mark[12].CLK
 clk => pulse~reg0.CLK
 clk => counter[0].CLK
 clk => counter[1].CLK
@@ -238,12 +222,6 @@ clk => counter[3].CLK
 clk => counter[4].CLK
 clk => counter[5].CLK
 clk => counter[6].CLK
-clk => counter[7].CLK
-clk => counter[8].CLK
-clk => counter[9].CLK
-clk => counter[10].CLK
-clk => counter[11].CLK
-clk => counter[12].CLK
 pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
