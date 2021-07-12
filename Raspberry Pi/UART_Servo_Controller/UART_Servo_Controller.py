@@ -6,7 +6,7 @@ import serial
 class UART_Servo_Controller:
 
     # Constants for maximum angle deflection from 90 degrees
-    MAX_DEFLECTION = 20
+    MAX_DEFLECTION = 45
 
     # The Constructor which sets the Serial Port
     def __init__(self, uartDevicePath):
