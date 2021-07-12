@@ -5,6 +5,7 @@ module servoSelectController( input [7:0] rxData, input newData,
 	reg [6:0] yPWMStore;
 						
 	always @(posedge newData) begin
+	
 			if(rxData[7] == 0) begin
 				xPWMStore = {rxData[6:0]};
 			end
