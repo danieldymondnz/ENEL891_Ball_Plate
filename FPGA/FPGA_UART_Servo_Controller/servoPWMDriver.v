@@ -2,16 +2,15 @@ module servoPWMDriver( 	input [6:0] position,
 								input clk,
 								output reg pulse );
 	
-	reg [6:0] counter, mark;
+	reg [8:0] counter, mark;
 		
 	always@ (posedge clk)	begin
 	
-			// 2500 pwmClk Ticks = 20ms or 1 period
-			// was 2559
-			if (counter > 127)
-				counter = 1'b0;
+			// 360 ticks per frame
+			if (counter > 359)
+				counter = 9'b0;
 			else 
-				counter = counter + 1'b1;
+				counter = counter + 9'b1;
 
 			// 
 			if (mark > counter)
@@ -19,8 +18,8 @@ module servoPWMDriver( 	input [6:0] position,
 			else
 				pulse = 1'b0;
 				
-			// Update Mark with new Input Data
-			mark = position; // + 7'b1111111;
+			// Update Mark with new Input Data + 116
+			mark = position + 116;
 	end
 						
 endmodule 

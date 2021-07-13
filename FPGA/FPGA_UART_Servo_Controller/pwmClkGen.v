@@ -1,16 +1,19 @@
 module pwmClkGen (input clk50MHz,
 						output reg pwmClk);
 						
-	reg [9:0] count;
+	reg [8:0] count;
 		
 		always @ (posedge clk50MHz) begin
-		// Was 194
-			if (count > 586) begin
-				count = 10'd0;
+			
+			// Servo operates at 333Hz
+			// For 0.5*/tick, requires 360 ticks per frame
+			// PSK = 417
+			if (count > 416) begin
+				count = 9'd0;
 				pwmClk = !pwmClk;
 			end
 			else
-				count = count + 10'd1;
+				count = count + 9'd1;
 		end
 		
 endmodule 

@@ -17,11 +17,11 @@ LED[7] <= servoSelectController:inst3.xPWM[6]
 |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER
 position[0] => mark[0].DATAIN
 position[1] => mark[1].DATAIN
-position[2] => mark[2].DATAIN
-position[3] => mark[3].DATAIN
-position[4] => mark[4].DATAIN
-position[5] => mark[5].DATAIN
-position[6] => mark[6].DATAIN
+position[2] => Add1.IN10
+position[3] => Add1.IN9
+position[4] => Add1.IN8
+position[5] => Add1.IN7
+position[6] => Add1.IN6
 clk => mark[0].CLK
 clk => mark[1].CLK
 clk => mark[2].CLK
@@ -29,6 +29,8 @@ clk => mark[3].CLK
 clk => mark[4].CLK
 clk => mark[5].CLK
 clk => mark[6].CLK
+clk => mark[7].CLK
+clk => mark[8].CLK
 clk => pulse~reg0.CLK
 clk => counter[0].CLK
 clk => counter[1].CLK
@@ -37,6 +39,8 @@ clk => counter[3].CLK
 clk => counter[4].CLK
 clk => counter[5].CLK
 clk => counter[6].CLK
+clk => counter[7].CLK
+clk => counter[8].CLK
 pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -51,7 +55,6 @@ clk50MHz => count[5].CLK
 clk50MHz => count[6].CLK
 clk50MHz => count[7].CLK
 clk50MHz => count[8].CLK
-clk50MHz => count[9].CLK
 pwmClk <= pwmClk~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -202,11 +205,11 @@ baudClk <= baudClk~reg0.DB_MAX_OUTPUT_PORT_TYPE
 |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER
 position[0] => mark[0].DATAIN
 position[1] => mark[1].DATAIN
-position[2] => mark[2].DATAIN
-position[3] => mark[3].DATAIN
-position[4] => mark[4].DATAIN
-position[5] => mark[5].DATAIN
-position[6] => mark[6].DATAIN
+position[2] => Add1.IN10
+position[3] => Add1.IN9
+position[4] => Add1.IN8
+position[5] => Add1.IN7
+position[6] => Add1.IN6
 clk => mark[0].CLK
 clk => mark[1].CLK
 clk => mark[2].CLK
@@ -214,6 +217,8 @@ clk => mark[3].CLK
 clk => mark[4].CLK
 clk => mark[5].CLK
 clk => mark[6].CLK
+clk => mark[7].CLK
+clk => mark[8].CLK
 clk => pulse~reg0.CLK
 clk => counter[0].CLK
 clk => counter[1].CLK
@@ -222,6 +227,8 @@ clk => counter[3].CLK
 clk => counter[4].CLK
 clk => counter[5].CLK
 clk => counter[6].CLK
+clk => counter[7].CLK
+clk => counter[8].CLK
 pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
