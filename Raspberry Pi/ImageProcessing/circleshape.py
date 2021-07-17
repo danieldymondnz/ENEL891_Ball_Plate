@@ -44,6 +44,8 @@ while (InProgress):
             ServoY = angle[down]
             S_angleX = 90 + ServoX
             S_angleY = 90 - ServoY
+            #controller.sendXServo(S_angleX)
+            #controller.sendYServo(S_angleY)
             up += 1
             down -= 1
             print("Count: {}".format(count))
@@ -62,6 +64,8 @@ while (InProgress):
             ServoY = angle[up]
             S_angleX = 90 + ServoX
             S_angleY = 90 + ServoY
+            #controller.sendXServo(S_angleX)
+            #controller.sendYServo(S_angleY)
             up += 1
             down -= 1
             print("Count: {}".format(count))
@@ -80,6 +84,8 @@ while (InProgress):
             ServoY = angle[down]
             S_angleX = 90 - ServoX
             S_angleY = 90 + ServoY
+            #controller.sendXServo(S_angleX)
+            #controller.sendYServo(S_angleY)
             up += 1
             down -= 1
             print("Count: {}".format(count))
@@ -99,6 +105,8 @@ while (InProgress):
             ServoY = angle[up]
             S_angleX = 90 - ServoX
             S_angleY = 90 - ServoY
+            #controller.sendXServo(S_angleX)
+            #controller.sendYServo(S_angleY)
             up += 1
             down -= 1
             print("Count: {}".format(count))
