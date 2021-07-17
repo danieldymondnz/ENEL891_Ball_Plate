@@ -1,6 +1,5 @@
-##
-# To print the values found during the calculation process
-# For testing purposes on Laptop, set for that situation
+
+
 
 import numpy as np
 import cv2 as cv
@@ -33,17 +32,16 @@ Kd = 1.68
 timestep = 1/30  # 1/fps
 Ui = 0
 last_error = 0
-setpoint = [0,0]  # centre
+
+sp_rectangle = [ (135, 140), (135, -140), (-135, -140), (-135, 140) ]  
+count = 0   # for setpoint change
+sp = 0
+maxincrement = 2
+maxangle = 10
 
 controller.sendXServo(S_angleX)
 controller.sendYServo(S_angleY)
 
-#def tiltAdjust(pos,angle):
-    # Adjust for plate tilt 
-    # cos is for radians
-    #angle = angle / toRads
-    #pos = np.cos(angle) * pos
-    #return pos
 def PIDsys(pos, setpoint, timestep):
     global last_error
     global Ui
@@ -72,7 +70,6 @@ def PIDsys(pos, setpoint, timestep):
     print("Output: {}".format(output))
     return output
 
-#loop_time = time()
 
 while True:
     start = cv.getTickCount()
@@ -106,9 +103,19 @@ while True:
             #if 10 < P_aY < -10:  # if angle 0-70 or 120-180
                 #Ym = tiltAdjust(Ym,P_aY)
             # Send ball X,Y into PID, return Output angle
-        
-            P_aX = PIDsys(BP_x, setpoint[0], timestep)
-            P_aY = PIDsys(BP_y, setpoint[1], timestep)
+
+            P_aX = PIDsys(BP_x, sp_rectangle[sp][0], timestep)
+            P_aY = PIDsys(BP_y, sp_rectangle[sp][1], timestep)
+
+            if P_aX and P_aY == 0:
+                count += 1
+                if count > 3: # wait 3 frames
+                    count = 0
+                    sp += 1
+                    if sp > 3:
+                        sp = 0
+                
+
             # Round result since it not matter to servo
             P_aX = int(round(P_aX))
             P_aY = int(round(P_aY))
@@ -121,21 +128,21 @@ while True:
                 P_aY = P_aY * -1
 
             # Set Max angle of plate
-            if P_aX > 20:
-                P_aX = 20
-            if P_aY > 20:
-                P_aY = 20
+            if P_aX > maxangle:
+                P_aX = maxangle
+            if P_aY > maxangle:
+                P_aY = maxangle
 
             # Set increments of servo angle
-            if (P_aX - prevPlate_X) > 5 :
-                P_aX = prevPlate_X + 5
-            elif (P_aX - prevPlate_X) > 5 :
-                P_aX = prevPlate_X - 5
+            if (P_aX - prevPlate_X) > maxincrement :
+                P_aX = prevPlate_X + maxincrement
+            elif (P_aX - prevPlate_X) > maxincrement :
+                P_aX = prevPlate_X - maxincrement
   
-            if (P_aY - prevPlate_Y) > 5 :
-                P_aY = prevPlate_Y + 5
-            elif (P_aY - prevPlate_Y) > 5 :
-                P_aY = prevPlate_Y - 5
+            if (P_aY - prevPlate_Y) > maxincrement :
+                P_aY = prevPlate_Y + maxincrement
+            elif (P_aY - prevPlate_Y) > maxincrement :
+                P_aY = prevPlate_Y - maxincrement
                 
             # Convert output from plate angle to servo angle
             S_angleX = (Length/d) * P_aX
@@ -190,4 +197,4 @@ while True:
 
 
 cap.release()
-cv.destroyAllWindows()      
+cv.destroyAllWindows()          
