@@ -114,7 +114,8 @@ while True:
                     sp += 1
                     if sp > 3:
                         sp = 0
-                
+            else:
+                count = 0    
 
             # Round result since it not matter to servo
             P_aX = int(round(P_aX))
