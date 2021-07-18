@@ -3,35 +3,35 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'pwmClkGen:inst1|pwmClk'
-Slack : -2.856
-TNS   : -33.503
+Slack : -2.804
+TNS   : -34.417
 
 Type  : Slow 1200mV 85C Model Setup 'baudClkGen:inst|baudClk'
-Slack : -2.385
-TNS   : -57.474
+Slack : -2.350
+TNS   : -63.653
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -2.005
-TNS   : -29.506
+Slack : -1.796
+TNS   : -25.376
 
 Type  : Slow 1200mV 85C Model Setup 'uartReciever:inst2|rxCompleteFlag'
-Slack : -0.187
-TNS   : -1.065
+Slack : -0.314
+TNS   : -3.365
 
-Type  : Slow 1200mV 85C Model Hold 'uartReciever:inst2|rxCompleteFlag'
+Type  : Slow 1200mV 85C Model Hold 'baudClkGen:inst|baudClk'
 Slack : 0.357
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'baudClkGen:inst|baudClk'
-Slack : 0.358
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.385
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'uartReciever:inst2|rxCompleteFlag'
+Slack : 0.540
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'pwmClkGen:inst1|pwmClk'
-Slack : 0.359
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.370
+Slack : 0.824
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
@@ -51,35 +51,35 @@ Slack : -1.000
 TNS   : -14.000
 
 Type  : Slow 1200mV 0C Model Setup 'pwmClkGen:inst1|pwmClk'
-Slack : -2.420
-TNS   : -27.170
+Slack : -2.366
+TNS   : -28.090
 
 Type  : Slow 1200mV 0C Model Setup 'baudClkGen:inst|baudClk'
-Slack : -2.050
-TNS   : -47.516
+Slack : -1.987
+TNS   : -52.474
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -1.685
-TNS   : -24.456
+Slack : -1.518
+TNS   : -20.986
 
 Type  : Slow 1200mV 0C Model Setup 'uartReciever:inst2|rxCompleteFlag'
-Slack : -0.029
-TNS   : -0.029
-
-Type  : Slow 1200mV 0C Model Hold 'uartReciever:inst2|rxCompleteFlag'
-Slack : 0.306
-TNS   : 0.000
+Slack : -0.168
+TNS   : -1.167
 
 Type  : Slow 1200mV 0C Model Hold 'baudClkGen:inst|baudClk'
-Slack : 0.312
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'pwmClkGen:inst1|pwmClk'
-Slack : 0.320
+Slack : 0.311
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.328
+Slack : 0.340
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'uartReciever:inst2|rxCompleteFlag'
+Slack : 0.484
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'pwmClkGen:inst1|pwmClk'
+Slack : 0.736
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
@@ -99,40 +99,40 @@ Slack : -1.000
 TNS   : -14.000
 
 Type  : Fast 1200mV 0C Model Setup 'pwmClkGen:inst1|pwmClk'
-Slack : -1.140
-TNS   : -7.205
+Slack : -1.127
+TNS   : -8.492
 
 Type  : Fast 1200mV 0C Model Setup 'baudClkGen:inst|baudClk'
-Slack : -0.964
-TNS   : -14.622
+Slack : -0.996
+TNS   : -19.213
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -0.693
-TNS   : -7.903
+Slack : -0.580
+TNS   : -5.376
 
 Type  : Fast 1200mV 0C Model Setup 'uartReciever:inst2|rxCompleteFlag'
-Slack : 0.257
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'uartReciever:inst2|rxCompleteFlag'
-Slack : 0.167
+Slack : 0.205
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'baudClkGen:inst|baudClk'
-Slack : 0.188
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'pwmClkGen:inst1|pwmClk'
-Slack : 0.193
+Slack : 0.187
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.194
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'uartReciever:inst2|rxCompleteFlag'
+Slack : 0.230
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'pwmClkGen:inst1|pwmClk'
+Slack : 0.445
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -27.416
+TNS   : -27.326
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'baudClkGen:inst|baudClk'
 Slack : -1.000
