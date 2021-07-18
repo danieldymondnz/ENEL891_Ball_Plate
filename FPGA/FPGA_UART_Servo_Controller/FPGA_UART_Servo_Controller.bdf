@@ -69,11 +69,11 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 984 24 1048 48))
+	(annotation_block (location)(rect 984 -48 1048 112))
 )
 (pin
 	(output)
-	(rect 1032 328 1208 344)
+	(rect 1024 328 1200 344)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "LED[0]" (rect 90 0 124 12)(font "Arial" ))
 	(pt 0 8)
@@ -86,11 +86,11 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1208 344 1272 368))
+	(annotation_block (location)(rect 1200 344 1264 368))
 )
 (pin
 	(output)
-	(rect 1040 136 1216 152)
+	(rect 1024 136 1200 152)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "GPIO_15" (rect 90 0 134 12)(font "Arial" ))
 	(pt 0 8)
@@ -103,13 +103,13 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1216 152 1280 176))
+	(annotation_block (location)(rect 1200 152 1264 176))
 )
 (pin
 	(output)
 	(rect 1024 232 1200 248)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "GPIO_17" (rect 90 0 132 17)(font "Intel Clear" ))
+	(text "GPIO_17" (rect 90 0 134 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -394,10 +394,6 @@ https://fpgasoftware.intel.com/eula.
 	(pt 760 248)
 )
 (connector
-	(pt 760 256)
-	(pt 816 256)
-)
-(connector
 	(pt 304 160)
 	(pt 272 160)
 )
@@ -451,20 +447,8 @@ https://fpgasoftware.intel.com/eula.
 	(pt 800 200)
 )
 (connector
-	(pt 816 160)
-	(pt 800 160)
-)
-(connector
 	(pt 800 160)
 	(pt 800 200)
-)
-(connector
-	(pt 984 240)
-	(pt 1024 240)
-)
-(connector
-	(pt 984 144)
-	(pt 1040 144)
 )
 (connector
 	(pt 784 240)
@@ -510,16 +494,32 @@ https://fpgasoftware.intel.com/eula.
 	(pt 552 160)
 )
 (connector
-	(pt 720 336)
-	(pt 1032 336)
-)
-(connector
 	(pt 272 160)
 	(pt 272 104)
 )
 (connector
 	(pt 64 104)
 	(pt 272 104)
+)
+(connector
+	(pt 984 144)
+	(pt 1024 144)
+)
+(connector
+	(pt 760 256)
+	(pt 816 256)
+)
+(connector
+	(pt 800 160)
+	(pt 816 160)
+)
+(connector
+	(pt 984 240)
+	(pt 1024 240)
+)
+(connector
+	(pt 1024 336)
+	(pt 720 336)
 )
 (junction (pt 80 144))
 (junction (pt 760 248))

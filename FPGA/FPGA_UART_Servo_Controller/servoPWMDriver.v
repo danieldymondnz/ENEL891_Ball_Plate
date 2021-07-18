@@ -10,7 +10,7 @@ module servoPWMDriver( 	input [6:0] position,
 			if (counter > 359)
 				counter = 9'b0;
 			else 
-				counter = counter + 9'b1;
+				counter = counter + 1;
 
 			// 
 			if (mark > counter)
