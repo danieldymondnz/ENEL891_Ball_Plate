@@ -47,7 +47,7 @@ class UART_Servo_Controller:
             angle = angle / abs(angle) * UART_Servo_Controller.MAX_DEFLECTION
 
         # If value is okay, then convert into closest binary representation
-        binaryPos = angle - 58 / 0.5
+        binaryPos = (angle - 58) / 0.5
         binaryPos = int(binaryPos)
         return binaryPos
 
