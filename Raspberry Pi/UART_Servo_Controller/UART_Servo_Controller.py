@@ -7,6 +7,8 @@ class UART_Servo_Controller:
 
     # Constants for maximum angle deflection from 90 degrees
     MAX_DEFLECTION = 32
+    X_ANGLE_TUNER =  0 * 2      # Values for ANGLE_TUNER is [desired angle] * 2
+    Y_ANGLE_TUNER = 0 * 2
 
     # The Constructor which sets the Serial Port
     def __init__(self, uartDevicePath):
@@ -17,14 +19,14 @@ class UART_Servo_Controller:
     # Function to handle X Servo Angle and Control Ouputs
     @staticmethod
     def sendXServo(servoXAngle):
-        xAngleBits = UART_Servo_Controller.convertAngle(servoXAngle)
+        xAngleBits = UART_Servo_Controller.convertAngle(servoXAngle + UART_Servo_Controller.X_ANGLE_TUNER)
         xByte = UART_Servo_Controller.generateUARTData(xAngleBits, 0)
         UART_Servo_Controller.uartTX(xByte)
 
     # Function to handle Y Servo Angle and Control Outputs
     @staticmethod 
     def sendYServo(servoYAngle):
-        yAngleBits = UART_Servo_Controller.convertAngle(servoYAngle)
+        yAngleBits = UART_Servo_Controller.convertAngle(servoYAngle + UART_Servo_Controller.Y_ANGLE_TUNER)
         yByte = UART_Servo_Controller.generateUARTData(yAngleBits, 1)
         UART_Servo_Controller.uartTX(yByte)
 
@@ -47,7 +49,7 @@ class UART_Servo_Controller:
             angle = angle / abs(angle) * UART_Servo_Controller.MAX_DEFLECTION
 
         # If value is okay, then convert into closest binary representation
-        binaryPos = (angle - 58) / 0.5
+        binaryPos = ((angle - 58) / 0.5) - 1
         binaryPos = int(binaryPos)
         return binaryPos
 
