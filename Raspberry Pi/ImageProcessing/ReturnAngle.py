@@ -4,12 +4,12 @@
 
 import numpy as np
 import cv2 as cv
-import PIDController as PID
+from PIDController import PIDController as PID
 from time import time
-from UART_Servo_Controller import UART_Servo_Controller
+#from UART_Servo_Controller import UART_Servo_Controller
 
 
-controller = UART_Servo_Controller('COM4')
+#controller = UART_Servo_Controller('COM4')
 
 
 cap = cv.VideoCapture(2)
@@ -46,8 +46,8 @@ xAxis = PID(Kp, Ki, Kd, setpoint[0])
 yAxis = PID(Kp, Ki, Kd, setpoint[1])
 
 # Send initial commands to flatten the plate
-controller.sendXServo(S_angleX)
-controller.sendYServo(S_angleY)
+#controller.sendXServo(S_angleX)
+#controller.sendYServo(S_angleY)
 
 # Loop
 while True:
@@ -99,8 +99,8 @@ while True:
                 S_angleY = 90 + S_angleY """
         
             # Send the desired angle to the Controller
-            controller.sendXServo(S_angleX)
-            controller.sendYServo(S_angleY)
+            #controller.sendXServo(S_angleX)
+            #controller.sendYServo(S_angleY)
 
             print("Ball position: {} , {}".format(BP_x,BP_y))
             print("Plate Angle X: {}".format(P_aX))
