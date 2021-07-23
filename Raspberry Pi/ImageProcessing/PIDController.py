@@ -68,6 +68,16 @@ class PIDController(object):
 
             # Check the change in angle
             # TODO Check this!
+                        # Set increments of servo angle
+            """ if (P_aX - prevPlate_X) > increment :
+                P_aX = prevPlate_X + increment
+            elif (P_aX - prevPlate_X) > increment :
+                P_aX = prevPlate_X - increment
+  
+            if (P_aY - prevPlate_Y) > increment :
+                P_aY = prevPlate_Y + increment
+            elif (P_aY - prevPlate_Y) > increment :
+                P_aY = prevPlate_Y - increment """
 
         # Return the angle
         return self.output
