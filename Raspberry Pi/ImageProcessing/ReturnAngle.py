@@ -62,13 +62,14 @@ while True:
     for contour in circFind:
         circArea = cv.contourArea(contour)
         if circArea > 1000:
-            x, y, w, h = cv.boundingRect(contour)
-            ball_x = (w//2 + x)
-            ball_y = (h//2 + y)
-            BP_x = ball_x - midWidth                              
-            BP_y = midHeight - ball_y
-            BP_x = (BP_x / pxMetric) / 100
+            x, y, w, h = cv.boundingRect(contour) #Draw bounding rectangle
+            ball_x = (w//2 + x)         # Get X axis co-ord for center of rectangle
+            ball_y = (h//2 + y)         # Get Y axis co-ord for conter of rectangle
+            BP_x = ball_x - midWidth    # Get ball pos relative to center of plate being 0,0                             
+            BP_y = midHeight - ball_y   
+            BP_x = (BP_x / pxMetric) / 100      # Convert from pixels to cm, then meters
             BP_y = (BP_y / pxMetric) / 100    
+            # Draw the found circle on the frame
             cv.circle(frame, (ball_x, ball_y), 30, (255, 0, 255), 2)
             cv.circle(frame, (ball_x, ball_y), 3, (255, 0, 255), -1)
 
@@ -88,15 +89,11 @@ while True:
 
             # Adjusting the plate angle to servo angle range,
             # by using ball position 
-            """ if BP_x >= 0:
-                S_angleX = 90 + S_angleX
-            else:
-                S_angleX = 90 - S_angleX
+            S_angleX = 90 + S_angleX
 
-            if BP_y >= 0:
-                S_angleY = 90 - S_angleY
-            else:
-                S_angleY = 90 + S_angleY """
+            # Haven't checked Y angle yet
+            S_angleY = 90 + S_angleY
+
         
             # Send the desired angle to the Controller
             #controller.sendXServo(S_angleX)
