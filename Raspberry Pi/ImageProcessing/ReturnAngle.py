@@ -45,9 +45,11 @@ yAxis = PID(Kp, Ki, Kd, setpoint[1])
 controller.sendXServo(S_angleX)
 controller.sendYServo(S_angleY)
 
+
 # Loop
 while True:
-    start = cv.getTickCount()
+    start = cv.getTickCount()  # Time Step for PID calculations. 
+    # Get Frame
     ret, frame = cap.read()
     img = frame.copy()   # Copy Frame for image processing
     # Filter by colour and make a mask
@@ -73,6 +75,14 @@ while True:
             cv.circle(frame, (ball_x, ball_y), 30, (255, 0, 255), 2)
             cv.circle(frame, (ball_x, ball_y), 3, (255, 0, 255), -1)
 
+            # Time Step fpr PID calculations
+            end = cv.getTickCount()
+            fq = cv.getTickFrequency()
+            tot_time = (end - start) / fq
+            print("Time elapsed : ".format(end - start))
+            print("Total Time : ".format(tot_time*1000))
+            ### Need to send to PID as TIMESTEP ###
+            
             # Send position data to the PID Controllers and determine the desired Plate Angles
             P_aX = xAxis.compute(BP_x)
             P_aY = yAxis.compute(BP_y)
