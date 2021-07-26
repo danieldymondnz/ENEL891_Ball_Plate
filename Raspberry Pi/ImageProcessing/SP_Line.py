@@ -60,6 +60,7 @@ while True:
     for contour in circFind:
         circArea = cv.contourArea(contour)
         if circArea > 1000:
+        
             x, y, w, h = cv.boundingRect(contour)
             ball_x = (w//2 + x)
             ball_y = (h//2 + y)
@@ -86,10 +87,15 @@ while True:
             if P_aX == 0:  # removed P_aY for Servo Y lock out
                 count += 1
                 if count > 3: # wait 3 frames
+                    
                     count = 0
                     sp += 1
+                    
                     if sp > 1:
                         sp = 0
+                    
+                    # Provide the controller with updated target position
+                    xAxis.setTarget(sp_line[sp][0])
             else:
                 count = 0    
 

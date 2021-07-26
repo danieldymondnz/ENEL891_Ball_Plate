@@ -77,7 +77,7 @@ while True:
             # Send ball X,Y into PID, return Output angle
 
             P_aX = xAxis.compute(BP_x)
-            P_aY = xAxis.compute(BP_y)
+            P_aY = yAxis.compute(BP_y)
 
             if P_aX and P_aY == 0:
                 count += 1
@@ -86,6 +86,10 @@ while True:
                     sp += 1
                     if sp > 3:
                         sp = 0
+                        
+                    # Provide the controller with updated target position
+                    xAxis.setTarget(sp_line[sp][0])
+                    yAxis.setTarget(sp_line[sp][1])
             else:
                 count = 0    
 
