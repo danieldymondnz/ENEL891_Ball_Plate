@@ -1,8 +1,8 @@
 class PIDController:
 
     # Constants
-    MAX_ANGLE = 20          # Maximum Delfection Angle
-    MAX_DELTA_ANGLE = 40    # Maximum Rate of change of Deflection Angle
+    MAX_ANGLE = 15          # Maximum Delfection Angle
+    MAX_DELTA_ANGLE = 5    # Maximum Rate of change of Deflection Angle
     TIMESTEP = 1/30         # Equals 1/FPS
     MAX_UI = 9.5            # Integrator anti-windup limiter
     DEADZONE = 0.005        # Acceptable Error around the target position
@@ -44,7 +44,7 @@ class PIDController:
         # If there is no error, then the controller doesn't need to run
         # Return 0
         if self.error == 0:
-            self.output = 0
+            newOutput = 0
 
         # Otherwise, use the controller to calculate the PID and set the angle.
         else:
@@ -58,26 +58,20 @@ class PIDController:
                 self.integral_error = PIDController.MAX_UI
             
             # Determines the appropriate output angle based on the current error
-            self.output = (self.kp*self.error) + (self.ki*self.integral_error) + (self.kd*self.derivative_error)
+            newOutput = (self.kp*self.error) + (self.ki*self.integral_error) + (self.kd*self.derivative_error)
 
             # Caps the maximum angle
-            if self.output > PIDController.MAX_ANGLE:
-                self.output = PIDController.MAX_ANGLE
-            elif self.output < -1 * PIDController.MAX_ANGLE:
-                self.output = -1 * PIDController.MAX_ANGLE
+            if newOutput > PIDController.MAX_ANGLE:
+                newOutput = PIDController.MAX_ANGLE
+            elif newOutput < -1 * PIDController.MAX_ANGLE:
+                newOutput = -1 * PIDController.MAX_ANGLE
 
             # Check the change in angle
             # TODO Check this!
             # Set increments of servo angle
-            """ if (P_aX - prevPlate_X) > increment :
-                P_aX = prevPlate_X + increment
-            elif (P_aX - prevPlate_X) > increment :
-                P_aX = prevPlate_X - increment
-  
-            if (P_aY - prevPlate_Y) > increment :
-                P_aY = prevPlate_Y + increment
-            elif (P_aY - prevPlate_Y) > increment :
-                P_aY = prevPlate_Y - increment """
+            if newOutput - self.output > PIDController.MAX_DELTA_ANGLE:
+                newOutput = PIDController.MAX_DELTA_ANGLE
 
         # Return the angle
+        self.output = newOutput
         return self.output
