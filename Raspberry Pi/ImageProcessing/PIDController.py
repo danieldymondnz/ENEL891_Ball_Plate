@@ -1,7 +1,7 @@
 class PIDController:
 
     # Constants
-    MAX_ANGLE = 15          # Maximum Delfection Angle
+    MAX_ANGLE = 20          # Maximum Delfection Angle
     MAX_DELTA_ANGLE = 10    # Maximum Rate of change of Deflection Angle
     TIMESTEP = 1/30         # Equals 1/FPS
     MAX_UI = 9.5            # Integrator anti-windup limiter
@@ -59,7 +59,9 @@ class PIDController:
                 self.integral_error = PIDController.MAX_UI
             
             # Determines the appropriate output angle based on the current error
-            newOutput = (self.kp*self.error)
+            #newOutput = (self.kp*self.error)
+            #newOutput = (self.kd*self.derivative_error)
+            newOutput = (self.kp*self.error) + (self.kd*self.derivative_error)
             # newOutput = (self.kp*self.error) + (self.ki*self.integral_error) + (self.kd*self.derivative_error)
 
             # Caps the maximum angle

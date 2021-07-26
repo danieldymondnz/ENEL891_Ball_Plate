@@ -18,7 +18,7 @@ midWidth = 320
 midHeight = 240
 lowOrange = np.array([ 2, 120, 140])
 uppOrange = np.array([ 24, 255, 255])
-pxMetric = 9 # pixelperMetric for pixels to cm
+pxMetric = 7.5 # pixelperMetric for pixels to cm
 
 # Initial Values for angles
 P_aX = 0 # plate angle X initial value
@@ -32,7 +32,7 @@ Length = 0.06 # distance from servo plate connection to centre pivot point
 # PID Specifications
 Kp = 20 #2.768
 Ki = 1.08
-Kd = 1.771
+Kd = 15
 
 # Aim for the Setpoint in the Center of the Plate
 setpoint = [0,0]
@@ -62,8 +62,8 @@ while True:
         if circArea > 1000:
             # Creates a rectangle around ball and calculates center point
             x, y, w, h = cv.boundingRect(contour) #Draw bounding rectangle
-            ball_x = (w//2 + x)         # Get X axis co-ord for center of rectangle
-            ball_y = (h//2 + y)         # Get Y axis co-ord for conter of rectangle
+            ball_x = (w/2 + x)         # Get X axis co-ord for center of rectangle
+            ball_y = (h/2 + y)         # Get Y axis co-ord for conter of rectangle
             # adjust to centre
             BP_x = ball_x - midWidth    # Get ball pos relative to center of plate being 0,0                             
             BP_y = midHeight - ball_y  
@@ -72,8 +72,8 @@ while True:
             BP_x = (BP_x / pxMetric) / 100      
             BP_y = (BP_y / pxMetric) / 100    
             # Draw the found circle on the frame
-            cv.circle(frame, (ball_x, ball_y), 30, (255, 0, 255), 2)
-            cv.circle(frame, (ball_x, ball_y), 3, (255, 0, 255), -1)
+            cv.circle(frame, (int(ball_x), int(ball_y)), 30, (255, 0, 255), 2)
+            cv.circle(frame, (int(ball_x), int(ball_y)), 3, (255, 0, 255), -1)
 
             # Time Step fpr PID calculations
             end = cv.getTickCount()

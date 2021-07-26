@@ -8,7 +8,7 @@ class UART_Servo_Controller:
     # Constants for maximum angle deflection from 90 degrees
     MAX_DEFLECTION = 32
     X_ANGLE_TUNER =  -2.5 * 2      # Values for ANGLE_TUNER is [desired angle] * 2
-    Y_ANGLE_TUNER = - 2.5 * 2
+    Y_ANGLE_TUNER = 0 * 2
 
     # The Constructor which sets the Serial Port
     def __init__(self, uartDevicePath):
