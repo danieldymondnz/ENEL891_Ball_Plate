@@ -6,10 +6,10 @@ import numpy as np
 import cv2 as cv
 from PIDController import PIDController as PID
 from time import time
-#from UART_Servo_Controller import UART_Servo_Controller
+from UART_Servo_Controller import UART_Servo_Controller
 
 
-#controller = UART_Servo_Controller('COM4')
+controller = UART_Servo_Controller('COM3')
 
 
 cap = cv.VideoCapture(2)
@@ -18,15 +18,14 @@ midWidth = 320
 midHeight = 240
 lowOrange = np.array([ 2, 120, 140])
 uppOrange = np.array([ 24, 255, 255])
-pxMetric = 7.8 # pixelperMetric for pixels to cm
+pxMetric = 9 # pixelperMetric for pixels to cm
 
 # Initial Values for angles
 P_aX = 0 # plate angle X initial value
 P_aY = 0 # plate angle Y initial value
 S_angleX = 90  # initial angle of servos
 S_angleY = 90  # initial angle of servos
-prevPlate_X = 0
-prevPlate_Y = 0
+
 
 d = 0.045 # servo arm length
 Length = 0.06 # distance from servo plate connection to centre pivot point
@@ -34,7 +33,7 @@ Length = 0.06 # distance from servo plate connection to centre pivot point
 increment = 1
 
 # PID Specifications
-Kp = 2.768
+Kp = 20 #2.768
 Ki = 1.08
 Kd = 1.771
 
@@ -46,8 +45,8 @@ xAxis = PID(Kp, Ki, Kd, setpoint[0])
 yAxis = PID(Kp, Ki, Kd, setpoint[1])
 
 # Send initial commands to flatten the plate
-#controller.sendXServo(S_angleX)
-#controller.sendYServo(S_angleY)
+controller.sendXServo(S_angleX)
+controller.sendYServo(S_angleY)
 
 # Loop
 while True:
@@ -75,7 +74,7 @@ while True:
 
             # Send position data to the PID Controllers and determine the desired Plate Angles
             P_aX = xAxis.compute(BP_x)
-            P_aY = xAxis.compute(BP_y)
+            P_aY = yAxis.compute(BP_y)
 
             # Round the Plate Angle
             # P_aX = int(round(P_aX))
@@ -89,15 +88,15 @@ while True:
 
             # Adjusting the plate angle to servo angle range,
             # by using ball position 
-            S_angleX = 90 + S_angleX
+            S_angleX = 90 - S_angleX
 
             # Haven't checked Y angle yet
             S_angleY = 90 + S_angleY
 
         
             # Send the desired angle to the Controller
-            #controller.sendXServo(S_angleX)
-            #controller.sendYServo(S_angleY)
+            controller.sendXServo(S_angleX)
+            controller.sendYServo(S_angleY)
 
             print("Ball position: {} , {}".format(BP_x,BP_y))
             print("Plate Angle X: {}".format(P_aX))

@@ -4,11 +4,11 @@ from time import time
 from timeit import default_timer as timer
 
 
-#from UART_Servo_Controller import UART_Servo_Controller
+from UART_Servo_Controller import UART_Servo_Controller
 
-#controller = UART_Servo_Controller('COM4')
+controller = UART_Servo_Controller('COM3')
 
-InProgress = True
+InProgress = False
 
 # Initial Values for angles
 S_angleX = 90  # initial angle of servos
@@ -23,8 +23,8 @@ twoframes = 2*fps
 
 testime = 1
 
-#controller.sendXServo(90)
-#controller.sendYServo(90)
+controller.sendXServo(90)
+controller.sendYServo(90)
 
 Left = True
 Right = False
