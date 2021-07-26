@@ -16,33 +16,35 @@ midHeight = 240
 lowOrange = np.array([ 0, 120, 140])
 uppOrange = np.array([ 24, 255, 255])
 pxMetric = 14.38 # pixelperMetric for pixels to cm
-toRads = 180 / np.pi
+
 # Initial Values for angles
 P_aX = 0 # plate angle X initial value
 P_aY = 0 # plate angle Y initial value
 S_angleX = 90  # initial angle of servos
 S_angleY = 90  # initial angle of servos
-prevServo_X = 0 # initial
-prevServo_Y = 0 # initial
 
 d = 0.045 # servo arm length
 Length = 0.06 # distance from servo plate connection to centre pivot point
+
 # PID specs
 Kp = 2.66
 Ki = 1.32
 Kd = 1.68
 
+# Aim for Rectangle Pattern : four setpoint positions
 sp_rectangle = [ (135, 140), (135, -140), (-135, -140), (-135, 140) ]  
 count = 0   # for setpoint change
 sp = 0
 
-
+# Send initial commands to flatten the plate
 controller.sendXServo(S_angleX)
 controller.sendYServo(S_angleY)
 
+# PID Controllers for the Servos
 xAxis = PID(Kp, Ki, Kd, sp_rectangle[sp][0])
 yAxis = PID(Kp, Ki, Kd, sp_rectangle[sp][1])
 
+# Loop
 while True:
     start = cv.getTickCount()
     ret, frame = cap.read()
@@ -56,6 +58,7 @@ while True:
     for contour in circFind:
         circArea = cv.contourArea(contour)
         if circArea > 1000:
+            # Creates a rectangle around ball and calculates center point
             x, y, w, h = cv.boundingRect(contour)
             ball_x = (w//2 + x)
             ball_y = (h//2 + y)
@@ -66,16 +69,11 @@ while True:
             # convert cm to m
             BP_x = (BP_x / pxMetric) / 100
             BP_y = (BP_y / pxMetric) / 100    
-    
+            # Draw the found circle on the frame
             cv.circle(frame, (ball_x, ball_y), 35, (255, 0, 255), 2)
             cv.circle(frame, (ball_x, ball_y), 3, (255, 0, 255), -1)
-            # Adjust for plate tilt
-            #if 10 < P_aX < -10:  # if angle 0-70 or 120-180
-                #Xm = tiltAdjust(Xm,P_aX)
-            #if 10 < P_aY < -10:  # if angle 0-70 or 120-180
-                #Ym = tiltAdjust(Ym,P_aY)
-            # Send ball X,Y into PID, return Output angle
-
+        
+            # Send position data to the PID Controllers and determine the desired Plate Angles
             P_aX = xAxis.compute(BP_x)
             P_aY = yAxis.compute(BP_y)
 
@@ -88,33 +86,33 @@ while True:
                         sp = 0
                         
                     # Provide the controller with updated target position
-                    xAxis.setTarget(sp_line[sp][0])
-                    yAxis.setTarget(sp_line[sp][1])
+                    xAxis.setTarget(sp_rectangle[sp][0])
+                    yAxis.setTarget(sp_rectangle[sp][1])
             else:
                 count = 0    
 
             # Round result since it not matter to servo
-            P_aX = int(round(P_aX))
-            P_aY = int(round(P_aY))
+            #P_aX = int(round(P_aX))
+            #P_aY = int(round(P_aY))
 
             # Convert output from plate angle to servo angle
-            S_angleX = (Length/d) * P_aX
-            S_angleY = (Length/d) * P_aY
+            S_angleX = P_aX
+            S_angleY = P_aY
+            #S_angleX = (Length/d) * P_aX
+            #S_angleY = (Length/d) * P_aY
 
             # Adjusting the plate angle to servo angle range,
             # by using ball position 
-
             S_angleX = 90 - S_angleX
 
-            S_angleY = 90 - S_angleY
+            S_angleY = 90 + S_angleY
        
-        
+            # Send the desired angle to the Controller
             controller.sendXServo(S_angleX)
             controller.sendYServo(S_angleY)
 
-            prevPlate_X = P_aX
-            prevPlate_Y = P_aY 
-
+            
+            # Print to view details
             print("Ball position: {} , {}".format(BP_x,BP_y))
             print("Plate Angle X: {}".format(P_aX))
             print("Plate Angle Y: {}".format(P_aY))
@@ -122,7 +120,7 @@ while True:
             print("Servo angle Y : {}".format(S_angleY))
 
             
-     # Print x,y grid and centre - if desired
+    # Print x,y grid and centre - if desired
     cv.line(frame, (midWidth,0), (midWidth,480), (0,255,0), 1)  # Green colour
     cv.line(frame, (0,midHeight), (640,midHeight), (0,255,0), 1) # Green colour
     cv.circle(frame, (midWidth,midHeight), 6, (0,0,255), 2)  # Red colour

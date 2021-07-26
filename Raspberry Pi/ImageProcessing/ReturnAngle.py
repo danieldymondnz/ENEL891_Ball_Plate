@@ -26,11 +26,8 @@ P_aY = 0 # plate angle Y initial value
 S_angleX = 90  # initial angle of servos
 S_angleY = 90  # initial angle of servos
 
-
 d = 0.045 # servo arm length
 Length = 0.06 # distance from servo plate connection to centre pivot point
-
-increment = 1
 
 # PID Specifications
 Kp = 20 #2.768
@@ -61,12 +58,16 @@ while True:
     for contour in circFind:
         circArea = cv.contourArea(contour)
         if circArea > 1000:
+            # Creates a rectangle around ball and calculates center point
             x, y, w, h = cv.boundingRect(contour) #Draw bounding rectangle
             ball_x = (w//2 + x)         # Get X axis co-ord for center of rectangle
             ball_y = (h//2 + y)         # Get Y axis co-ord for conter of rectangle
+            # adjust to centre
             BP_x = ball_x - midWidth    # Get ball pos relative to center of plate being 0,0                             
-            BP_y = midHeight - ball_y   
-            BP_x = (BP_x / pxMetric) / 100      # Convert from pixels to cm, then meters
+            BP_y = midHeight - ball_y  
+            # apply pixelMetric: pixels to cm
+            # convert cm to m 
+            BP_x = (BP_x / pxMetric) / 100      
             BP_y = (BP_y / pxMetric) / 100    
             # Draw the found circle on the frame
             cv.circle(frame, (ball_x, ball_y), 30, (255, 0, 255), 2)
@@ -90,14 +91,13 @@ while True:
             # by using ball position 
             S_angleX = 90 - S_angleX
 
-            # Haven't checked Y angle yet
             S_angleY = 90 + S_angleY
 
-        
             # Send the desired angle to the Controller
             controller.sendXServo(S_angleX)
             controller.sendYServo(S_angleY)
 
+            # Print to view details
             print("Ball position: {} , {}".format(BP_x,BP_y))
             print("Plate Angle X: {}".format(P_aX))
             print("Plate Angle Y: {}".format(P_aY))
