@@ -2,7 +2,7 @@
 
 import numpy as np
 import cv2 as cv
-import time
+from time import time
 
 class ImageProcessor:
 
@@ -72,7 +72,7 @@ class ImageProcessor:
         nContours = 0
         for contour in circFind:
             circArea = cv.contourArea(contour)
-            if circArea >= self.lowArea & contour <= self.uppArea:
+            if circArea >= self.lowArea and circArea <= self.uppArea:
                 nContours += 1
                 # Creates a rectangle around ball and calculates center point
                 x, y, w, h = cv.boundingRect(contour) #Draw bounding rectangle
@@ -86,7 +86,9 @@ class ImageProcessor:
                 BP_x = (BP_x / self.pxMetric) / 100      
                 BP_y = (BP_y / self.pxMetric) / 100 
 
-
+        if nContours == 0:
+            BP_x = 0
+            BP_y = 0
         ballFound = (nContours == 1)
         
         return ballFound, BP_x, BP_y
