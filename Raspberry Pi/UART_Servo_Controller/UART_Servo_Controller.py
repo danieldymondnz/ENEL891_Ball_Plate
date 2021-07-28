@@ -20,14 +20,14 @@ class UART_Servo_Controller:
     @staticmethod
     def sendXServo(servoXAngle):
         xAngleBits = UART_Servo_Controller.convertAngle(servoXAngle + UART_Servo_Controller.X_ANGLE_TUNER)
-        xByte = UART_Servo_Controller.generateUARTData(xAngleBits, 0)
+        xByte = UART_Servo_Controller.generateUARTData(xAngleBits, 1)
         UART_Servo_Controller.uartTX(xByte)
 
     # Function to handle Y Servo Angle and Control Outputs
     @staticmethod 
     def sendYServo(servoYAngle):
         yAngleBits = UART_Servo_Controller.convertAngle(servoYAngle + UART_Servo_Controller.Y_ANGLE_TUNER)
-        yByte = UART_Servo_Controller.generateUARTData(yAngleBits, 1)
+        yByte = UART_Servo_Controller.generateUARTData(yAngleBits, 0)
         UART_Servo_Controller.uartTX(yByte)
 
     # Private methods to be set private
