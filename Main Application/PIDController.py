@@ -36,8 +36,10 @@ class PIDController:
         return calculatedError
 
     # Determines the error for the Set Point, and calculates the Angle in which the plate will respond by
-    def compute(self,pos):
+    def compute(self,pos, elapsedTime):
 
+        TIMESTEP = elapsedTime
+        
         # Calculate the current error of the ball position
         self.error = self.calculateError(pos)
         print("Error : {}".format(self.error))
