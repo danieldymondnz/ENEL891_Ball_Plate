@@ -45,15 +45,15 @@ controller.sendYServo(S_angleY)
 while True:
     
     # Grab new Position
-    ballFound, BP_x, BP_y = imgProc.getPosition()
+    ballFound, BP_x, BP_y, elapsedTime = imgProc.getPosition()
 
     if (ballFound):
 
         print("Controller Command")
     
         # Send position data to the PID Controllers and determine the desired Plate Angles
-        P_aX = xAxis.compute(BP_x)
-        P_aY = yAxis.compute(BP_y)
+        P_aX = xAxis.compute(BP_x, elapsedTime)
+        P_aY = yAxis.compute(BP_y, elapsedTime)
 
         # Convert output from plate angle to servo angle
         S_angleX = P_aX

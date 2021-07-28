@@ -54,7 +54,7 @@ class ImageProcessor:
         print("Ball Located? : {}", ballFound)
         print("Ball position: {} , {}".format(BP_x,BP_y))
 
-        return ballFound, BP_x, BP_y
+        return ballFound, BP_x, BP_y, elapsedTime
 
     # Capture image from the Camera and grab contours
     def generateContours(self):
