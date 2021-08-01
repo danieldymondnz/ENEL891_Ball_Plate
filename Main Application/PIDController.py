@@ -36,9 +36,9 @@ class PIDController:
         return calculatedError
 
     # Determines the error for the Set Point, and calculates the Angle in which the plate will respond by
-    def compute(self,pos, elapsedTime):
+    def compute(self,pos):
 
-        TIMESTEP = elapsedTime
+        #TIMESTEP = elapsedTime
         
         # Calculate the current error of the ball position
         self.error = self.calculateError(pos)
@@ -61,9 +61,9 @@ class PIDController:
                 self.integral_error = PIDController.MAX_UI
             
             # Determines the appropriate output angle based on the current error
-            #newOutput = (self.kp*self.error)
+            newOutput = (self.kp*self.error)
             #newOutput = (self.kd*self.derivative_error)
-            newOutput = (self.kp*self.error) + (self.kd*self.derivative_error)
+            #newOutput = (self.kp*self.error) + (self.kd*self.derivative_error)
             # newOutput = (self.kp*self.error) + (self.ki*self.integral_error) + (self.kd*self.derivative_error)
 
             # Caps the maximum angle

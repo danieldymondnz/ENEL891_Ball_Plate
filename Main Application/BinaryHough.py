@@ -1,15 +1,11 @@
 
-
-
 import numpy as np
 import cv2 as cv
 from PIDController import PIDController as PID
 from time import time
 from UART_Servo_Controller import UART_Servo_Controller
 
-
 controller = UART_Servo_Controller('COM3')
-
 
 cap = cv.VideoCapture(2)
 # Values for ImgProcessing
