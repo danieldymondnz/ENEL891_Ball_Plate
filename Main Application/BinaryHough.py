@@ -5,9 +5,9 @@ from PIDController import PIDController as PID
 from time import time
 from UART_Servo_Controller import UART_Servo_Controller
 
-controller = UART_Servo_Controller('COM3')
+controller = UART_Servo_Controller('/dev/ttyUSB0')
 
-cap = cv.VideoCapture(2)
+cap = cv.VideoCapture(0)
 # Values for ImgProcessing
 midWidth = 320
 midHeight = 240
@@ -26,7 +26,7 @@ Length = 0.06 # distance from servo plate connection to centre pivot point
 # PID Specifications
 Kp = 20 #2.768
 Ki = 1.08
-Kd = 15
+Kd = 12
 
 # Aim for the Setpoint in the Center of the Plate
 setpoint = [0,0]
@@ -59,7 +59,8 @@ while True:
     circFind, _ = cv.findContours(erodeimg, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
     for contour in circFind:
         circArea = cv.contourArea(contour)
-        if circArea > 500:
+        if circArea > 300:
+            print("Circle Area: {}".format(circArea))
             # Creates a rectangle around ball and calculates center point
             x, y, w, h = cv.boundingRect(contour) #Draw bounding rectangle
             ball_x = (w/2 + x)         # Get X axis co-ord for center of rectangle
