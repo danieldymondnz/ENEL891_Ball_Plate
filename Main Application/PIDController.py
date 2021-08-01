@@ -1,8 +1,8 @@
 class PIDController:
 
     # Constants
-    MAX_ANGLE = 20          # Maximum Delfection Angle
-    MAX_DELTA_ANGLE = 10    # Maximum Rate of change of Deflection Angle
+    MAX_ANGLE = 15          # Maximum Delfection Angle
+    MAX_DELTA_ANGLE = 1    # Maximum Rate of change of Deflection Angle
     TIMESTEP = 1/30         # Equals 1/FPS
     MAX_UI = 9.5            # Integrator anti-windup limiter
     DEADZONE = 0.005        # Acceptable Error around the target position
@@ -36,9 +36,9 @@ class PIDController:
         return calculatedError
 
     # Determines the error for the Set Point, and calculates the Angle in which the plate will respond by
-    def compute(self,pos, elapsedTime):
+    def compute(self,pos):
 
-        TIMESTEP = elapsedTime
+        #TIMESTEP = elapsedTime
         
         # Calculate the current error of the ball position
         self.error = self.calculateError(pos)
@@ -75,10 +75,9 @@ class PIDController:
             # Check the change in angle
             # TODO Check this!
             # Set increments of servo angle
-            #if newOutput - self.output > PIDController.MAX_DELTA_ANGLE:
-                #newOutput = PIDController.MAX_DELTA_ANGLE
+            if abs(newOutput - self.output) > PIDController.MAX_DELTA_ANGLE:
+                newOutput = (newOutput / abs(newOutput)) * PIDController.MAX_DELTA_ANGLE
 
         # Return the angle
         self.output = newOutput
         return self.output
-    
