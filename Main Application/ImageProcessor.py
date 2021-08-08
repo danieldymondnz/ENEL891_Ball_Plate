@@ -3,6 +3,7 @@
 import numpy as np
 import cv2 as cv
 from time import time
+from math import sqrt
 
 class ImageProcessor:
 
@@ -27,7 +28,9 @@ class ImageProcessor:
         self.cap = cv.VideoCapture(cameraID)
         self.generateViewportSpec()
         self.lastTime = -1
-
+        self.prevX = -1
+        self.prevY = -1
+        self.firstRun = True
 
     # Determine the Viewport variables
     def generateViewportSpec(self):
@@ -39,22 +42,6 @@ class ImageProcessor:
         # Generate the centerPoint
         self.midWidth = self.viewWidth//2
         self.midHeight = self.viewHeight//2
-
-    # Locate and return the position of the ball
-    def getPosition(self):
-
-        # Obtain frame and contours
-        ballFound, BP_x, BP_y = self.generateContours()
-
-        # Determine the time elapsed, unless this is the first frame
-        elapsedTime = self.calculateElapsedTime()
-
-        # Debug Info
-        print("Time elapsed : {}".format(elapsedTime))
-        print("Ball Located? : {}", ballFound)
-        print("Ball position: {} , {}".format(BP_x,BP_y))
-
-        return ballFound, BP_x, BP_y, elapsedTime
 
     # Capture image from the Camera and grab contours
     def generateContours(self):
@@ -91,9 +78,8 @@ class ImageProcessor:
             BP_y = 0
         ballFound = (nContours == 1)
         
-        return ballFound, BP_x, BP_y
-
-        
+        return ballFound, img, BP_x, BP_y, ball_x, ball_y
+     
     # Calculate the elapsed time since the last frame
     def calculateElapsedTime(self):
 
@@ -101,7 +87,7 @@ class ImageProcessor:
         currTime = time()
 
         # If this is the first run of the controller, return the default 30fps
-        if (self.lastTime == -1):
+        if (self.firstRun):
             self.lastTime = currTime
             return (1/30)
         
@@ -111,6 +97,31 @@ class ImageProcessor:
             self.lastTime = currTime
             return timeElapsed
 
+    # Collects and returns the data needed by the Director
+    def getData(self):
+        
+        # Obtain frame and contours to get Ball Position
+        ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY = self.generateContours()
+
+        # Determine the time elapsed, unless this is the first frame
+        elapsedTime = self.calculateElapsedTime()
+
+        # Generate scalar velocity of ball
+        if (ballFound):
+            distanceTravelled = sqrt((self.prevX - BP_x) ^ 2 + (self.prevY - BP_y) ^ 2)
+            velocity = distanceTravelled / elapsedTime
+
+        # Append current position to cache
+        self.prevX = BP_x
+        self.prevY = BP_y
+
+        # Debug Info
+        print("Time elapsed : {}".format(elapsedTime))
+        print("Ball Located? : {}", ballFound)
+        print("Ball position: {} , {}".format(BP_x,BP_y))
+        print("Ball Velocity: {} ms-1", velocity)
+        
+        return ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity
 
     # Cleans up OpenCV on Application Exit
     def destroyProcessor(self):
