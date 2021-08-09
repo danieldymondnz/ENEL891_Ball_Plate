@@ -11,13 +11,11 @@ from mockup import Ui_MainWindow
 
 
 class MyGUI(qtw.QMainWindow):
-
-
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.main_win = QMainWindow()
         self.ui = Ui_MainWindow()
-        self.ui.setupUi(self.main_win)
+        self.ui.setupUi(self)
         self.ui.stackedWidget.setCurrentWidget(self.ui.MainMenu_pg)
 
         # Main Menu Buttons to navigate to another page
@@ -44,22 +42,27 @@ class MyGUI(qtw.QMainWindow):
         self.ui.Joystick_BallCont_btn.clicked.connect(self.JoystickBallSetup)
         self.ui.Joystick_PlateCont_btn.clicked.connect(self.JoystickPlateSetup)
 
-    def show(self):
-        self.main_win.show()
+
+    def closeEvent(self, event):
+        print('Close event fired')
+        self.cap.release()
+        cv.destroyAllWindows()
+        event.accept()
 
     def displayVidFeed(self):
-        cap = cv.VideoCapture(0)
+        self.cap = cv.VideoCapture(0)
         while True:
-            ret, frame = cap.read()
+            ret, frame = self.cap.read()
             frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
             img = qtg.QImage(frame, frame.shape[1], frame.shape[0], qtg.QImage.Format_RGB888)
             piximg = qtg.QPixmap.fromImage(img)
             self.ui.frames_lbl.setPixmap(piximg)
             if cv.waitKey(1) & 0xFF == ord('q'):
                 break
-        cap.release()
+        self.cap.release()
         cv.destroyAllWindows()
-        
+    
+  
 
     def showMainMenu(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.MainMenu_pg)  
