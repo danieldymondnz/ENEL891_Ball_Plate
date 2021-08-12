@@ -3,8 +3,10 @@
 # For testing purposes on Laptop, set for that situation
 ##
 
+import queue
 from PIDController import PIDController as PID
 from time import time
+from queue import Queue
 from UART_Servo_Controller import UART_Servo_Controller
 from ImageProcessor import ImageProcessor
 from Patterns.PatternTypes import PatternTypes
@@ -36,7 +38,8 @@ class Director:
         self.xAxis = PID(Kp, Ki, Kd, setpoint[0])
         self.yAxis = PID(Kp, Ki, Kd, setpoint[1])
 
-        # Image Processor
+        # Initialise the Image Processor Thread
+        self.imgQueue = Queue()
         self.imgProc = ImageProcessor(cameraID)
 
         # Controller
@@ -56,6 +59,9 @@ class Director:
         self.controller.sendXServo(S_angleX)
         self.controller.sendYServo(S_angleY)
 
+        # Start the Image Processor Thread
+        self.imgProc.run()
+
         # Keep running this loop of code until the the "terminate" method is called
         while(self.keepRunning):
             self.performLoopIteration()
@@ -63,13 +69,31 @@ class Director:
                 break
         
         # Safely destory the image processor
-        self.imgProc.destroyProcessor() 
+        self.imgProc.destroyProcessor()
+
+
+    # Get the next item in the queue
+    def getNextQueueItem(self):
+
+        # Review the current number of items in the queue
+        queueSize = self.imgQueue.qsize()
+
+        # If no items exist, reuturn null
+        if (queueSize == 0):
+            return None
+
+        elif (queueSize == 1):
+            return self.imgQueue.get_nowait()
+            
+        else:
+            while(self.imgQueue.qsize() > 1):
+                self.imgQueue.get_nowait()
+            return self.imgQueue.get_nowait()
 
     # Performs the logic needed for the Director to sequence the classes
     def performLoopIteration(self):
 
-        # Obtain new Ball Position
-        ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity = self.imgProc.getData()
+        #
 
         if (ballFound):
 
