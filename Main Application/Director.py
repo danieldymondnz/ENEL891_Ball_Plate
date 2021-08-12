@@ -7,6 +7,7 @@ from PIDController import PIDController as PID
 from time import time
 from UART_Servo_Controller import UART_Servo_Controller
 from ImageProcessor import ImageProcessor
+from Patterns.PatternTypes import PatternTypes
 import cv2 as cv
 
 # Initial Values for angles
@@ -44,6 +45,9 @@ class Director:
         # Flags
         self.enableVerbose = verbose
         self.keepRunning = True
+
+        # Mode
+        self.patternMode = PatternTypes.CENTER
 
     # The main loop for this thread
     def main(self):
@@ -98,6 +102,18 @@ class Director:
                 print("Servo angle X : {}".format(S_angleX))
                 print("Servo angle Y : {}".format(S_angleY))
 
+    # Switch the mode of the Director to a Pattern or Otherwise
+    # Must pass a PatternTypes Enum
+    def setMode(self, patternMode):
 
+        # If this is a type of Enumeration, then select the correct Pattern Object
+        if isinstance(patternMode, PatternTypes):
+            pass
+
+        # Otherwise, throw an exception
+        else:
+            Exception("The mode provide is not a form of pattern.")
+
+    # Sets the flag to terminate this Director object and it's threads
     def terminate(self):
         self.keepRunning = False

@@ -33,8 +33,13 @@ class Pattern(object):
             goToNextPos = False
 
         if (goToNextPos):
+
+            # Add delay of n frames
+            # TODO
+
+            # Go to next position
             self.currentPosition += 1
             if (self.numOfPositions < self.currentPosition):
                 self.currentPosition = 0
-        
+
         return self.pattern[self.currentPosition][0], self.pattern[self.currentPosition][1]
