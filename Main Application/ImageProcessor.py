@@ -1,14 +1,11 @@
-
-
+import threading
 import numpy as np
 import cv2 as cv
+from ImageFrame import ImageFrame
 from time import time
 from math import sqrt
 
-class ImageProcessor:
-
-    # Constants
-    # cap = camera
+class ImageProcessor(threading.Thread):
 
     # Camera Viewport Specifications
     viewWidth = 640
@@ -24,13 +21,16 @@ class ImageProcessor:
     uppArea = 3000
 
     # Constructor
-    def __init__(self, cameraID):
+    def __init__(self, cameraID, imgQueue):
+        super(self, threading.Thread)
+        self.imgQueue = imgQueue
         self.cap = cv.VideoCapture(cameraID)
         self.generateViewportSpec()
         self.lastTime = -1
         self.prevX = -1
         self.prevY = -1
         self.firstRun = True
+        self.run = True
 
     # Determine the Viewport variables
     def generateViewportSpec(self):
@@ -125,5 +125,24 @@ class ImageProcessor:
 
     # Cleans up OpenCV on Application Exit
     def destroyProcessor(self):
+        self.run = False
+        
+    # Method used for this Class when running as a Thread
+    def run(self):
+
+        # While this thread is running, continually refer to the camera frame.
+        # Generate ImageFrame objects to store in the queue shared with the 
+        # director.
+
+        while (self.run):
+        
+            # Get the latest frame
+            ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity = self.getData()
+            
+            # Append to a new ImageFrame object
+            imgFrameObj = ImageFrame(ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity)
+            self.imgQueue.put(imgFrameObj)
+
+        # Release the camera and destroy OpenCV session
         self.cap.release()
         cv.destroyAllWindows()
