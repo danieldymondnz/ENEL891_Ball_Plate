@@ -4,6 +4,7 @@
 ##
 
 import queue
+import ImageFrame
 from PIDController import PIDController as PID
 from time import time
 from queue import Queue
@@ -72,8 +73,8 @@ class Director:
         self.imgProc.destroyProcessor()
 
 
-    # Get the next item in the queue
-    def getNextQueueItem(self):
+    # Method checks the queue and gets the latest frame
+    def getNextQueueImage(self):
 
         # Review the current number of items in the queue
         queueSize = self.imgQueue.qsize()
@@ -93,38 +94,54 @@ class Director:
     # Performs the logic needed for the Director to sequence the classes
     def performLoopIteration(self):
 
-        #
-
-        if (ballFound):
-
-            print("Controller Command")
-
-            # Transmit the frame of the ball to the GUI
-            # TODO
+        # Grab the next Image from the Queue
+        nextImg = ImageFrame(self.getNextQueueImage())
         
-            # Send position data to the PID Controllers and determine the desired Plate Angles
-            P_aX = self.xAxis.compute(BP_x, elapsedTime)
-            P_aY = self.yAxis.compute(BP_y, elapsedTime)
+        # If no image is queued, return.
+        if nextImg == None:
+            if self.enableVerbose:
+                print("No Frame in Queue to Process")
+            return
 
-            # Convert output from plate angle to servo angle
-            S_angleX = P_aX
-            S_angleY = P_aY
+        # Otherwise, if image is returned...
+        else:
+            
+            # If ball is found
+            if (nextImg.isBallFound()):
 
-            # Adjusting the plate angle to servo angle range,
-            # by using ball position 
-            S_angleX = 90 - S_angleX
-            S_angleY = 90 + S_angleY
+                if self.enableVerbose:
+                    print("Ball Found in Frame")
 
-            # Send the desired angle to the Controller
-            self.controller.sendXServo(S_angleX)
-            self.controller.sendYServo(S_angleY)
+                # Transmit the frame of the ball to the GUI
+                # TODO
+            
+                # Send position data to the PID Controllers and determine the desired Plate Angles
+                P_aX = self.xAxis.compute(BP_x, elapsedTime)
+                P_aY = self.yAxis.compute(BP_y, elapsedTime)
 
-            # Print Verbose if Desired
-            if (self.enableVerbose):
-                print("Plate Angle X: {}".format(P_aX))
-                print("Plate Angle Y: {}".format(P_aY))
-                print("Servo angle X : {}".format(S_angleX))
-                print("Servo angle Y : {}".format(S_angleY))
+                # Convert output from plate angle to servo angle
+                S_angleX = P_aX
+                S_angleY = P_aY
+
+                # Adjusting the plate angle to servo angle range,
+                # by using ball position 
+                S_angleX = 90 - S_angleX
+                S_angleY = 90 + S_angleY
+
+                # Send the desired angle to the Controller
+                self.controller.sendXServo(S_angleX)
+                self.controller.sendYServo(S_angleY)
+
+                # Print Verbose if Desired
+                if (self.enableVerbose):
+                    print("Plate Angle X, Y: {}, {}".format(P_aX, P_aY))
+
+                    print("Servo angle X : {}".format(S_angleX))
+                    print("Servo angle Y : {}".format(S_angleY))
+
+            else:
+                if self.enableVerbose:
+                    print("Ball not found in frame")
 
     # Switch the mode of the Director to a Pattern or Otherwise
     # Must pass a PatternTypes Enum
