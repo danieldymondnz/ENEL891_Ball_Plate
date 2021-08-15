@@ -1,82 +1,85 @@
+import time
+
 class PID:
 
     # Constants
     MAX_ANGLE = 15          # Maximum Delfection Angle
-    MAX_DELTA_ANGLE = 1    # Maximum Rate of change of Deflection Angle
+    MAX_DELTA_ANGLE = 1     # Maximum Rate of change of Deflection Angle
     TIMESTEP = 1/30         # Equals 1/FPS
     MAX_UI = 9.5            # Integrator anti-windup limiter
     DEADZONE = 0.005        # Acceptable Error around the target position
 
-    # Constructor
-    def __init__(self,KP,KI,KD,target):
+    def __init__(self,KP,KI,KD,target,enableVerbose):
         self.kp = KP
         self.ki = KI
         self.kd = KD
         self.setTarget(target)
         self.error = 0
         self.last_error = 0
+        self.last_time = time.time()
         self.integral_error = 0
         self.derivative_error = 0
         self.output = 0
+        self.enableVerbose = 0
 
-    # Sets the Target for the Controller along the axis
-    def setTarget(self, target):
-        self.setpoint = target
-
-    # Computes the Error of the Ball with Dead Zone
-    def calculateError(self, pos):
+    def __calculateError__(self, pos):
+        ''' Compute the error between the current and target ball position with Dead Zone considerations. '''
 
         # Calculate the current error of the ball position
         calculatedError = self.setpoint - pos
 
         # If ball is considered within the deadzone, set error to zero
-        if abs(calculatedError) <= PIDController.DEADZONE:
+        if abs(calculatedError) <= PID.DEADZONE:
             calculatedError = 0
 
         return calculatedError
 
-    # Determines the error for the Set Point, and calculates the Angle in which the plate will respond by
-    def compute(self,pos):
+    def setTarget(self, target):
+        ''' Set the Target Ball position on the given axis in meters. '''
+        self.setpoint = target
 
-        #TIMESTEP = elapsedTime
+    def compute(self, currPos, currTime):
         
-        # Calculate the current error of the ball position
-        self.error = self.calculateError(pos)
-        print("Error : {}".format(self.error))
+        ''' 
+        Determines the required response angle for the servo plate based on the current ball position. 
+        currPos - Current Ball Position
+        currTime - Current System Time
+        Both pieces of information should correspond to the same frame from a ImageFrame object.
+        '''
 
-        # If there is no error, then the controller doesn't need to run
-        # Return 0
+        # Calculate the current error of the ball position
+        # If there is no error, then return 0 error
+        self.error = self.calculateError(currPos)
+        if self.enableVerbose:
+            print("Position Displ. : {}".format(self.error))
         if self.error == 0:
             newOutput = 0
 
         # Otherwise, use the controller to calculate the PID and set the angle.
-        else:
-            # Calculate the P, I, D Components
-            self.integral_error += self.error * PIDController.TIMESTEP
-            self.derivative_error = (self.error - self.last_error) / PIDController.TIMESTEP
-            self.last_error = self.error
-            
-            # Anti-Windup for the Integrator
-            if self.integral_error > PIDController.MAX_UI:
-                self.integral_error = PIDController.MAX_UI
-            
-            # Determines the appropriate output angle based on the current error
-            #newOutput = (self.kp*self.error)
-            #newOutput = (self.kd*self.derivative_error)
-            newOutput = (self.kp*self.error) + (self.kd*self.derivative_error)
-            # newOutput = (self.kp*self.error) + (self.ki*self.integral_error) + (self.kd*self.derivative_error)
 
-            # Caps the maximum angle
-            if newOutput > PIDController.MAX_ANGLE:
-                newOutput = PIDController.MAX_ANGLE
-            elif newOutput < -1 * PIDController.MAX_ANGLE:
-                newOutput = -1 * PIDController.MAX_ANGLE
+        # Determine elapsed time
+        # TODO Deal with first frame
+        elapsedTime = currTime - self.last_time
+        self.last_time = currTime
 
-            # Check the change in angle
-            # TODO Check this!
-            # Set increments of servo angle
-            if abs(newOutput - self.output) > PIDController.MAX_DELTA_ANGLE:
-                newOutput = (newOutput / abs(newOutput)) * PIDController.MAX_DELTA_ANGLE
+        # Calculate the P, I, D Components
+        self.integral_error += self.error * elapsedTime
+        self.derivative_error = (self.error - self.last_error) / elapsedTime
+        self.last_error = self.error
+        
+        # Anti-Windup for the Integrator
+        if self.integral_error > PID.MAX_UI:
+            self.integral_error = PID.MAX_UI
+        
+        # Determines the appropriate output angle based on the current error
+        #newOutput = (self.kp*self.error)
+        #newOutput = (self.kd*self.derivative_error)
+        newOutput = (self.kp*self.error) + (self.kd*self.derivative_error)
+        # newOutput = (self.kp*self.error) + (self.ki*self.integral_error) + (self.kd*self.derivative_error)
+
+        # Verbose
+        if self.enableVerbose:
+            print("P, I, D : {}, {}, {}".format(self.kp*self.error, self.integral_error*self.ki, self.derivative_error*self.kd))
 
         # Return the angle
         self.output = newOutput
