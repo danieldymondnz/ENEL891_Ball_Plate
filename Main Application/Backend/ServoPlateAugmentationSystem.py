@@ -1,5 +1,6 @@
 import threading
 import time
+import numpy
 import UART as UART
 
 class ServoPlateAugmentationSystem(threading.Thread):
@@ -7,6 +8,7 @@ class ServoPlateAugmentationSystem(threading.Thread):
     # Constants
     MAX_ANGLE = 15          # Maximum Delfection Angle
     MAX_DELTA_ANGLE = 5     # Maximum Rate of change of Deflection Angle / sec
+    INSTRUCTIONS_PER_SECOND = 5
 
     def __init__(self, devicePath, baud, bits):
         threading.Thread.__init__(self)
@@ -19,6 +21,7 @@ class ServoPlateAugmentationSystem(threading.Thread):
         self.setYAngle = 0
         self.currXAngle = 0
         self.currYAngle = 0
+        self.holdCounter = 0
 
         # Create UART Controller
         self.uart = UART(devicePath)
@@ -43,34 +46,48 @@ class ServoPlateAugmentationSystem(threading.Thread):
         servoYAngle = 90 + servoYAngle
         return servoXAngle, servoYAngle
 
-    def setNextAngle(self, setXAngle, setYAngle):
-        ''' Set a new desired angle for the servos in degrees. '''
-        self.setXAngle = setXAngle
-        self.setYAngle = setYAngle
-    
-    def plateAugmentation(self):
+    @staticmethod
+    def __setMaxAngle__(angle):
+        ''' Limits the Maximum Angle '''
+        if abs(angle) > ServoPlateAugmentationSystem.MAX_ANGLE:
+            return numpy.sign(angle) * ServoPlateAugmentationSystem.MAX_ANGLE
+        else:
+            return angle
+
+    @staticmethod
+    def __setStepAngle__(desiredAngle, currentAngle):
         
-        servoX = self.servoXAngle
-        servoY = self.servoYAngle
+        # Get delta
+        delta = abs(desiredAngle) - abs(currentAngle)
 
+        # If delta is too great, then set the next angle
+        if abs(delta) > ServoPlateAugmentationSystem.MAX_DELTA_ANGLE:
+            return numpy.sign(delta) * ServoPlateAugmentationSystem.MAX_DELTA_ANGLE
+        else:
+            return desiredAngle
 
-        # Convert to Servo Angle system
-        servoX, servoY = ServoPlateAugmentationSystem.__convAngleToServo__(servoX, servoY)
+    def __plateAugmentation__(self):
+        
+        # If holdCounter is still active, then do not calculate and maintain
+        self.holdCounter += 1
+        if self.holdCounter < ServoPlateAugmentationSystem.INSTRUCTIONS_PER_SECOND:
+            return self.currXAngle, self.currYAngle
+
+        # Otherwise, determine new position
+        # If angle is greater than desired freedom, limit
+        servoX = ServoPlateAugmentationSystem.__setStepAngle__(self.setXAngle, self.currXAngle)
+        servoY = ServoPlateAugmentationSystem.__setStepAngle__(self.setYAngle, self.currYAngle)
+
+        # Set the new values for the current angles
+        self.currXAngle = servoX
+        self.currYAngle = servoY
 
         return self.currXAngle, self.currYAngle
 
-
-        # Caps the maximum angle
-        if newOutput > PID.MAX_ANGLE:
-            newOutput = PID.MAX_ANGLE
-        elif newOutput < -1 * PID.MAX_ANGLE:
-            newOutput = -1 * PID.MAX_ANGLE
-
-        # Check the change in angle
-        # TODO Check this!
-        # Set increments of servo angle
-        if abs(newOutput - self.output) > PID.MAX_DELTA_ANGLE:
-            newOutput = (newOutput / abs(newOutput)) * PID.MAX_DELTA_ANGLE
+    def setNextAngle(self, setXAngle, setYAngle):
+        ''' Set a new desired angle for the servos in degrees. Maximum Angle enforced. '''
+        self.setXAngle = ServoPlateAugmentationSystem.__setMaxAngle__(setXAngle)
+        self.setYAngle = ServoPlateAugmentationSystem.__setMaxAngle__(setYAngle)
 
     def terminate(self):
         ''' Terminate the '''
@@ -87,7 +104,16 @@ class ServoPlateAugmentationSystem(threading.Thread):
 
             # If not paused, continue to generate positions
             if not self.pause:
-                # Execute
+                
+                # Get the next UART Instruction
+                servoX, servoY = self.__plateAugmentation__()
+
+                # Convert to Servo Angle system
+                servoX, servoY = ServoPlateAugmentationSystem.__convAngleToServo__(servoX, servoY)
+                
+                # Send the Instruction
+                
+
                 continue
             
             # Put the thread to sleep for the baud delay
