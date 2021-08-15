@@ -3,37 +3,36 @@
 
 import serial
 
-class UART_Servo_Controller:
+class UART:
 
     # Constants for maximum angle deflection from 90 degrees
     MAX_DEFLECTION = 32
     X_ANGLE_TUNER =  -2.5 * 2      # Values for ANGLE_TUNER is [desired angle] * 2
     Y_ANGLE_TUNER = 0 * 2
 
-    # The Constructor which sets the Serial Port
     def __init__(self, uartDevicePath):
+        ''' Constructor which sets the Serial Port and flushes any pending data '''
         global serialPort
         serialPort = serial.Serial(uartDevicePath, 9600, timeout=1)
         serialPort.flush()
 
-    # Function to handle X Servo Angle and Control Ouputs
     @staticmethod
     def sendXServo(servoXAngle):
-        xAngleBits = UART_Servo_Controller.convertAngle(servoXAngle + UART_Servo_Controller.X_ANGLE_TUNER)
-        xByte = UART_Servo_Controller.generateUARTData(xAngleBits, 1)
-        UART_Servo_Controller.uartTX(xByte)
+        ''' Transmits the Servo Angle for the X Rotation Axis over UART '''
+        xAngleBits = UART.__convertAngle__(servoXAngle + UART.X_ANGLE_TUNER)
+        xByte = UART.__generateUARTData__(xAngleBits, 1)
+        UART.__uartTX__(xByte)
 
-    # Function to handle Y Servo Angle and Control Outputs
     @staticmethod 
     def sendYServo(servoYAngle):
-        yAngleBits = UART_Servo_Controller.convertAngle(servoYAngle + UART_Servo_Controller.Y_ANGLE_TUNER)
-        yByte = UART_Servo_Controller.generateUARTData(yAngleBits, 0)
-        UART_Servo_Controller.uartTX(yByte)
+        ''' Transmits the Servo Angle for the Y Rotation Axis over UART '''
+        yAngleBits = UART.__convertAngle__(servoYAngle + UART.Y_ANGLE_TUNER)
+        yByte = UART.__generateUARTData__(yAngleBits, 0)
+        UART.__uartTX__(yByte)
 
-    # Private methods to be set private
+    def __convertAngle__(angle):
 
-    # Converts a Given Angle into the 7-bit value required by the FPGA
-    def convertAngle(angle):
+        ''' Converts a Given Angle into the 7-bit value required by the FPGA '''
 
         # Check if angle is a number between 0 to 180 deg, otherwise throw exception
         try:
@@ -45,17 +44,16 @@ class UART_Servo_Controller:
             raise ValueError("The angle specified is outside the scope of this servo.")
 
         # If angle is greater than bound, then set to the maximum
-        if (abs(angle - 32) < UART_Servo_Controller.MAX_DEFLECTION):
-            angle = angle / abs(angle) * UART_Servo_Controller.MAX_DEFLECTION
+        if (abs(angle - 32) < UART.MAX_DEFLECTION):
+            angle = angle / abs(angle) * UART.MAX_DEFLECTION
 
         # If value is okay, then convert into closest binary representation
         binaryPos = ((angle - 58) / 0.5) - 1
         binaryPos = int(binaryPos)
         return binaryPos
 
-    # Takes the Binary Position Data and Servo Select and generates the 8-bit value
-    def generateUARTData(binaryPosition, isYServo):
-
+    def __generateUARTData__(binaryPosition, isYServo):
+        ''' Takes the Binary Position Data and Servo Select and generates the 8-bit value '''
         # Assembles the byte
         if (isYServo == 1):
             byteInt = binaryPosition + 128
@@ -66,8 +64,7 @@ class UART_Servo_Controller:
 
         return bytearray(byte)
 
-
-    # Performs the UART TX for some given data
-    def uartTX(data):
+    def __uartTX__(data):
+        ''' Performs the UART TX for some given data '''
         global serialPort
         size = serialPort.write(data)
