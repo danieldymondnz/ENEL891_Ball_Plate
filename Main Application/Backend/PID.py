@@ -1,4 +1,4 @@
-class PIDController:
+class PID:
 
     # Constants
     MAX_ANGLE = 15          # Maximum Delfection Angle
