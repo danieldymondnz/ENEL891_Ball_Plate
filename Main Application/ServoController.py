@@ -1,4 +1,3 @@
-
 import threading
 import UARTTX as UART
 

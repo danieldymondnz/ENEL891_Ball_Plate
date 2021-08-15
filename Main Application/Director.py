@@ -8,7 +8,6 @@ import ImageFrame
 from PIDController import PIDController as PID
 from time import time
 from queue import Queue
-from UART_Servo_Controller import UART_Servo_Controller
 from ImageProcessor import ImageProcessor
 from Patterns.PatternTypes import PatternTypes
 import cv2 as cv
