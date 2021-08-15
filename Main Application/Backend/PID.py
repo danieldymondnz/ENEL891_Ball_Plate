@@ -3,8 +3,6 @@ import time
 class PID:
 
     # Constants
-    MAX_ANGLE = 15          # Maximum Delfection Angle
-    MAX_DELTA_ANGLE = 1     # Maximum Rate of change of Deflection Angle
     TIMESTEP = 1/30         # Equals 1/FPS
     MAX_UI = 9.5            # Integrator anti-windup limiter
     DEADZONE = 0.005        # Acceptable Error around the target position
