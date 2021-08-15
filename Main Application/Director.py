@@ -124,6 +124,7 @@ class Director:
 
                 # Adjusting the plate angle to servo angle range,
                 # by using ball position 
+                # TODO Remove
                 S_angleX = 90 - S_angleX
                 S_angleY = 90 + S_angleY
 
