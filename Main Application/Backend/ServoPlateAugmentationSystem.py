@@ -1,7 +1,7 @@
 import threading
 import time
 import numpy
-import UART as UART
+from Backend import UART
 
 class ServoPlateAugmentationSystem(threading.Thread):
 
@@ -24,7 +24,7 @@ class ServoPlateAugmentationSystem(threading.Thread):
         self.holdCounter = 0
 
         # Create UART Controller
-        self.uart = UART(devicePath)
+        self.uart = UART.UART(devicePath)
 
         # Operating Flags
         self.keepRunning = True
@@ -112,8 +112,8 @@ class ServoPlateAugmentationSystem(threading.Thread):
                 servoX, servoY = ServoPlateAugmentationSystem.__convAngleToServo__(servoX, servoY)
                 
                 # Send the Instruction
-                self.uart.sendXServo(self.currXAngle)
-                self.uart.sendYServo(self.currYAngle)
+                self.uart.sendXServo(servoX)
+                self.uart.sendYServo(servoY)
             
             # Put the thread to sleep for the baud delay
             time.sleep(self.baudDelay)

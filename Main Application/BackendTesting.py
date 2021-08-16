@@ -1,4 +1,4 @@
-import Backend.Director as Director
+from Director import Director
 
 # Create Director
-director = Director(0, "COM1", True)
+director = Director(0, "COM3", True)
