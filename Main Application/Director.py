@@ -5,13 +5,9 @@
 
 import queue
 import time
-from ImageFrame import ImageFrame
-from PID import PID
 from queue import Queue
-from ImageProcessor import ImageProcessor
-from Patterns.PatternTypes import PatternTypes
-from ServoPlateAugmentationSystem import ServoPlateAugmentationSystem
 import cv2 as cv
+from Backend import *
 
 # CONFIG
 
@@ -22,8 +18,8 @@ NUM_OF_BITS = 10
 # Initial Values for angles
 P_aX = 0 # plate angle X initial value
 P_aY = 0 # plate angle Y initial value
-S_angleX = 90  # initial angle of servos
-S_angleY = 90  # initial angle of servos
+S_angleX = 0  # initial angle of servos
+S_angleY = 0  # initial angle of servos
 
 d = 0.045 # servo arm length
 Length = 0.06 # distance from servo plate connection to centre pivot point
@@ -42,16 +38,16 @@ class Director:
     def __init__(self, cameraID, serialAddress, verbose):
 
         # PID Controllers for the Servos
-        self.xAxis = PID(Kp, Ki, Kd, setpoint[0])
-        self.yAxis = PID(Kp, Ki, Kd, setpoint[1])
+        self.xAxis = PID.PID(Kp, Ki, Kd, setpoint[0], False)
+        self.yAxis = PID.PID(Kp, Ki, Kd, setpoint[1], False)
 
         # Initialise the Image Processor Thread
         self.imgQueue = Queue()
-        self.imgProc = ImageProcessor(cameraID)
+        self.imgProc = ImageProcessor.ImageProcessor(cameraID, self.imgQueue)
         self.imgProc.start()
 
         # Initialise the Augmentation System and start Thread
-        self.augmentation = ServoPlateAugmentationSystem(serialAddress, BAUD_RATE, NUM_OF_BITS)
+        self.augmentation = ServoPlateAugmentationSystem.ServoPlateAugmentationSystem(serialAddress, BAUD_RATE, NUM_OF_BITS)
         self.augmentation.start()
 
         # Flags for this Class
@@ -59,14 +55,10 @@ class Director:
         self.keepRunning = True
 
         # Mode
-        self.patternMode = PatternTypes.CENTER
+        # self.patternMode = PatternTypes.CENTER
 
     # The main loop for this thread
     def main(self):
-
-        # Send initial commands to flatten the plate
-        self.controller.sendXServo(S_angleX)
-        self.controller.sendYServo(S_angleY)
 
         # Start the Image Processor Thread
         self.imgProc.run()

@@ -1,9 +1,9 @@
 import threading
 import numpy as np
 import cv2 as cv
-from ImageFrame import ImageFrame
 from time import time
 from math import sqrt
+from Backend import ImageFrame
 
 class ImageProcessor(threading.Thread):
 
@@ -22,7 +22,7 @@ class ImageProcessor(threading.Thread):
 
     # Constructor
     def __init__(self, cameraID, imgQueue):
-        super(self, threading.Thread)
+        threading.Thread.__init__(self)
         self.imgQueue = imgQueue
         self.cap = cv.VideoCapture(cameraID)
         self.generateViewportSpec()
