@@ -5,7 +5,7 @@
 
 import queue
 import time
-import ImageFrame
+from ImageFrame import ImageFrame
 from PID import PID
 from queue import Queue
 from ImageProcessor import ImageProcessor
@@ -16,7 +16,6 @@ import cv2 as cv
 # CONFIG
 
 # Serial Port
-DEVICE_PATH = "COM1"
 BAUD_RATE = 9600
 NUM_OF_BITS = 10
 
@@ -52,7 +51,7 @@ class Director:
         self.imgProc.start()
 
         # Initialise the Augmentation System and start Thread
-        self.augmentation = ServoPlateAugmentationSystem(DEVICE_PATH, BAUD_RATE, NUM_OF_BITS)
+        self.augmentation = ServoPlateAugmentationSystem(serialAddress, BAUD_RATE, NUM_OF_BITS)
         self.augmentation.start()
 
         # Flags for this Class
