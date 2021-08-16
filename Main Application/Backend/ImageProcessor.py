@@ -30,7 +30,7 @@ class ImageProcessor(threading.Thread):
         self.prevX = -1
         self.prevY = -1
         self.firstRun = True
-        self.run = True
+        self.keepRunning = True
 
     # Determine the Viewport variables
     def generateViewportSpec(self):
@@ -125,7 +125,7 @@ class ImageProcessor(threading.Thread):
 
     # Cleans up OpenCV on Application Exit
     def destroyProcessor(self):
-        self.run = False
+        self.keepRunning = False
         
     # Method used for this Class when running as a Thread
     def run(self):
@@ -134,7 +134,7 @@ class ImageProcessor(threading.Thread):
         # Generate ImageFrame objects to store in the queue shared with the 
         # director.
 
-        while (self.run):
+        while (self.keepRunning):
         
             # Get the latest frame
             ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity = self.getData()
