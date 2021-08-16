@@ -112,9 +112,8 @@ class ServoPlateAugmentationSystem(threading.Thread):
                 servoX, servoY = ServoPlateAugmentationSystem.__convAngleToServo__(servoX, servoY)
                 
                 # Send the Instruction
-                
-
-                continue
+                self.uart.sendXServo(self.currXAngle)
+                self.uart.sendYServo(self.currYAngle)
             
             # Put the thread to sleep for the baud delay
             time.sleep(self.baudDelay)

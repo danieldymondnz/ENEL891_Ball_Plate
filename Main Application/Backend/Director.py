@@ -4,13 +4,21 @@
 ##
 
 import queue
+import time
 import ImageFrame
-from PIDController import PIDController as PID
-from time import time
+from PID import PID
 from queue import Queue
 from ImageProcessor import ImageProcessor
 from Patterns.PatternTypes import PatternTypes
+from ServoPlateAugmentationSystem import ServoPlateAugmentationSystem
 import cv2 as cv
+
+# CONFIG
+
+# Serial Port
+DEVICE_PATH = "COM1"
+BAUD_RATE = 9600
+NUM_OF_BITS = 10
 
 # Initial Values for angles
 P_aX = 0 # plate angle X initial value
@@ -41,11 +49,13 @@ class Director:
         # Initialise the Image Processor Thread
         self.imgQueue = Queue()
         self.imgProc = ImageProcessor(cameraID)
+        self.imgProc.start()
 
-        # Controller
-        self.controller = UART_Servo_Controller(serialAddress)
+        # Initialise the Augmentation System and start Thread
+        self.augmentation = ServoPlateAugmentationSystem(DEVICE_PATH, BAUD_RATE, NUM_OF_BITS)
+        self.augmentation.start()
 
-        # Flags
+        # Flags for this Class
         self.enableVerbose = verbose
         self.keepRunning = True
 
@@ -111,24 +121,18 @@ class Director:
                 if self.enableVerbose:
                     print("Ball Found in Frame")
 
+                # Get Information
+                BP_x, BP_y = nextImg.getBallPosition()
+                timestamp = nextImg.getTimeStamp()
+
                 # Transmit the frame of the ball to the GUI
                 # TODO
             
                 # Send position data to the PID Controllers and determine the desired Plate Angles
-                P_aX = self.xAxis.compute(BP_x, elapsedTime)
-                P_aY = self.yAxis.compute(BP_y, elapsedTime)
+                P_aX = self.xAxis.compute(BP_x, timestamp)
+                P_aY = self.yAxis.compute(BP_y, timestamp)
 
-                # Convert output from plate angle to servo angle
-                S_angleX = P_aX
-                S_angleY = P_aY
-
-                # Adjusting the plate angle to servo angle range,
-                # by using ball position 
-                # TODO Remove
-                S_angleX = 90 - S_angleX
-                S_angleY = 90 + S_angleY
-
-                # Send the desired angle to the Controller
+                # Send the desired angle to SPAS for Augmentation and Tx
                 self.controller.sendXServo(S_angleX)
                 self.controller.sendYServo(S_angleY)
 
