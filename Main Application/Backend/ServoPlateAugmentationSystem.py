@@ -10,7 +10,7 @@ class ServoPlateAugmentationSystem(threading.Thread):
     MAX_DELTA_ANGLE = 5     # Maximum Rate of change of Deflection Angle / sec
     INSTRUCTIONS_PER_SECOND = 5
 
-    def __init__(self, devicePath, baud, bits):
+    def __init__(self, devicePath, baud, bits, enableVerbose):
         threading.Thread.__init__(self)
         self.baudDelay = ServoPlateAugmentationSystem.__calculateDelay__(baud, bits)
         self.framePerSec = baud / bits
@@ -27,6 +27,7 @@ class ServoPlateAugmentationSystem(threading.Thread):
         self.uart = UART.UART(devicePath)
 
         # Operating Flags
+        self.enableVerbose = enableVerbose
         self.keepRunning = True
         self.pause = False
 
@@ -70,6 +71,7 @@ class ServoPlateAugmentationSystem(threading.Thread):
         
         # If holdCounter is still active, then do not calculate and maintain
         self.holdCounter += 1
+        # TODO Review this!
         if self.holdCounter < ServoPlateAugmentationSystem.INSTRUCTIONS_PER_SECOND:
             return self.currXAngle, self.currYAngle
 
@@ -114,6 +116,11 @@ class ServoPlateAugmentationSystem(threading.Thread):
                 # Send the Instruction
                 self.uart.sendXServo(servoX)
                 self.uart.sendYServo(servoY)
+
+                # Show Debug
+                if self.enableVerbose:
+                    print("UART Tx sX: {}".format(servoX))
+                    print("UART Tx sY: {}".format(servoY))
             
             # Put the thread to sleep for the baud delay
             time.sleep(self.baudDelay)

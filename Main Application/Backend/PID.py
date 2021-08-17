@@ -47,7 +47,7 @@ class PID:
 
         # Calculate the current error of the ball position
         # If there is no error, then return 0 error
-        self.error = self.calculateError(currPos)
+        self.error = self.__calculateError__(currPos)
         if self.enableVerbose:
             print("Position Displ. : {}".format(self.error))
         if self.error == 0:
