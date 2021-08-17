@@ -43,11 +43,11 @@ class Director:
 
         # Initialise the Image Processor Thread
         self.imgQueue = Queue()
-        self.imgProc = ImageProcessor.ImageProcessor(cameraID, self.imgQueue)
+        self.imgProc = ImageProcessor.ImageProcessor(cameraID, self.imgQueue, False)
         self.imgProc.start()
 
         # Initialise the Augmentation System and start Thread
-        self.augmentation = ServoPlateAugmentationSystem.ServoPlateAugmentationSystem(serialAddress, BAUD_RATE, NUM_OF_BITS)
+        self.augmentation = ServoPlateAugmentationSystem.ServoPlateAugmentationSystem(serialAddress, BAUD_RATE, NUM_OF_BITS, 0)
         self.augmentation.start()
 
         # Flags for this Class
@@ -60,16 +60,13 @@ class Director:
     # The main loop for this thread
     def main(self):
 
-        # Start the Image Processor Thread
-        self.imgProc.run()
-
         # Keep running this loop of code until the the "terminate" method is called
         while(self.keepRunning):
             self.performLoopIteration()
             if cv.waitKey(1) == ord('q'):
-                break
+                self.keepRunning = False
         
-        # Safely destory the image processor
+        # Safely destroy the image processor
         self.imgProc.destroyProcessor()
 
 
@@ -89,13 +86,15 @@ class Director:
         else:
             while(self.imgQueue.qsize() > 1):
                 self.imgQueue.get_nowait()
+                if self.enableVerbose:
+                    print("Frame was flushed from Queue")
             return self.imgQueue.get_nowait()
 
     # Performs the logic needed for the Director to sequence the classes
     def performLoopIteration(self):
 
         # Grab the next Image from the Queue
-        nextImg = ImageFrame(self.getNextQueueImage())
+        nextImg = self.getNextQueueImage()
         
         # If no image is queued, return.
         if nextImg == None:
@@ -104,39 +103,34 @@ class Director:
             return
 
         # Otherwise, if image is returned...
+        # If ball is found
+        if (nextImg.isBallFound()):
+
+            if self.enableVerbose:
+                print("Ball Found in Frame")
+
+            # Get Information
+            BP_x, BP_y = nextImg.getBallPosition()
+            timestamp = nextImg.getTimeStamp()
+
+            # Transmit the frame of the ball to the GUI
+            # TODO
+        
+            # Send position data to the PID Controllers and determine the desired Plate Angles
+            P_aX = self.xAxis.compute(BP_x, timestamp)
+            P_aY = self.yAxis.compute(BP_y, timestamp)
+
+            # Send the desired angle to SPAS for Augmentation and Tx
+            self.augmentation.setNextAngle(P_aX, P_aY)
+
+            # Print Verbose if Desired
+            if (self.enableVerbose):
+                print("Ball Pos X, Y: {}, {}".format(BP_x, BP_y))
+                print("Plate Angle X, Y: {}, {}".format(P_aX, P_aY))
+
         else:
-            
-            # If ball is found
-            if (nextImg.isBallFound()):
-
-                if self.enableVerbose:
-                    print("Ball Found in Frame")
-
-                # Get Information
-                BP_x, BP_y = nextImg.getBallPosition()
-                timestamp = nextImg.getTimeStamp()
-
-                # Transmit the frame of the ball to the GUI
-                # TODO
-            
-                # Send position data to the PID Controllers and determine the desired Plate Angles
-                P_aX = self.xAxis.compute(BP_x, timestamp)
-                P_aY = self.yAxis.compute(BP_y, timestamp)
-
-                # Send the desired angle to SPAS for Augmentation and Tx
-                self.controller.sendXServo(S_angleX)
-                self.controller.sendYServo(S_angleY)
-
-                # Print Verbose if Desired
-                if (self.enableVerbose):
-                    print("Plate Angle X, Y: {}, {}".format(P_aX, P_aY))
-
-                    print("Servo angle X : {}".format(S_angleX))
-                    print("Servo angle Y : {}".format(S_angleY))
-
-            else:
-                if self.enableVerbose:
-                    print("Ball not found in frame")
+            if self.enableVerbose:
+                print("Ball not found in frame")
 
     # Switch the mode of the Director to a Pattern or Otherwise
     # Must pass a PatternTypes Enum
@@ -146,9 +140,16 @@ class Director:
         if isinstance(patternMode, PatternTypes):
             pass
 
+        # Return back to ZERO POSITION
+
+        # Then Change Mode
+
         # Otherwise, throw an exception
         else:
             Exception("The mode provide is not a form of pattern.")
+
+        # Return if execution complete
+        return True
 
     # Sets the flag to terminate this Director object and it's threads
     def terminate(self):
