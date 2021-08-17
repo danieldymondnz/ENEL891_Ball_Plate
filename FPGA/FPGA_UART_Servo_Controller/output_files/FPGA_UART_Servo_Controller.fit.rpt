@@ -1,6 +1,6 @@
 Fitter report for FPGA_UART_Servo_Controller
-Mon Jul 19 10:55:51 2021
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Wed Aug 18 11:02:15 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -69,17 +69,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Jul 19 10:55:51 2021       ;
-; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Fitter Status                      ; Successful - Wed Aug 18 11:02:15 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_UART_Servo_Controller                  ;
 ; Top-level Entity Name              ; FPGA_UART_Servo_Controller                  ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 152 / 22,320 ( < 1 % )                      ;
-;     Total combinational functions  ; 125 / 22,320 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 104 / 22,320 ( < 1 % )                      ;
-; Total registers                    ; 104                                         ;
+; Total logic elements               ; 187 / 22,320 ( < 1 % )                      ;
+;     Total combinational functions  ; 149 / 22,320 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 113 / 22,320 ( < 1 % )                      ;
+; Total registers                    ; 113                                         ;
 ; Total pins                         ; 12 / 154 ( 8 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
@@ -154,16 +154,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.03        ;
-; Maximum used               ; 6           ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.5%      ;
-;     Processors 3-6         ;   0.5%      ;
+;     Processor 2            ;   0.8%      ;
+;     Processors 3-4         ;   0.7%      ;
 +----------------------------+-------------+
 
 
@@ -473,8 +473,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 258 ) ; 0.00 % ( 0 / 258 )         ; 0.00 % ( 0 / 258 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 258 ) ; 0.00 % ( 0 / 258 )         ; 0.00 % ( 0 / 258 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 291 ) ; 0.00 % ( 0 / 291 )         ; 0.00 % ( 0 / 291 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 291 ) ; 0.00 % ( 0 / 291 )         ; 0.00 % ( 0 / 291 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -497,7 +497,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 258 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 291 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -505,7 +505,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/output_files/FPGA_UART_Servo_Controller.pin.
+The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/output_files/FPGA_UART_Servo_Controller.pin.
 
 
 +----------------------------------------------------------------------+
@@ -513,26 +513,26 @@ The pin-out file can be found in C:/Users/em15101/Documents/GitHub/ENEL891_Ball_
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 152 / 22,320 ( < 1 % ) ;
-;     -- Combinational with no register       ; 48                     ;
-;     -- Register only                        ; 27                     ;
-;     -- Combinational with a register        ; 77                     ;
+; Total logic elements                        ; 187 / 22,320 ( < 1 % ) ;
+;     -- Combinational with no register       ; 74                     ;
+;     -- Register only                        ; 38                     ;
+;     -- Combinational with a register        ; 75                     ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 46                     ;
+;     -- 4 input functions                    ; 50                     ;
 ;     -- 3 input functions                    ; 33                     ;
-;     -- <=2 input functions                  ; 46                     ;
-;     -- Register only                        ; 27                     ;
+;     -- <=2 input functions                  ; 66                     ;
+;     -- Register only                        ; 38                     ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 70                     ;
-;     -- arithmetic mode                      ; 55                     ;
+;     -- normal mode                          ; 85                     ;
+;     -- arithmetic mode                      ; 64                     ;
 ;                                             ;                        ;
-; Total registers*                            ; 104 / 23,018 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 104 / 22,320 ( < 1 % ) ;
+; Total registers*                            ; 113 / 23,018 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 113 / 22,320 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 698 ( 0 % )        ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 12 / 1,395 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 15 / 1,395 ( 1 % )     ;
 ; Virtual pins                                ; 0                      ;
 ; I/O pins                                    ; 12 / 154 ( 8 % )       ;
 ;     -- Clock pins                           ; 1 / 7 ( 14 % )         ;
@@ -550,12 +550,12 @@ The pin-out file can be found in C:/Users/em15101/Documents/GitHub/ENEL891_Ball_
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )          ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )          ;
-; Average interconnect usage (total/H/V)      ; 0.3% / 0.3% / 0.2%     ;
-; Peak interconnect usage (total/H/V)         ; 2.1% / 2.2% / 1.8%     ;
+; Average interconnect usage (total/H/V)      ; 0.3% / 0.3% / 0.3%     ;
+; Peak interconnect usage (total/H/V)         ; 1.2% / 1.3% / 1.3%     ;
 ; Maximum fan-out                             ; 44                     ;
 ; Highest non-global fan-out                  ; 16                     ;
-; Total fan-out                               ; 679                    ;
-; Average fan-out                             ; 2.41                   ;
+; Total fan-out                               ; 757                    ;
+; Average fan-out                             ; 2.32                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -568,26 +568,26 @@ The pin-out file can be found in C:/Users/em15101/Documents/GitHub/ENEL891_Ball_
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 152 / 22320 ( < 1 % ) ; 0 / 22320 ( 0 % )              ;
-;     -- Combinational with no register       ; 48                    ; 0                              ;
-;     -- Register only                        ; 27                    ; 0                              ;
-;     -- Combinational with a register        ; 77                    ; 0                              ;
+; Total logic elements                        ; 187 / 22320 ( < 1 % ) ; 0 / 22320 ( 0 % )              ;
+;     -- Combinational with no register       ; 74                    ; 0                              ;
+;     -- Register only                        ; 38                    ; 0                              ;
+;     -- Combinational with a register        ; 75                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 46                    ; 0                              ;
+;     -- 4 input functions                    ; 50                    ; 0                              ;
 ;     -- 3 input functions                    ; 33                    ; 0                              ;
-;     -- <=2 input functions                  ; 46                    ; 0                              ;
-;     -- Register only                        ; 27                    ; 0                              ;
+;     -- <=2 input functions                  ; 66                    ; 0                              ;
+;     -- Register only                        ; 38                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 70                    ; 0                              ;
-;     -- arithmetic mode                      ; 55                    ; 0                              ;
+;     -- normal mode                          ; 85                    ; 0                              ;
+;     -- arithmetic mode                      ; 64                    ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total registers                             ; 104                   ; 0                              ;
-;     -- Dedicated logic registers            ; 104 / 22320 ( < 1 % ) ; 0 / 22320 ( 0 % )              ;
+; Total registers                             ; 113                   ; 0                              ;
+;     -- Dedicated logic registers            ; 113 / 22320 ( < 1 % ) ; 0 / 22320 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 12 / 1395 ( < 1 % )   ; 0 / 1395 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 15 / 1395 ( 1 % )     ; 0 / 1395 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 12                    ; 0                              ;
@@ -603,8 +603,8 @@ The pin-out file can be found in C:/Users/em15101/Documents/GitHub/ENEL891_Ball_
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 679                   ; 0                              ;
-;     -- Registered Connections               ; 244                   ; 0                              ;
+;     -- Total Connections                    ; 757                   ; 0                              ;
+;     -- Registered Connections               ; 231                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 0                     ; 0                              ;
@@ -636,7 +636,7 @@ The pin-out file can be found in C:/Users/em15101/Documents/GitHub/ENEL891_Ball_
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; CLOCK_50 ; R8    ; 3        ; 27           ; 0            ; 21           ; 19                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
+; CLOCK_50 ; R8    ; 3        ; 27           ; 0            ; 21           ; 14                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
 ; GPIO_24  ; C15   ; 6        ; 53           ; 30           ; 0            ; 16                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
@@ -981,14 +981,14 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------------+----------------------------+--------------+
 ; Compilation Hierarchy Node       ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                     ; Entity Name                ; Library Name ;
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------------+----------------------------+--------------+
-; |FPGA_UART_Servo_Controller      ; 152 (0)     ; 104 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 12   ; 0            ; 48 (0)       ; 27 (0)            ; 77 (0)           ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
-;    |baudClkGen:inst|             ; 13 (13)     ; 9 (9)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 1 (1)             ; 8 (8)            ; |FPGA_UART_Servo_Controller|baudClkGen:inst             ; baudClkGen                 ; work         ;
-;    |pwmClkGen:inst1|             ; 15 (15)     ; 10 (10)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 1 (1)             ; 9 (9)            ; |FPGA_UART_Servo_Controller|pwmClkGen:inst1             ; pwmClkGen                  ; work         ;
+; |FPGA_UART_Servo_Controller      ; 187 (0)     ; 113 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 12   ; 0            ; 74 (0)       ; 38 (0)            ; 75 (0)           ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
+;    |baudClkGen:inst|             ; 11 (11)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 1 (1)             ; 7 (7)            ; |FPGA_UART_Servo_Controller|baudClkGen:inst             ; baudClkGen                 ; work         ;
+;    |pwmClkGen:inst1|             ; 9 (9)       ; 6 (6)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 1 (1)             ; 5 (5)            ; |FPGA_UART_Servo_Controller|pwmClkGen:inst1             ; pwmClkGen                  ; work         ;
 ;    |rxIndicator:inst4|           ; 27 (27)     ; 12 (12)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 13 (13)          ; |FPGA_UART_Servo_Controller|rxIndicator:inst4           ; rxIndicator                ; work         ;
-;    |servoPWMDriver:PWM_X_DRIVER| ; 36 (36)     ; 18 (18)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 18 (18)      ; 2 (2)             ; 16 (16)          ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoPWMDriver:PWM_Y_DRIVER| ; 16 (16)     ; 9 (9)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 1 (1)             ; 13 (13)          ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoSelectController:inst3| ; 14 (14)     ; 14 (14)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 9 (9)             ; 5 (5)            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
-;    |uartReciever:inst2|          ; 37 (37)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 13 (13)           ; 19 (19)          ; |FPGA_UART_Servo_Controller|uartReciever:inst2          ; uartReciever               ; work         ;
+;    |servoPWMDriver:PWM_X_DRIVER| ; 53 (53)     ; 23 (23)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 30 (30)      ; 2 (2)             ; 21 (21)          ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoPWMDriver:PWM_Y_DRIVER| ; 20 (20)     ; 10 (10)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 10 (10)          ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoSelectController:inst3| ; 32 (32)     ; 22 (22)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 22 (22)           ; 1 (1)            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
+;    |uartReciever:inst2|          ; 37 (37)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 12 (12)           ; 20 (20)          ; |FPGA_UART_Servo_Controller|uartReciever:inst2          ; uartReciever               ; work         ;
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1009,7 +1009,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LED[1]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LED[0]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; CLOCK_50 ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; GPIO_24  ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; GPIO_24  ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 +----------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -1020,53 +1020,54 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------+-------------------+---------+
 ; CLOCK_50                                  ;                   ;         ;
 ; GPIO_24                                   ;                   ;         ;
-;      - uartReciever:inst2|rxDataTemp[6]~0 ; 1                 ; 6       ;
-;      - uartReciever:inst2|baudCount~2     ; 1                 ; 6       ;
-;      - uartReciever:inst2|baudCount~3     ; 1                 ; 6       ;
-;      - uartReciever:inst2|baudCount~5     ; 1                 ; 6       ;
-;      - uartReciever:inst2|Selector1~0     ; 1                 ; 6       ;
-;      - uartReciever:inst2|Selector1~1     ; 1                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[7]~1 ; 1                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[5]~2 ; 1                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[4]~3 ; 1                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[3]~4 ; 1                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[2]~5 ; 1                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[1]~6 ; 1                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[0]~7 ; 1                 ; 6       ;
-;      - uartReciever:inst2|Selector2~2     ; 1                 ; 6       ;
-;      - uartReciever:inst2|baudCount~6     ; 1                 ; 6       ;
-;      - uartReciever:inst2|Selector2~3     ; 1                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[1]~0 ; 0                 ; 6       ;
+;      - uartReciever:inst2|baudCount~2     ; 0                 ; 6       ;
+;      - uartReciever:inst2|baudCount~3     ; 0                 ; 6       ;
+;      - uartReciever:inst2|baudCount~5     ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[7]~1 ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[6]~2 ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[5]~3 ; 0                 ; 6       ;
+;      - uartReciever:inst2|Selector1~0     ; 0                 ; 6       ;
+;      - uartReciever:inst2|Selector1~1     ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[0]~4 ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[4]~5 ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[3]~6 ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[2]~7 ; 0                 ; 6       ;
+;      - uartReciever:inst2|Selector2~2     ; 0                 ; 6       ;
+;      - uartReciever:inst2|baudCount~6     ; 0                 ; 6       ;
+;      - uartReciever:inst2|Selector2~3     ; 0                 ; 6       ;
 +-------------------------------------------+-------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                ;
-+-----------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                              ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                          ; PIN_R8             ; 19      ; Clock        ; yes    ; Global Clock         ; GCLK18           ; --                        ;
-; baudClkGen:inst|LessThan0~2       ; LCCOMB_X28_Y1_N26  ; 8       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; baudClkGen:inst|baudClk           ; FF_X28_Y1_N29      ; 44      ; Clock        ; yes    ; Global Clock         ; GCLK15           ; --                        ;
-; pwmClkGen:inst1|LessThan0~3       ; LCCOMB_X27_Y1_N30  ; 9       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; pwmClkGen:inst1|pwmClk            ; FF_X27_Y1_N29      ; 27      ; Clock        ; yes    ; Global Clock         ; GCLK16           ; --                        ;
-; rxIndicator:inst4|count~1         ; LCCOMB_X38_Y27_N16 ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uartReciever:inst2|Equal1~0       ; LCCOMB_X37_Y31_N20 ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uartReciever:inst2|rxCompleteFlag ; FF_X39_Y27_N9      ; 14      ; Clock        ; yes    ; Global Clock         ; GCLK10           ; --                        ;
-; uartReciever:inst2|rxData[6]~1    ; LCCOMB_X37_Y31_N8  ; 9       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uartReciever:inst2|rxData[7]      ; FF_X34_Y31_N21     ; 14      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+-----------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                      ;
++-----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                                    ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                                ; PIN_R8             ; 14      ; Clock        ; yes    ; Global Clock         ; GCLK18           ; --                        ;
+; baudClkGen:inst|LessThan0~1             ; LCCOMB_X1_Y16_N20  ; 8       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; baudClkGen:inst|baudClk                 ; FF_X1_Y16_N27      ; 44      ; Clock        ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; pwmClkGen:inst1|LessThan0~1             ; LCCOMB_X25_Y33_N24 ; 5       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; pwmClkGen:inst1|pwmClk                  ; FF_X25_Y33_N13     ; 33      ; Clock        ; yes    ; Global Clock         ; GCLK11           ; --                        ;
+; rxIndicator:inst4|count~1               ; LCCOMB_X39_Y28_N24 ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; servoSelectController:inst3|xPWMStore~0 ; LCCOMB_X45_Y24_N30 ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; servoSelectController:inst3|yPWMStore~0 ; LCCOMB_X46_Y24_N18 ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uartReciever:inst2|Equal1~0             ; LCCOMB_X44_Y28_N18 ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uartReciever:inst2|rxCompleteFlag       ; FF_X40_Y28_N5      ; 22      ; Clock        ; yes    ; Global Clock         ; GCLK13           ; --                        ;
+; uartReciever:inst2|rxData[1]~1          ; LCCOMB_X44_Y28_N10 ; 9       ; Clock enable ; no     ; --                   ; --               ; --                        ;
++-----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                                                                                              ;
-+-----------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; Name                              ; Location      ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; CLOCK_50                          ; PIN_R8        ; 19      ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
-; baudClkGen:inst|baudClk           ; FF_X28_Y1_N29 ; 44      ; 0                                    ; Global Clock         ; GCLK15           ; --                        ;
-; pwmClkGen:inst1|pwmClk            ; FF_X27_Y1_N29 ; 27      ; 20                                   ; Global Clock         ; GCLK16           ; --                        ;
-; uartReciever:inst2|rxCompleteFlag ; FF_X39_Y27_N9 ; 14      ; 0                                    ; Global Clock         ; GCLK10           ; --                        ;
-+-----------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                                                                                               ;
++-----------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+; Name                              ; Location       ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+; CLOCK_50                          ; PIN_R8         ; 14      ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
+; baudClkGen:inst|baudClk           ; FF_X1_Y16_N27  ; 44      ; 8                                    ; Global Clock         ; GCLK3            ; --                        ;
+; pwmClkGen:inst1|pwmClk            ; FF_X25_Y33_N13 ; 33      ; 20                                   ; Global Clock         ; GCLK11           ; --                        ;
+; uartReciever:inst2|rxCompleteFlag ; FF_X40_Y28_N5  ; 22      ; 0                                    ; Global Clock         ; GCLK13           ; --                        ;
++-----------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
 +------------------------------------------------+
@@ -1074,21 +1075,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+------------------------+
 ; Routing Resource Type ; Usage                  ;
 +-----------------------+------------------------+
-; Block interconnects   ; 167 / 71,559 ( < 1 % ) ;
-; C16 interconnects     ; 6 / 2,597 ( < 1 % )    ;
-; C4 interconnects      ; 91 / 46,848 ( < 1 % )  ;
-; Direct links          ; 54 / 71,559 ( < 1 % )  ;
+; Block interconnects   ; 213 / 71,559 ( < 1 % ) ;
+; C16 interconnects     ; 5 / 2,597 ( < 1 % )    ;
+; C4 interconnects      ; 131 / 46,848 ( < 1 % ) ;
+; Direct links          ; 65 / 71,559 ( < 1 % )  ;
 ; Global clocks         ; 4 / 20 ( 20 % )        ;
-; Local interconnects   ; 88 / 24,624 ( < 1 % )  ;
-; R24 interconnects     ; 16 / 2,496 ( < 1 % )   ;
-; R4 interconnects      ; 141 / 62,424 ( < 1 % ) ;
+; Local interconnects   ; 93 / 24,624 ( < 1 % )  ;
+; R24 interconnects     ; 12 / 2,496 ( < 1 % )   ;
+; R4 interconnects      ; 170 / 62,424 ( < 1 % ) ;
 +-----------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 12.67) ; Number of LABs  (Total = 12) ;
+; Number of Logic Elements  (Average = 12.47) ; Number of LABs  (Total = 15) ;
 +---------------------------------------------+------------------------------+
 ; 1                                           ; 0                            ;
 ; 2                                           ; 0                            ;
@@ -1097,33 +1098,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 5                                           ; 1                            ;
 ; 6                                           ; 0                            ;
 ; 7                                           ; 0                            ;
-; 8                                           ; 0                            ;
-; 9                                           ; 0                            ;
+; 8                                           ; 1                            ;
+; 9                                           ; 1                            ;
 ; 10                                          ; 0                            ;
-; 11                                          ; 1                            ;
-; 12                                          ; 2                            ;
+; 11                                          ; 2                            ;
+; 12                                          ; 0                            ;
 ; 13                                          ; 1                            ;
 ; 14                                          ; 0                            ;
-; 15                                          ; 1                            ;
-; 16                                          ; 5                            ;
+; 15                                          ; 2                            ;
+; 16                                          ; 6                            ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.58) ; Number of LABs  (Total = 12) ;
+; LAB-wide Signals  (Average = 1.40) ; Number of LABs  (Total = 15) ;
 +------------------------------------+------------------------------+
-; 1 Clock                            ; 8                            ;
-; 1 Clock enable                     ; 7                            ;
-; 2 Clocks                           ; 4                            ;
+; 1 Clock                            ; 13                           ;
+; 1 Clock enable                     ; 5                            ;
+; 2 Clock enables                    ; 1                            ;
+; 2 Clocks                           ; 2                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 20.00) ; Number of LABs  (Total = 12) ;
+; Number of Signals Sourced  (Average = 18.67) ; Number of LABs  (Total = 15) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
@@ -1131,82 +1133,90 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 3                                            ; 0                            ;
 ; 4                                            ; 0                            ;
 ; 5                                            ; 0                            ;
-; 6                                            ; 0                            ;
+; 6                                            ; 2                            ;
 ; 7                                            ; 0                            ;
-; 8                                            ; 1                            ;
-; 9                                            ; 1                            ;
-; 10                                           ; 0                            ;
+; 8                                            ; 0                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 1                            ;
 ; 11                                           ; 0                            ;
-; 12                                           ; 0                            ;
-; 13                                           ; 0                            ;
+; 12                                           ; 1                            ;
+; 13                                           ; 1                            ;
 ; 14                                           ; 0                            ;
-; 15                                           ; 0                            ;
-; 16                                           ; 1                            ;
+; 15                                           ; 1                            ;
+; 16                                           ; 0                            ;
 ; 17                                           ; 0                            ;
 ; 18                                           ; 1                            ;
-; 19                                           ; 0                            ;
+; 19                                           ; 1                            ;
 ; 20                                           ; 0                            ;
-; 21                                           ; 0                            ;
-; 22                                           ; 3                            ;
-; 23                                           ; 3                            ;
-; 24                                           ; 0                            ;
-; 25                                           ; 1                            ;
+; 21                                           ; 1                            ;
+; 22                                           ; 1                            ;
+; 23                                           ; 0                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 0                            ;
 ; 26                                           ; 0                            ;
-; 27                                           ; 0                            ;
-; 28                                           ; 0                            ;
-; 29                                           ; 1                            ;
+; 27                                           ; 1                            ;
+; 28                                           ; 2                            ;
+; 29                                           ; 0                            ;
+; 30                                           ; 0                            ;
+; 31                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 7.17) ; Number of LABs  (Total = 12) ;
+; Number of Signals Sourced Out  (Average = 7.87) ; Number of LABs  (Total = 15) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 3                            ;
+; 1                                               ; 2                            ;
 ; 2                                               ; 0                            ;
-; 3                                               ; 0                            ;
-; 4                                               ; 1                            ;
+; 3                                               ; 2                            ;
+; 4                                               ; 0                            ;
 ; 5                                               ; 1                            ;
 ; 6                                               ; 0                            ;
-; 7                                               ; 0                            ;
+; 7                                               ; 1                            ;
 ; 8                                               ; 1                            ;
-; 9                                               ; 1                            ;
-; 10                                              ; 1                            ;
+; 9                                               ; 2                            ;
+; 10                                              ; 2                            ;
 ; 11                                              ; 1                            ;
-; 12                                              ; 3                            ;
+; 12                                              ; 1                            ;
+; 13                                              ; 0                            ;
+; 14                                              ; 1                            ;
+; 15                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
-+----------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                        ;
-+---------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 9.08) ; Number of LABs  (Total = 12) ;
-+---------------------------------------------+------------------------------+
-; 0                                           ; 0                            ;
-; 1                                           ; 2                            ;
-; 2                                           ; 0                            ;
-; 3                                           ; 0                            ;
-; 4                                           ; 1                            ;
-; 5                                           ; 0                            ;
-; 6                                           ; 1                            ;
-; 7                                           ; 1                            ;
-; 8                                           ; 2                            ;
-; 9                                           ; 1                            ;
-; 10                                          ; 0                            ;
-; 11                                          ; 0                            ;
-; 12                                          ; 1                            ;
-; 13                                          ; 1                            ;
-; 14                                          ; 0                            ;
-; 15                                          ; 0                            ;
-; 16                                          ; 0                            ;
-; 17                                          ; 0                            ;
-; 18                                          ; 0                            ;
-; 19                                          ; 1                            ;
-; 20                                          ; 0                            ;
-; 21                                          ; 1                            ;
-+---------------------------------------------+------------------------------+
++-----------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                         ;
++----------------------------------------------+------------------------------+
+; Number of Distinct Inputs  (Average = 10.20) ; Number of LABs  (Total = 15) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 2                            ;
+; 2                                            ; 0                            ;
+; 3                                            ; 0                            ;
+; 4                                            ; 1                            ;
+; 5                                            ; 1                            ;
+; 6                                            ; 1                            ;
+; 7                                            ; 0                            ;
+; 8                                            ; 1                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 3                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 2                            ;
+; 13                                           ; 2                            ;
+; 14                                           ; 0                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 0                            ;
+; 17                                           ; 0                            ;
+; 18                                           ; 0                            ;
+; 19                                           ; 0                            ;
+; 20                                           ; 0                            ;
+; 21                                           ; 0                            ;
+; 22                                           ; 0                            ;
+; 23                                           ; 0                            ;
+; 24                                           ; 2                            ;
++----------------------------------------------+------------------------------+
 
 
 +------------------------------------------+
@@ -1320,78 +1330,82 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------+--------+
 
 
-+---------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary                                   ;
-+-------------------------+-----------------------------------+-------------------+
-; Source Clock(s)         ; Destination Clock(s)              ; Delay Added in ns ;
-+-------------------------+-----------------------------------+-------------------+
-; baudClkGen:inst|baudClk ; baudClkGen:inst|baudClk           ; 47.1              ;
-; baudClkGen:inst|baudClk ; uartReciever:inst2|rxCompleteFlag ; 14.1              ;
-; CLOCK_50                ; CLOCK_50                          ; 4.9               ;
-+-------------------------+-----------------------------------+-------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary                                                                     ;
++-----------------------------------------------------------+-----------------------------------+-------------------+
+; Source Clock(s)                                           ; Destination Clock(s)              ; Delay Added in ns ;
++-----------------------------------------------------------+-----------------------------------+-------------------+
+; baudClkGen:inst|baudClk                                   ; baudClkGen:inst|baudClk           ; 46.5              ;
+; uartReciever:inst2|rxCompleteFlag,baudClkGen:inst|baudClk ; uartReciever:inst2|rxCompleteFlag ; 12.2              ;
+; baudClkGen:inst|baudClk                                   ; uartReciever:inst2|rxCompleteFlag ; 6.7               ;
+; CLOCK_50                                                  ; CLOCK_50                          ; 4.9               ;
++-----------------------------------------------------------+-----------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+--------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                    ;
-+-----------------------------------+------------------------------------------+-------------------+
-; Source Register                   ; Destination Register                     ; Delay Added in ns ;
-+-----------------------------------+------------------------------------------+-------------------+
-; baudClkGen:inst|baudClk           ; baudClkGen:inst|baudClk                  ; 2.511             ;
-; uartReciever:inst2|rxCompleteFlag ; rxIndicator:inst4|count[0]               ; 2.406             ;
-; pwmClkGen:inst1|pwmClk            ; pwmClkGen:inst1|pwmClk                   ; 2.401             ;
-; rxIndicator:inst4|count[1]        ; rxIndicator:inst4|rxLED                  ; 1.684             ;
-; rxIndicator:inst4|count[2]        ; rxIndicator:inst4|rxLED                  ; 1.684             ;
-; rxIndicator:inst4|count[0]        ; rxIndicator:inst4|rxLED                  ; 1.684             ;
-; uartReciever:inst2|rxData[1]      ; servoSelectController:inst3|yPWMStore[1] ; 1.393             ;
-; rxIndicator:inst4|count[3]        ; rxIndicator:inst4|count[3]               ; 1.257             ;
-; uartReciever:inst2|rxData[2]      ; servoSelectController:inst3|xPWMStore[2] ; 1.221             ;
-; rxIndicator:inst4|count[4]        ; rxIndicator:inst4|count[4]               ; 1.159             ;
-; rxIndicator:inst4|count[5]        ; rxIndicator:inst4|count[6]               ; 0.981             ;
-; rxIndicator:inst4|count[6]        ; rxIndicator:inst4|count[6]               ; 0.981             ;
-; uartReciever:inst2|rxData[5]      ; servoSelectController:inst3|xPWMStore[5] ; 0.969             ;
-; uartReciever:inst2|rxData[4]      ; servoSelectController:inst3|xPWMStore[4] ; 0.969             ;
-; uartReciever:inst2|rxData[3]      ; servoSelectController:inst3|xPWMStore[3] ; 0.969             ;
-; uartReciever:inst2|rxData[6]      ; servoSelectController:inst3|xPWMStore[6] ; 0.967             ;
-; uartReciever:inst2|rxData[0]      ; servoSelectController:inst3|xPWMStore[0] ; 0.921             ;
-; rxIndicator:inst4|count[8]        ; rxIndicator:inst4|count[8]               ; 0.920             ;
-; rxIndicator:inst4|count[7]        ; rxIndicator:inst4|count[8]               ; 0.920             ;
-; uartReciever:inst2|rxData[7]      ; servoSelectController:inst3|yPWMStore[1] ; 0.840             ;
-; rxIndicator:inst4|count[9]        ; rxIndicator:inst4|count[9]               ; 0.820             ;
-; baudClkGen:inst|count[6]          ; baudClkGen:inst|baudClk                  ; 0.803             ;
-; baudClkGen:inst|count[5]          ; baudClkGen:inst|baudClk                  ; 0.803             ;
-; baudClkGen:inst|count[4]          ; baudClkGen:inst|baudClk                  ; 0.803             ;
-; baudClkGen:inst|count[3]          ; baudClkGen:inst|baudClk                  ; 0.803             ;
-; baudClkGen:inst|count[2]          ; baudClkGen:inst|baudClk                  ; 0.803             ;
-; baudClkGen:inst|count[0]          ; baudClkGen:inst|baudClk                  ; 0.803             ;
-; baudClkGen:inst|count[7]          ; baudClkGen:inst|baudClk                  ; 0.803             ;
-; baudClkGen:inst|count[1]          ; baudClkGen:inst|baudClk                  ; 0.803             ;
-; pwmClkGen:inst1|count[7]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; pwmClkGen:inst1|count[6]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; pwmClkGen:inst1|count[5]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; pwmClkGen:inst1|count[4]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; pwmClkGen:inst1|count[2]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; pwmClkGen:inst1|count[1]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; pwmClkGen:inst1|count[0]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; pwmClkGen:inst1|count[8]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; pwmClkGen:inst1|count[3]          ; pwmClkGen:inst1|pwmClk                   ; 0.707             ;
-; rxIndicator:inst4|count[10]       ; rxIndicator:inst4|count[10]              ; 0.634             ;
-; uartReciever:inst2|state.stopBit  ; uartReciever:inst2|rxCompleteFlag        ; 0.540             ;
-; uartReciever:inst2|baudCount[3]   ; uartReciever:inst2|rxCompleteFlag        ; 0.540             ;
-; uartReciever:inst2|baudCount[2]   ; uartReciever:inst2|rxCompleteFlag        ; 0.540             ;
-; uartReciever:inst2|state.idle     ; uartReciever:inst2|rxCompleteFlag        ; 0.540             ;
-; uartReciever:inst2|baudCount[0]   ; uartReciever:inst2|rxCompleteFlag        ; 0.540             ;
-; uartReciever:inst2|baudCount[1]   ; uartReciever:inst2|rxCompleteFlag        ; 0.540             ;
-+-----------------------------------+------------------------------------------+-------------------+
-Note: This table only shows the top 45 path(s) that have the largest delay added for hold.
++-------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                               ;
++--------------------------------------------+--------------------------------------------+-------------------+
+; Source Register                            ; Destination Register                       ; Delay Added in ns ;
++--------------------------------------------+--------------------------------------------+-------------------+
+; pwmClkGen:inst1|pwmClk                     ; pwmClkGen:inst1|pwmClk                     ; 2.515             ;
+; baudClkGen:inst|baudClk                    ; baudClkGen:inst|baudClk                    ; 2.420             ;
+; uartReciever:inst2|rxCompleteFlag          ; rxIndicator:inst4|rxLED                    ; 2.342             ;
+; rxIndicator:inst4|count[1]                 ; rxIndicator:inst4|rxLED                    ; 1.703             ;
+; rxIndicator:inst4|count[2]                 ; rxIndicator:inst4|rxLED                    ; 1.703             ;
+; rxIndicator:inst4|count[0]                 ; rxIndicator:inst4|rxLED                    ; 1.703             ;
+; uartReciever:inst2|rxData[4]               ; servoSelectController:inst3|lowData[4]     ; 1.364             ;
+; uartReciever:inst2|rxData[0]               ; servoSelectController:inst3|highData[0]    ; 1.362             ;
+; uartReciever:inst2|rxData[2]               ; servoSelectController:inst3|lowData[2]     ; 1.359             ;
+; uartReciever:inst2|rxData[1]               ; servoSelectController:inst3|lowData[1]     ; 1.359             ;
+; uartReciever:inst2|rxData[7]               ; servoSelectController:inst3|lastServoWrite ; 1.227             ;
+; uartReciever:inst2|rxData[6]               ; servoSelectController:inst3|lastServoWrite ; 1.221             ;
+; rxIndicator:inst4|count[3]                 ; rxIndicator:inst4|count[3]                 ; 1.202             ;
+; uartReciever:inst2|rxData[5]               ; servoSelectController:inst3|lastServoWrite ; 1.199             ;
+; rxIndicator:inst4|count[8]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
+; rxIndicator:inst4|count[7]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
+; rxIndicator:inst4|count[5]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
+; rxIndicator:inst4|count[4]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
+; rxIndicator:inst4|count[6]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
+; uartReciever:inst2|rxData[3]               ; servoSelectController:inst3|lowData[3]     ; 1.060             ;
+; pwmClkGen:inst1|count[3]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
+; pwmClkGen:inst1|count[2]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
+; pwmClkGen:inst1|count[0]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
+; pwmClkGen:inst1|count[4]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
+; pwmClkGen:inst1|count[1]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
+; uartReciever:inst2|state.stopBit           ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
+; uartReciever:inst2|baudCount[3]            ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
+; uartReciever:inst2|baudCount[2]            ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
+; uartReciever:inst2|baudCount[1]            ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
+; uartReciever:inst2|state.idle              ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
+; uartReciever:inst2|baudCount[0]            ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
+; rxIndicator:inst4|count[9]                 ; rxIndicator:inst4|count[10]                ; 0.764             ;
+; rxIndicator:inst4|count[10]                ; rxIndicator:inst4|count[10]                ; 0.764             ;
+; servoSelectController:inst3|lowData[2]     ; servoSelectController:inst3|lowData[2]     ; 0.722             ;
+; servoSelectController:inst3|lowData[1]     ; servoSelectController:inst3|lowData[1]     ; 0.722             ;
+; servoSelectController:inst3|lowData[0]     ; servoSelectController:inst3|lowData[0]     ; 0.722             ;
+; servoSelectController:inst3|lastServoWrite ; servoSelectController:inst3|lowData[2]     ; 0.722             ;
+; servoSelectController:inst3|highData[0]    ; servoSelectController:inst3|highData[0]    ; 0.712             ;
+; servoSelectController:inst3|lowData[3]     ; servoSelectController:inst3|lowData[3]     ; 0.703             ;
+; servoSelectController:inst3|highData[1]    ; servoSelectController:inst3|xPWMStore[6]   ; 0.691             ;
+; servoSelectController:inst3|lowData[4]     ; servoSelectController:inst3|lowData[4]     ; 0.690             ;
+; baudClkGen:inst|count[6]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
+; baudClkGen:inst|count[5]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
+; baudClkGen:inst|count[4]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
+; baudClkGen:inst|count[2]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
+; baudClkGen:inst|count[1]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
+; baudClkGen:inst|count[0]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
+; baudClkGen:inst|count[3]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
++--------------------------------------------+--------------------------------------------+-------------------+
+Note: This table only shows the top 48 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (119006): Selected device EP4CE22F17C6 for design "FPGA_UART_Servo_Controller"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -1413,27 +1427,27 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Tim
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
 Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN R8 (CLK15, DIFFCLK_6p))
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G18
-Info (176353): Automatically promoted node baudClkGen:inst|baudClk  File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 7
+Info (176353): Automatically promoted node baudClkGen:inst|baudClk  File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 8
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node baudClkGen:inst|baudClk~0 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 7
-Info (176353): Automatically promoted node pwmClkGen:inst1|pwmClk  File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v Line: 2
+        Info (176357): Destination node baudClkGen:inst|baudClk~0 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 8
+Info (176353): Automatically promoted node pwmClkGen:inst1|pwmClk  File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v Line: 2
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node pwmClkGen:inst1|pwmClk~0 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v Line: 2
-Info (176353): Automatically promoted node uartReciever:inst2|rxCompleteFlag  File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v Line: 2
+        Info (176357): Destination node pwmClkGen:inst1|pwmClk~0 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v Line: 2
+Info (176353): Automatically promoted node uartReciever:inst2|rxCompleteFlag  File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v Line: 2
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node rxIndicator:inst4|Add0~14 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~16 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~18 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~20 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~12 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~8 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~10 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~2 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~0 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
-        Info (176357): Destination node rxIndicator:inst4|Add0~4 File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~14 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~16 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~18 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~20 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~12 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~8 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~10 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~2 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~0 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
+        Info (176357): Destination node rxIndicator:inst4|Add0~4 File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 12
         Info (176358): Non-global destination nodes limited to 10 nodes
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -1585,7 +1599,7 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "SW[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "SW[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "SW[3]" is assigned to location or region, but does not exist in design
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1598,27 +1612,27 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.21 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.37 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 2 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at R8
     Info (169178): Pin GPIO_24 uses I/O standard 3.3-V LVTTL at C15
-Info (144001): Generated suppressed messages file C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/output_files/FPGA_UART_Servo_Controller.fit.smsg
+Info (144001): Generated suppressed messages file C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/output_files/FPGA_UART_Servo_Controller.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 153 warnings
-    Info: Peak virtual memory: 5661 megabytes
-    Info: Processing ended: Mon Jul 19 10:55:51 2021
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 5527 megabytes
+    Info: Processing ended: Wed Aug 18 11:02:16 2021
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/output_files/FPGA_UART_Servo_Controller.fit.smsg.
+The suppressed messages can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/output_files/FPGA_UART_Servo_Controller.fit.smsg.
 
 

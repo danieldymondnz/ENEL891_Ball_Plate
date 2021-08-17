@@ -15,13 +15,14 @@ class ServoPlateAugmentationSystem(threading.Thread):
         self.baudDelay = ServoPlateAugmentationSystem.__calculateDelay__(baud, bits)
         self.framePerSec = baud / bits
         self.dTheta = ServoPlateAugmentationSystem.MAX_DELTA_ANGLE/self.framePerSec
+        self.frameHoldMax = (self.framePerSec / ServoPlateAugmentationSystem.INSTRUCTIONS_PER_SECOND) - 1
         
         # Initalise variables
         self.setXAngle = 0
         self.setYAngle = 0
         self.currXAngle = 0
         self.currYAngle = 0
-        self.holdCounter = 0
+        self.frameHoldCounter = 0
 
         # Create UART Controller
         self.uart = UART.UART(devicePath)
@@ -70,9 +71,8 @@ class ServoPlateAugmentationSystem(threading.Thread):
     def __plateAugmentation__(self):
         
         # If holdCounter is still active, then do not calculate and maintain
-        self.holdCounter += 1
-        # TODO Review this!
-        if self.holdCounter < ServoPlateAugmentationSystem.INSTRUCTIONS_PER_SECOND:
+        self.frameHoldCounter += 1
+        if self.frameHoldCounter < self.frameHoldMax:
             return self.currXAngle, self.currYAngle
 
         # Otherwise, determine new position
