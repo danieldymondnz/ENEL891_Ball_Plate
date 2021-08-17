@@ -1,6 +1,6 @@
 Analysis & Synthesis report for FPGA_UART_Servo_Controller
-Mon Jul 19 10:55:45 2021
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Wed Aug 18 11:02:08 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -16,10 +16,11 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   8. State Machine - |FPGA_UART_Servo_Controller|uartReciever:inst2|state
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Parameter Settings for User Entity Instance: uartReciever:inst2
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+ 11. Inverted Register Statistics
+ 12. Parameter Settings for User Entity Instance: uartReciever:inst2
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -46,15 +47,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jul 19 10:55:45 2021       ;
-; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 18 11:02:08 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_UART_Servo_Controller                  ;
 ; Top-level Entity Name              ; FPGA_UART_Servo_Controller                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 160                                         ;
-;     Total combinational functions  ; 125                                         ;
-;     Dedicated logic registers      ; 104                                         ;
-; Total registers                    ; 104                                         ;
+; Total logic elements               ; 180                                         ;
+;     Total combinational functions  ; 149                                         ;
+;     Dedicated logic registers      ; 113                                         ;
+; Total registers                    ; 113                                         ;
 ; Total pins                         ; 12                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -154,32 +155,32 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-6         ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                  ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                        ; Library ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
-; FPGA_UART_Servo_Controller.bdf   ; yes             ; User Block Diagram/Schematic File  ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/FPGA_UART_Servo_Controller.bdf ;         ;
-; baudClkGen.v                     ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v                   ;         ;
-; pwmClkGen.v                      ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v                    ;         ;
-; uartReciever.v                   ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v                 ;         ;
-; servoSelectController.v          ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v        ;         ;
-; servoPWMDriver.v                 ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v               ;         ;
-; rxIndicator.v                    ; yes             ; User Verilog HDL File              ; C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v                  ;         ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                      ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; FPGA_UART_Servo_Controller.bdf   ; yes             ; User Block Diagram/Schematic File  ; C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/FPGA_UART_Servo_Controller.bdf ;         ;
+; baudClkGen.v                     ; yes             ; User Verilog HDL File              ; C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v                   ;         ;
+; pwmClkGen.v                      ; yes             ; User Verilog HDL File              ; C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v                    ;         ;
+; uartReciever.v                   ; yes             ; User Verilog HDL File              ; C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v                 ;         ;
+; servoSelectController.v          ; yes             ; User Verilog HDL File              ; C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v        ;         ;
+; servoPWMDriver.v                 ; yes             ; User Verilog HDL File              ; C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v               ;         ;
+; rxIndicator.v                    ; yes             ; User Verilog HDL File              ; C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v                  ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------+
@@ -187,20 +188,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Estimated Total logic elements              ; 160                     ;
+; Estimated Total logic elements              ; 180                     ;
 ;                                             ;                         ;
-; Total combinational functions               ; 125                     ;
+; Total combinational functions               ; 149                     ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 46                      ;
+;     -- 4 input functions                    ; 50                      ;
 ;     -- 3 input functions                    ; 33                      ;
-;     -- <=2 input functions                  ; 46                      ;
+;     -- <=2 input functions                  ; 66                      ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 70                      ;
-;     -- arithmetic mode                      ; 55                      ;
+;     -- normal mode                          ; 85                      ;
+;     -- arithmetic mode                      ; 64                      ;
 ;                                             ;                         ;
-; Total registers                             ; 104                     ;
-;     -- Dedicated logic registers            ; 104                     ;
+; Total registers                             ; 113                     ;
+;     -- Dedicated logic registers            ; 113                     ;
 ;     -- I/O registers                        ; 0                       ;
 ;                                             ;                         ;
 ; I/O pins                                    ; 12                      ;
@@ -209,8 +210,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                         ;
 ; Maximum fan-out node                        ; baudClkGen:inst|baudClk ;
 ; Maximum fan-out                             ; 45                      ;
-; Total fan-out                               ; 650                     ;
-; Average fan-out                             ; 2.57                    ;
+; Total fan-out                               ; 717                     ;
+; Average fan-out                             ; 2.51                    ;
 +---------------------------------------------+-------------------------+
 
 
@@ -219,13 +220,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name                ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
-; |FPGA_UART_Servo_Controller      ; 125 (0)             ; 104 (0)                   ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
-;    |baudClkGen:inst|             ; 12 (12)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|baudClkGen:inst             ; baudClkGen                 ; work         ;
-;    |pwmClkGen:inst1|             ; 14 (14)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|pwmClkGen:inst1             ; pwmClkGen                  ; work         ;
+; |FPGA_UART_Servo_Controller      ; 149 (0)             ; 113 (0)                   ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
+;    |baudClkGen:inst|             ; 10 (10)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|baudClkGen:inst             ; baudClkGen                 ; work         ;
+;    |pwmClkGen:inst1|             ; 8 (8)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|pwmClkGen:inst1             ; pwmClkGen                  ; work         ;
 ;    |rxIndicator:inst4|           ; 27 (27)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|rxIndicator:inst4           ; rxIndicator                ; work         ;
-;    |servoPWMDriver:PWM_X_DRIVER| ; 34 (34)             ; 18 (18)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoPWMDriver:PWM_Y_DRIVER| ; 15 (15)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoSelectController:inst3| ; 0 (0)               ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
+;    |servoPWMDriver:PWM_X_DRIVER| ; 51 (51)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoPWMDriver:PWM_Y_DRIVER| ; 20 (20)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoSelectController:inst3| ; 10 (10)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
 ;    |uartReciever:inst2|          ; 23 (23)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|uartReciever:inst2          ; uartReciever               ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -251,42 +252,52 @@ Encoding Type:  One-Hot
 +----------------+---------------+------------+------------+------------+------------+------------+------------+------------+------------+----------------+------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                            ;
-+----------------------------------------+------------------------------------------------------+
-; Register name                          ; Reason for Removal                                   ;
-+----------------------------------------+------------------------------------------------------+
-; servoPWMDriver:PWM_Y_DRIVER|mark[8]    ; Stuck at GND due to stuck port data_in               ;
-; servoPWMDriver:PWM_X_DRIVER|mark[8]    ; Stuck at GND due to stuck port data_in               ;
-; servoSelectController:inst3|xPWM[6]    ; Merged with servoSelectController:inst3|xPWMStore[6] ;
-; servoSelectController:inst3|xPWM[1]    ; Merged with servoSelectController:inst3|xPWMStore[1] ;
-; servoSelectController:inst3|xPWM[0]    ; Merged with servoSelectController:inst3|xPWMStore[0] ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[8] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[8]   ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[7] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[7]   ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[6] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[6]   ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[5] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[5]   ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[4] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[4]   ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[3] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[3]   ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[2] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[2]   ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[1] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[1]   ;
-; servoPWMDriver:PWM_Y_DRIVER|counter[0] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[0]   ;
-; servoSelectController:inst3|yPWM[6]    ; Merged with servoSelectController:inst3|yPWMStore[6] ;
-; servoSelectController:inst3|yPWM[1]    ; Merged with servoSelectController:inst3|yPWMStore[1] ;
-; servoSelectController:inst3|yPWM[0]    ; Merged with servoSelectController:inst3|yPWMStore[0] ;
-; servoSelectController:inst3|xPWM[5]    ; Merged with servoSelectController:inst3|xPWMStore[5] ;
-; servoSelectController:inst3|yPWM[5]    ; Merged with servoSelectController:inst3|yPWMStore[5] ;
-; servoSelectController:inst3|xPWM[4]    ; Merged with servoSelectController:inst3|xPWMStore[4] ;
-; servoSelectController:inst3|yPWM[4]    ; Merged with servoSelectController:inst3|yPWMStore[4] ;
-; servoSelectController:inst3|xPWM[3]    ; Merged with servoSelectController:inst3|xPWMStore[3] ;
-; servoSelectController:inst3|yPWM[3]    ; Merged with servoSelectController:inst3|yPWMStore[3] ;
-; servoSelectController:inst3|xPWM[2]    ; Merged with servoSelectController:inst3|xPWMStore[2] ;
-; servoSelectController:inst3|yPWM[2]    ; Merged with servoSelectController:inst3|yPWMStore[2] ;
-; uartReciever:inst2|state~13            ; Lost fanout                                          ;
-; uartReciever:inst2|state~14            ; Lost fanout                                          ;
-; uartReciever:inst2|state~15            ; Lost fanout                                          ;
-; uartReciever:inst2|state~16            ; Lost fanout                                          ;
-; Total Number of Removed Registers = 29 ;                                                      ;
-+----------------------------------------+------------------------------------------------------+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++-----------------------------------------+------------------------------------------------------+
+; Register name                           ; Reason for Removal                                   ;
++-----------------------------------------+------------------------------------------------------+
+; servoPWMDriver:PWM_Y_DRIVER|mark[12]    ; Stuck at GND due to stuck port data_in               ;
+; servoPWMDriver:PWM_X_DRIVER|mark[12]    ; Stuck at GND due to stuck port data_in               ;
+; servoPWMDriver:PWM_Y_DRIVER|mark[10]    ; Stuck at VCC due to stuck port data_in               ;
+; servoPWMDriver:PWM_Y_DRIVER|mark[11]    ; Stuck at GND due to stuck port data_in               ;
+; servoPWMDriver:PWM_X_DRIVER|mark[10]    ; Stuck at VCC due to stuck port data_in               ;
+; servoPWMDriver:PWM_X_DRIVER|mark[11]    ; Stuck at GND due to stuck port data_in               ;
+; servoSelectController:inst3|xPWM[6]     ; Merged with servoSelectController:inst3|xPWMStore[6] ;
+; servoSelectController:inst3|xPWM[5]     ; Merged with servoSelectController:inst3|xPWMStore[5] ;
+; servoSelectController:inst3|xPWM[4]     ; Merged with servoSelectController:inst3|xPWMStore[4] ;
+; servoSelectController:inst3|xPWM[1]     ; Merged with servoSelectController:inst3|xPWMStore[1] ;
+; servoSelectController:inst3|xPWM[0]     ; Merged with servoSelectController:inst3|xPWMStore[0] ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[12] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[12]  ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[11] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[11]  ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[10] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[10]  ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[9]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[9]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[8]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[8]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[7]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[7]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[6]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[6]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[5]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[5]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[4]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[4]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[3]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[3]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[2]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[2]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[1]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[1]   ;
+; servoPWMDriver:PWM_Y_DRIVER|counter[0]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[0]   ;
+; servoSelectController:inst3|yPWM[0]     ; Merged with servoSelectController:inst3|yPWMStore[0] ;
+; servoSelectController:inst3|yPWM[1]     ; Merged with servoSelectController:inst3|yPWMStore[1] ;
+; servoSelectController:inst3|yPWM[2]     ; Merged with servoSelectController:inst3|yPWMStore[2] ;
+; servoSelectController:inst3|yPWM[5]     ; Merged with servoSelectController:inst3|yPWMStore[5] ;
+; servoSelectController:inst3|yPWM[6]     ; Merged with servoSelectController:inst3|yPWMStore[6] ;
+; servoSelectController:inst3|xPWM[3]     ; Merged with servoSelectController:inst3|xPWMStore[3] ;
+; servoSelectController:inst3|xPWM[2]     ; Merged with servoSelectController:inst3|xPWMStore[2] ;
+; servoSelectController:inst3|yPWM[4]     ; Merged with servoSelectController:inst3|yPWMStore[4] ;
+; servoSelectController:inst3|yPWM[3]     ; Merged with servoSelectController:inst3|yPWMStore[3] ;
+; servoPWMDriver:PWM_Y_DRIVER|mark[9]     ; Stuck at VCC due to stuck port data_in               ;
+; servoPWMDriver:PWM_X_DRIVER|mark[9]     ; Stuck at VCC due to stuck port data_in               ;
+; uartReciever:inst2|state~13             ; Lost fanout                                          ;
+; uartReciever:inst2|state~14             ; Lost fanout                                          ;
+; uartReciever:inst2|state~15             ; Lost fanout                                          ;
+; uartReciever:inst2|state~16             ; Lost fanout                                          ;
+; Total Number of Removed Registers = 39  ;                                                      ;
++-----------------------------------------+------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -294,14 +305,24 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 104   ;
-; Number of registers using Synchronous Clear  ; 17    ;
+; Total registers                              ; 113   ;
+; Number of registers using Synchronous Clear  ; 12    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 37    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------+
+; Inverted Register Statistics                         ;
++--------------------------------------------+---------+
+; Inverted Register                          ; Fan out ;
++--------------------------------------------+---------+
+; servoSelectController:inst3|lastServoWrite ; 9       ;
+; Total number of inverted registers = 1     ;         ;
++--------------------------------------------+---------+
 
 
 +-----------------------------------------------------------------+
@@ -330,23 +351,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 12                          ;
-; cycloneiii_ff         ; 104                         ;
+; cycloneiii_ff         ; 113                         ;
 ;     ENA               ; 37                          ;
-;     SCLR              ; 17                          ;
-;     plain             ; 50                          ;
-; cycloneiii_lcell_comb ; 125                         ;
-;     arith             ; 55                          ;
-;         2 data inputs ; 29                          ;
+;     SCLR              ; 12                          ;
+;     plain             ; 64                          ;
+; cycloneiii_lcell_comb ; 149                         ;
+;     arith             ; 64                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 36                          ;
 ;         3 data inputs ; 26                          ;
-;     normal            ; 70                          ;
+;     normal            ; 85                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 10                          ;
+;         2 data inputs ; 21                          ;
 ;         3 data inputs ; 7                           ;
-;         4 data inputs ; 46                          ;
+;         4 data inputs ; 50                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.70                        ;
-; Average LUT depth     ; 2.42                        ;
+; Max LUT depth         ; 5.80                        ;
+; Average LUT depth     ; 2.70                        ;
 +-----------------------+-----------------------------+
 
 
@@ -364,51 +386,50 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Jul 19 10:55:38 2021
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Wed Aug 18 11:01:57 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_UART_Servo_Controller -c FPGA_UART_Servo_Controller
-Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file fpga_uart_servo_controller.bdf
     Info (12023): Found entity 1: FPGA_UART_Servo_Controller
 Info (12021): Found 1 design units, including 1 entities, in source file baudclkgen.v
-    Info (12023): Found entity 1: baudClkGen File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 6
+    Info (12023): Found entity 1: baudClkGen File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file pwmclkgen.v
-    Info (12023): Found entity 1: pwmClkGen File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v Line: 1
+    Info (12023): Found entity 1: pwmClkGen File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/pwmClkGen.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file uartreciever.v
-    Info (12023): Found entity 1: uartReciever File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v Line: 1
+    Info (12023): Found entity 1: uartReciever File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/uartReciever.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file servoselectcontroller.v
-    Info (12023): Found entity 1: servoSelectController File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v Line: 1
+    Info (12023): Found entity 1: servoSelectController File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoSelectController.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file servopwmdriver.v
-    Info (12023): Found entity 1: servoPWMDriver File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v Line: 1
+    Info (12023): Found entity 1: servoPWMDriver File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file rxindicator.v
-    Info (12023): Found entity 1: rxIndicator File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 1
+    Info (12023): Found entity 1: rxIndicator File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/rxIndicator.v Line: 1
 Warning (12019): Can't analyze file -- file SPIPLL.v is missing
 Warning (12019): Can't analyze file -- file DE0_NANO.v is missing
 Warning (12019): Can't analyze file -- file ADC_CTRL.v is missing
 Info (12127): Elaborating entity "FPGA_UART_Servo_Controller" for the top level hierarchy
 Info (12128): Elaborating entity "servoPWMDriver" for hierarchy "servoPWMDriver:PWM_X_DRIVER"
-Warning (10230): Verilog HDL assignment warning at servoPWMDriver.v(13): truncated value with size 32 to match size of target (9) File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v Line: 13
-Warning (10230): Verilog HDL assignment warning at servoPWMDriver.v(22): truncated value with size 32 to match size of target (9) File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v Line: 22
+Warning (10230): Verilog HDL assignment warning at servoPWMDriver.v(13): truncated value with size 32 to match size of target (13) File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v Line: 13
+Warning (10230): Verilog HDL assignment warning at servoPWMDriver.v(22): truncated value with size 32 to match size of target (13) File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/servoPWMDriver.v Line: 22
 Info (12128): Elaborating entity "pwmClkGen" for hierarchy "pwmClkGen:inst1"
 Info (12128): Elaborating entity "servoSelectController" for hierarchy "servoSelectController:inst3"
 Info (12128): Elaborating entity "uartReciever" for hierarchy "uartReciever:inst2"
 Info (12128): Elaborating entity "baudClkGen" for hierarchy "baudClkGen:inst"
-Warning (10230): Verilog HDL assignment warning at baudClkGen.v(17): truncated value with size 32 to match size of target (8) File: C:/Users/em15101/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 17
+Warning (10230): Verilog HDL assignment warning at baudClkGen.v(18): truncated value with size 32 to match size of target (7) File: C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/baudClkGen.v Line: 18
 Info (12128): Elaborating entity "rxIndicator" for hierarchy "rxIndicator:inst4"
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 181 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 209 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 169 logic cells
+    Info (21061): Implemented 197 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4781 megabytes
-    Info: Processing ended: Mon Jul 19 10:55:45 2021
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Peak virtual memory: 4775 megabytes
+    Info: Processing ended: Wed Aug 18 11:02:08 2021
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:26
 
 
