@@ -47,19 +47,11 @@ class MyGUI(qtw.QMainWindow):
     def show(self):
         self.main_win.show()
 
-    def displayVidFeed(self):
-        cap = cv.VideoCapture(0)
-        while True:
-            ret, frame = cap.read()
-            frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-            img = qtg.QImage(frame, frame.shape[1], frame.shape[0], qtg.QImage.Format_RGB888)
-            piximg = qtg.QPixmap.fromImage(img)
-            self.ui.frames_lbl.setPixmap(piximg)
-            if cv.waitKey(1) & 0xFF == ord('q'):
-                break
-        cap.release()
-        cv.destroyAllWindows()
-        
+    def ImageUpdate(self,img):
+        img = cv.cvtColor(img, cv.COLOR_BGR2RGB)  
+        img = qtg.QImage(img, img.shape[1], img.shape[0], qtg.QImage.Format_RGB888)
+        piximg = qtg.QPixmap.fromImage(img)
+        self.ui.frames_lbl.setPixmap(piximg)
 
     def showMainMenu(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.MainMenu_pg)  
@@ -148,5 +140,5 @@ if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)
     main_win = MyGUI()
     main_win.show()
-    main_win.displayVidFeed()
+    
     sys.exit(app.exec_())
