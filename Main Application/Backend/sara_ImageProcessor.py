@@ -90,6 +90,9 @@ class ImageProcessor(threading.Thread):
  # Collects and returns the data needed by the Director
     def getData(self):
 
+        velocity = 0
+        elapsedTime = 0
+
         # Obtain frame and contours to get Ball Position
         ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY = self.generateContours()
 
@@ -98,7 +101,7 @@ class ImageProcessor(threading.Thread):
             print("Ball Located? : {}".format(ballFound))
             print("Ball position: {} , {}".format(BP_x,BP_y))
         
-        return ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY
+        return ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity
 
     # Cleans up OpenCV on Application Exit
     def destroyProcessor(self):
@@ -114,7 +117,7 @@ class ImageProcessor(threading.Thread):
         while (self.keepRunning):
         
             # Get the latest frame
-            ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY = self.getData()
+            ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity = self.getData()
             
             # Display Debug
             if self.enableVerbose:
@@ -132,7 +135,7 @@ class ImageProcessor(threading.Thread):
                     self.keepRunning = False
 
             # Append to a new ImageFrame object
-            imgFrameObj = ImageFrame(ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY)
+            imgFrameObj = ImageFrame(ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity)
             self.imgQueue.put(imgFrameObj)
 
         # Release the camera and destroy OpenCV session
