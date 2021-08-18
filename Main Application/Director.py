@@ -115,6 +115,7 @@ class Director:
 
             # Transmit the frame of the ball to the GUI
             # TODO
+
         
             # Send position data to the PID Controllers and determine the desired Plate Angles
             P_aX = self.xAxis.compute(BP_x, timestamp)
