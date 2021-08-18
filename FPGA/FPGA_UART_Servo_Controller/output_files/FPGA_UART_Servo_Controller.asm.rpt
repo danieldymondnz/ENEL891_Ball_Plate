@@ -1,5 +1,5 @@
 Assembler report for FPGA_UART_Servo_Controller
-Wed Aug 18 11:02:18 2021
+Wed Aug 18 12:51:27 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Aug 18 11:02:18 2021 ;
+; Assembler Status      ; Successful - Wed Aug 18 12:51:27 2021 ;
 ; Revision Name         ; FPGA_UART_Servo_Controller            ;
 ; Top-level Entity Name ; FPGA_UART_Servo_Controller            ;
 ; Family                ; Cyclone IV E                          ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                                                                 ;
 +----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x0014EEC4                                                                                                                              ;
-; Checksum       ; 0x0014EEC4                                                                                                                              ;
+; JTAG usercode  ; 0x0014F6B9                                                                                                                              ;
+; Checksum       ; 0x0014F6B9                                                                                                                              ;
 +----------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Aug 18 11:02:17 2021
+    Info: Processing started: Wed Aug 18 12:51:26 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off FPGA_UART_Servo_Controller -c FPGA_UART_Servo_Controller
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4683 megabytes
-    Info: Processing ended: Wed Aug 18 11:02:18 2021
+    Info: Processing ended: Wed Aug 18 12:51:27 2021
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
