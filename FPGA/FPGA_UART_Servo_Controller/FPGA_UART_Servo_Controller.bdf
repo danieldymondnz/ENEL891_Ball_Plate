@@ -35,7 +35,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -168 152 -112 176))
 )
 (pin
 	(input)
@@ -52,24 +51,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -176 112 -112 136))
-)
-(pin
-	(output)
-	(rect 808 8 984 24)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LED[7..1]" (rect 90 0 137 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-	(annotation_block (location)(rect 984 -48 1048 112))
 )
 (pin
 	(output)
@@ -86,7 +67,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1200 344 1264 368))
 )
 (pin
 	(output)
@@ -103,7 +83,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1200 152 1264 176))
 )
 (pin
 	(output)
@@ -120,7 +99,6 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1200 248 1264 272))
 )
 (symbol
 	(rect 96 112 264 192)
@@ -137,7 +115,7 @@ https://fpgasoftware.intel.com/eula.
 		(pt 168 32)
 		(output)
 		(text "baudClk" (rect 0 0 40 12)(font "Arial" ))
-		(text "baudClk" (rect 114 27 154 39)(font "Arial" ))
+		(text "baudClk" (rect 114 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
@@ -159,7 +137,7 @@ https://fpgasoftware.intel.com/eula.
 		(pt 168 32)
 		(output)
 		(text "pwmClk" (rect 0 0 38 12)(font "Arial" ))
-		(text "pwmClk" (rect 115 27 153 39)(font "Arial" ))
+		(text "pwmClk" (rect 115 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
@@ -188,7 +166,7 @@ https://fpgasoftware.intel.com/eula.
 		(pt 160 32)
 		(output)
 		(text "rxLED" (rect 0 0 30 12)(font "Arial" ))
-		(text "rxLED" (rect 114 27 144 39)(font "Arial" ))
+		(text "rxLED" (rect 114 27 139 39)(font "Arial" ))
 		(line (pt 160 32)(pt 144 32))
 	)
 	(drawing
@@ -217,14 +195,14 @@ https://fpgasoftware.intel.com/eula.
 		(pt 176 32)
 		(output)
 		(text "rxData[7..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "rxData[7..0]" (rect 106 27 165 39)(font "Arial" ))
+		(text "rxData[7..0]" (rect 106 27 155 39)(font "Arial" ))
 		(line (pt 176 32)(pt 160 32)(line_width 3))
 	)
 	(port
 		(pt 176 48)
 		(output)
 		(text "rxCompleteFlag" (rect 0 0 77 12)(font "Arial" ))
-		(text "rxCompleteFlag" (rect 90 43 167 55)(font "Arial" ))
+		(text "rxCompleteFlag" (rect 90 43 155 55)(font "Arial" ))
 		(line (pt 176 48)(pt 160 48))
 	)
 	(parameter
@@ -294,8 +272,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 32)
 		(input)
-		(text "position[6..0]" (rect 0 0 63 12)(font "Arial" ))
-		(text "position[6..0]" (rect 21 27 84 39)(font "Arial" ))
+		(text "position[9..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "position[9..0]" (rect 21 27 84 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
@@ -309,7 +287,7 @@ https://fpgasoftware.intel.com/eula.
 		(pt 168 32)
 		(output)
 		(text "pulse" (rect 0 0 25 12)(font "Arial" ))
-		(text "pulse" (rect 126 27 151 39)(font "Arial" ))
+		(text "pulse" (rect 126 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
@@ -323,8 +301,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 32)
 		(input)
-		(text "position[6..0]" (rect 0 0 63 12)(font "Arial" ))
-		(text "position[6..0]" (rect 21 27 84 39)(font "Arial" ))
+		(text "position[9..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "position[9..0]" (rect 21 27 84 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
@@ -338,7 +316,7 @@ https://fpgasoftware.intel.com/eula.
 		(pt 168 32)
 		(output)
 		(text "pulse" (rect 0 0 25 12)(font "Arial" ))
-		(text "pulse" (rect 126 27 151 39)(font "Arial" ))
+		(text "pulse" (rect 126 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32))
 	)
 	(drawing
@@ -366,15 +344,15 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 200 32)
 		(output)
-		(text "xPWM[6..0]" (rect 0 0 57 12)(font "Arial" ))
-		(text "xPWM[6..0]" (rect 131 27 188 39)(font "Arial" ))
+		(text "xPWM[9..0]" (rect 0 0 57 12)(font "Arial" ))
+		(text "xPWM[9..0]" (rect 131 27 179 39)(font "Arial" ))
 		(line (pt 200 32)(pt 184 32)(line_width 3))
 	)
 	(port
 		(pt 200 48)
 		(output)
-		(text "yPWM[6..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "yPWM[6..0]" (rect 130 43 189 55)(font "Arial" ))
+		(text "yPWM[9..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "yPWM[9..0]" (rect 130 43 179 55)(font "Arial" ))
 		(line (pt 200 48)(pt 184 48)(line_width 3))
 	)
 	(drawing
@@ -466,26 +444,6 @@ https://fpgasoftware.intel.com/eula.
 	(bus)
 )
 (connector
-	(pt 784 16)
-	(pt 808 16)
-	(bus)
-)
-(connector
-	(pt 784 16)
-	(pt 784 144)
-	(bus)
-)
-(connector
-	(pt 752 144)
-	(pt 784 144)
-	(bus)
-)
-(connector
-	(pt 784 144)
-	(pt 816 144)
-	(bus)
-)
-(connector
 	(pt 480 160)
 	(pt 520 160)
 )
@@ -521,9 +479,13 @@ https://fpgasoftware.intel.com/eula.
 	(pt 1024 336)
 	(pt 720 336)
 )
+(connector
+	(pt 752 144)
+	(pt 816 144)
+	(bus)
+)
 (junction (pt 80 144))
 (junction (pt 760 248))
 (junction (pt 296 144))
-(junction (pt 784 144))
 (junction (pt 520 160))
 (text "UART RX Pin" (rect -104 72 -28 91)(font "Intel Clear" (font_size 8)))

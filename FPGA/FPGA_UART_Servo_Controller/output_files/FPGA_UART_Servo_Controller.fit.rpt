@@ -1,5 +1,5 @@
 Fitter report for FPGA_UART_Servo_Controller
-Wed Aug 18 11:02:15 2021
+Wed Aug 18 12:51:25 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -69,18 +69,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Wed Aug 18 11:02:15 2021       ;
+; Fitter Status                      ; Successful - Wed Aug 18 12:51:25 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_UART_Servo_Controller                  ;
 ; Top-level Entity Name              ; FPGA_UART_Servo_Controller                  ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 187 / 22,320 ( < 1 % )                      ;
-;     Total combinational functions  ; 149 / 22,320 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 113 / 22,320 ( < 1 % )                      ;
-; Total registers                    ; 113                                         ;
-; Total pins                         ; 12 / 154 ( 8 % )                            ;
+; Total logic elements               ; 211 / 22,320 ( < 1 % )                      ;
+;     Total combinational functions  ; 162 / 22,320 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 128 / 22,320 ( < 1 % )                      ;
+; Total registers                    ; 128                                         ;
+; Total pins                         ; 5 / 154 ( 3 % )                             ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
@@ -163,7 +163,7 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.8%      ;
-;     Processors 3-4         ;   0.7%      ;
+;     Processors 3-4         ;   0.8%      ;
 +----------------------------+-------------+
 
 
@@ -314,6 +314,13 @@ https://fpgasoftware.intel.com/eula.
 ; Location     ;                            ;              ; I2C_SDAT      ; PIN_F1        ; QSF Assignment ;
 ; Location     ;                            ;              ; KEY[0]        ; PIN_J15       ; QSF Assignment ;
 ; Location     ;                            ;              ; KEY[1]        ; PIN_E1        ; QSF Assignment ;
+; Location     ;                            ;              ; LED[1]        ; PIN_A13       ; QSF Assignment ;
+; Location     ;                            ;              ; LED[2]        ; PIN_B13       ; QSF Assignment ;
+; Location     ;                            ;              ; LED[3]        ; PIN_A11       ; QSF Assignment ;
+; Location     ;                            ;              ; LED[4]        ; PIN_D1        ; QSF Assignment ;
+; Location     ;                            ;              ; LED[5]        ; PIN_F3        ; QSF Assignment ;
+; Location     ;                            ;              ; LED[6]        ; PIN_B1        ; QSF Assignment ;
+; Location     ;                            ;              ; LED[7]        ; PIN_L3        ; QSF Assignment ;
 ; Location     ;                            ;              ; SW[0]         ; PIN_M1        ; QSF Assignment ;
 ; Location     ;                            ;              ; SW[1]         ; PIN_T8        ; QSF Assignment ;
 ; Location     ;                            ;              ; SW[2]         ; PIN_B9        ; QSF Assignment ;
@@ -460,6 +467,13 @@ https://fpgasoftware.intel.com/eula.
 ; I/O Standard ; FPGA_UART_Servo_Controller ;              ; I2C_SDAT      ; 3.3-V LVTTL   ; QSF Assignment ;
 ; I/O Standard ; FPGA_UART_Servo_Controller ;              ; KEY[0]        ; 3.3-V LVTTL   ; QSF Assignment ;
 ; I/O Standard ; FPGA_UART_Servo_Controller ;              ; KEY[1]        ; 3.3-V LVTTL   ; QSF Assignment ;
+; I/O Standard ; FPGA_UART_Servo_Controller ;              ; LED[1]        ; 3.3-V LVTTL   ; QSF Assignment ;
+; I/O Standard ; FPGA_UART_Servo_Controller ;              ; LED[2]        ; 3.3-V LVTTL   ; QSF Assignment ;
+; I/O Standard ; FPGA_UART_Servo_Controller ;              ; LED[3]        ; 3.3-V LVTTL   ; QSF Assignment ;
+; I/O Standard ; FPGA_UART_Servo_Controller ;              ; LED[4]        ; 3.3-V LVTTL   ; QSF Assignment ;
+; I/O Standard ; FPGA_UART_Servo_Controller ;              ; LED[5]        ; 3.3-V LVTTL   ; QSF Assignment ;
+; I/O Standard ; FPGA_UART_Servo_Controller ;              ; LED[6]        ; 3.3-V LVTTL   ; QSF Assignment ;
+; I/O Standard ; FPGA_UART_Servo_Controller ;              ; LED[7]        ; 3.3-V LVTTL   ; QSF Assignment ;
 ; I/O Standard ; FPGA_UART_Servo_Controller ;              ; SW[0]         ; 3.3-V LVTTL   ; QSF Assignment ;
 ; I/O Standard ; FPGA_UART_Servo_Controller ;              ; SW[1]         ; 3.3-V LVTTL   ; QSF Assignment ;
 ; I/O Standard ; FPGA_UART_Servo_Controller ;              ; SW[2]         ; 3.3-V LVTTL   ; QSF Assignment ;
@@ -473,8 +487,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 291 ) ; 0.00 % ( 0 / 291 )         ; 0.00 % ( 0 / 291 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 291 ) ; 0.00 % ( 0 / 291 )         ; 0.00 % ( 0 / 291 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 305 ) ; 0.00 % ( 0 / 305 )         ; 0.00 % ( 0 / 305 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 305 ) ; 0.00 % ( 0 / 305 )         ; 0.00 % ( 0 / 305 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -497,7 +511,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 291 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 305 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -513,28 +527,28 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 187 / 22,320 ( < 1 % ) ;
-;     -- Combinational with no register       ; 74                     ;
-;     -- Register only                        ; 38                     ;
-;     -- Combinational with a register        ; 75                     ;
+; Total logic elements                        ; 211 / 22,320 ( < 1 % ) ;
+;     -- Combinational with no register       ; 83                     ;
+;     -- Register only                        ; 49                     ;
+;     -- Combinational with a register        ; 79                     ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
 ;     -- 4 input functions                    ; 50                     ;
-;     -- 3 input functions                    ; 33                     ;
-;     -- <=2 input functions                  ; 66                     ;
-;     -- Register only                        ; 38                     ;
+;     -- 3 input functions                    ; 41                     ;
+;     -- <=2 input functions                  ; 71                     ;
+;     -- Register only                        ; 49                     ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 85                     ;
-;     -- arithmetic mode                      ; 64                     ;
+;     -- normal mode                          ; 88                     ;
+;     -- arithmetic mode                      ; 74                     ;
 ;                                             ;                        ;
-; Total registers*                            ; 113 / 23,018 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 113 / 22,320 ( < 1 % ) ;
+; Total registers*                            ; 128 / 23,018 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 128 / 22,320 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 698 ( 0 % )        ;
 ;                                             ;                        ;
 ; Total LABs:  partially or completely used   ; 15 / 1,395 ( 1 % )     ;
 ; Virtual pins                                ; 0                      ;
-; I/O pins                                    ; 12 / 154 ( 8 % )       ;
+; I/O pins                                    ; 5 / 154 ( 3 % )        ;
 ;     -- Clock pins                           ; 1 / 7 ( 14 % )         ;
 ;     -- Dedicated input pins                 ; 0 / 9 ( 0 % )          ;
 ;                                             ;                        ;
@@ -550,12 +564,12 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )          ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )          ;
-; Average interconnect usage (total/H/V)      ; 0.3% / 0.3% / 0.3%     ;
-; Peak interconnect usage (total/H/V)         ; 1.2% / 1.3% / 1.3%     ;
+; Average interconnect usage (total/H/V)      ; 0.2% / 0.2% / 0.2%     ;
+; Peak interconnect usage (total/H/V)         ; 1.6% / 2.1% / 1.0%     ;
 ; Maximum fan-out                             ; 44                     ;
 ; Highest non-global fan-out                  ; 16                     ;
-; Total fan-out                               ; 757                    ;
-; Average fan-out                             ; 2.32                   ;
+; Total fan-out                               ; 821                    ;
+; Average fan-out                             ; 2.36                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -568,29 +582,29 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 187 / 22320 ( < 1 % ) ; 0 / 22320 ( 0 % )              ;
-;     -- Combinational with no register       ; 74                    ; 0                              ;
-;     -- Register only                        ; 38                    ; 0                              ;
-;     -- Combinational with a register        ; 75                    ; 0                              ;
+; Total logic elements                        ; 211 / 22320 ( < 1 % ) ; 0 / 22320 ( 0 % )              ;
+;     -- Combinational with no register       ; 83                    ; 0                              ;
+;     -- Register only                        ; 49                    ; 0                              ;
+;     -- Combinational with a register        ; 79                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
 ;     -- 4 input functions                    ; 50                    ; 0                              ;
-;     -- 3 input functions                    ; 33                    ; 0                              ;
-;     -- <=2 input functions                  ; 66                    ; 0                              ;
-;     -- Register only                        ; 38                    ; 0                              ;
+;     -- 3 input functions                    ; 41                    ; 0                              ;
+;     -- <=2 input functions                  ; 71                    ; 0                              ;
+;     -- Register only                        ; 49                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 85                    ; 0                              ;
-;     -- arithmetic mode                      ; 64                    ; 0                              ;
+;     -- normal mode                          ; 88                    ; 0                              ;
+;     -- arithmetic mode                      ; 74                    ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total registers                             ; 113                   ; 0                              ;
-;     -- Dedicated logic registers            ; 113 / 22320 ( < 1 % ) ; 0 / 22320 ( 0 % )              ;
+; Total registers                             ; 128                   ; 0                              ;
+;     -- Dedicated logic registers            ; 128 / 22320 ( < 1 % ) ; 0 / 22320 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Total LABs:  partially or completely used   ; 15 / 1395 ( 1 % )     ; 0 / 1395 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
-; I/O pins                                    ; 12                    ; 0                              ;
+; I/O pins                                    ; 5                     ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 132 ( 0 % )       ; 0 / 132 ( 0 % )                ;
 ; Total memory bits                           ; 0                     ; 0                              ;
 ; Total RAM block bits                        ; 0                     ; 0                              ;
@@ -603,8 +617,8 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 757                   ; 0                              ;
-;     -- Registered Connections               ; 231                   ; 0                              ;
+;     -- Total Connections                    ; 821                   ; 0                              ;
+;     -- Registered Connections               ; 245                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 0                     ; 0                              ;
@@ -612,7 +626,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ;                                             ;                       ;                                ;
 ; Partition Interface                         ;                       ;                                ;
 ;     -- Input Ports                          ; 2                     ; 0                              ;
-;     -- Output Ports                         ; 10                    ; 0                              ;
+;     -- Output Ports                         ; 3                     ; 0                              ;
 ;     -- Bidir Ports                          ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Registered Ports                            ;                       ;                                ;
@@ -649,13 +663,6 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; GPIO_15 ; T12   ; 4        ; 36           ; 0            ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; GPIO_17 ; T11   ; 4        ; 36           ; 0            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; LED[0]  ; A15   ; 7        ; 38           ; 34           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; LED[1]  ; A13   ; 7        ; 49           ; 34           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; LED[2]  ; B13   ; 7        ; 49           ; 34           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; LED[3]  ; A11   ; 7        ; 40           ; 34           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; LED[4]  ; D1    ; 1        ; 0            ; 25           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; LED[5]  ; F3    ; 1        ; 0            ; 26           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; LED[6]  ; B1    ; 1        ; 0            ; 28           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; LED[7]  ; L3    ; 2        ; 0            ; 10           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off         ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 +---------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
@@ -681,13 +688,13 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 +----------+-----------------+---------------+--------------+
 ; I/O Bank ; Usage           ; VCCIO Voltage ; VREF Voltage ;
 +----------+-----------------+---------------+--------------+
-; 1        ; 3 / 14 ( 21 % ) ; 3.3V          ; --           ;
-; 2        ; 1 / 16 ( 6 % )  ; 3.3V          ; --           ;
+; 1        ; 0 / 14 ( 0 % )  ; 2.5V          ; --           ;
+; 2        ; 0 / 16 ( 0 % )  ; 2.5V          ; --           ;
 ; 3        ; 1 / 25 ( 4 % )  ; 3.3V          ; --           ;
 ; 4        ; 2 / 20 ( 10 % ) ; 3.3V          ; --           ;
 ; 5        ; 0 / 18 ( 0 % )  ; 2.5V          ; --           ;
 ; 6        ; 1 / 13 ( 8 % )  ; 3.3V          ; --           ;
-; 7        ; 4 / 24 ( 17 % ) ; 3.3V          ; --           ;
+; 7        ; 1 / 24 ( 4 % )  ; 3.3V          ; --           ;
 ; 8        ; 0 / 24 ( 0 % )  ; 2.5V          ; --           ;
 +----------+-----------------+---------------+--------------+
 
@@ -707,13 +714,13 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; A8       ; 211        ; 8        ; GND+                            ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; A9       ; 209        ; 7        ; GND+                            ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; A10      ; 198        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; A11      ; 188        ; 7        ; LED[3]                          ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
+; A11      ; 188        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; A12      ; 186        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; A13      ; 179        ; 7        ; LED[1]                          ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
+; A13      ; 179        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; A14      ; 181        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; A15      ; 191        ; 7        ; LED[0]                          ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; A16      ;            ; 7        ; VCCIO7                          ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; B1       ; 5          ; 1        ; LED[6]                          ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; B1       ; 5          ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; B2       ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; B3       ; 242        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; B4       ; 237        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -725,7 +732,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; B10      ; 199        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; B11      ; 189        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; B12      ; 187        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; B13      ; 180        ; 7        ; LED[2]                          ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
+; B13      ; 180        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; B14      ; 182        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; B15      ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; B16      ; 164        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -745,7 +752,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; C14      ; 175        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; C15      ; 174        ; 6        ; GPIO_24                         ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; C16      ; 173        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; D1       ; 10         ; 1        ; LED[4]                          ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; D1       ; 10         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; D2       ; 9          ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; D3       ; 246        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D4       ;            ;          ; VCCD_PLL3                       ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -763,7 +770,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; D16      ; 169        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; E1       ; 26         ; 1        ; GND+                            ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; E2       ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; E3       ;            ; 1        ; VCCIO1                          ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; E3       ;            ; 1        ; VCCIO1                          ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; E4       ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; E5       ;            ;          ; GNDA3                           ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; E6       ; 231        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -779,7 +786,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; E16      ; 150        ; 6        ; GND+                            ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; F1       ; 14         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; F2       ; 13         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; F3       ; 8          ; 1        ; LED[5]                          ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; F3       ; 8          ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; F4       ; 11         ; 1        ; ^nSTATUS                        ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; F5       ;            ; --       ; VCCA3                           ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; F6       ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -795,7 +802,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; F16      ; 162        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G1       ; 16         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G2       ; 15         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; G3       ;            ; 1        ; VCCIO1                          ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; G3       ;            ; 1        ; VCCIO1                          ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; G4       ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; G5       ; 12         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G6       ;            ;          ; VCCINT                          ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -844,7 +851,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; J16      ; 142        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K1       ; 37         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K2       ; 36         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; K3       ;            ; 2        ; VCCIO2                          ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; K3       ;            ; 2        ; VCCIO2                          ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; K4       ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; K5       ; 45         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K6       ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -860,7 +867,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; K16      ; 140        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L1       ; 39         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L2       ; 38         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; L3       ; 40         ; 2        ; LED[7]                          ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; L3       ; 40         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; L4       ; 46         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L5       ;            ; --       ; VCCA1                           ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; L6       ;            ;          ; VCCINT                          ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -876,7 +883,7 @@ The pin-out file can be found in C:/Users/danie/Documents/GitHub/ENEL891_Ball_Pl
 ; L16      ; 137        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M1       ; 28         ; 2        ; GND+                            ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; M2       ; 27         ; 2        ; GND+                            ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; M3       ;            ; 2        ; VCCIO2                          ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; M3       ;            ; 2        ; VCCIO2                          ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; M4       ;            ;          ; GND                             ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; M5       ;            ;          ; GNDA1                           ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; M6       ; 64         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -965,13 +972,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------+------------------------+
 ; GPIO_15  ; Missing drive strength ;
 ; GPIO_17  ; Missing drive strength ;
-; LED[7]   ; Missing drive strength ;
-; LED[6]   ; Missing drive strength ;
-; LED[5]   ; Missing drive strength ;
-; LED[4]   ; Missing drive strength ;
-; LED[3]   ; Missing drive strength ;
-; LED[2]   ; Missing drive strength ;
-; LED[1]   ; Missing drive strength ;
 ; LED[0]   ; Missing drive strength ;
 +----------+------------------------+
 
@@ -981,14 +981,14 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------------+----------------------------+--------------+
 ; Compilation Hierarchy Node       ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                     ; Entity Name                ; Library Name ;
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------------+----------------------------+--------------+
-; |FPGA_UART_Servo_Controller      ; 187 (0)     ; 113 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 12   ; 0            ; 74 (0)       ; 38 (0)            ; 75 (0)           ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
+; |FPGA_UART_Servo_Controller      ; 211 (0)     ; 128 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 5    ; 0            ; 83 (0)       ; 49 (0)            ; 79 (0)           ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
 ;    |baudClkGen:inst|             ; 11 (11)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 1 (1)             ; 7 (7)            ; |FPGA_UART_Servo_Controller|baudClkGen:inst             ; baudClkGen                 ; work         ;
 ;    |pwmClkGen:inst1|             ; 9 (9)       ; 6 (6)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 1 (1)             ; 5 (5)            ; |FPGA_UART_Servo_Controller|pwmClkGen:inst1             ; pwmClkGen                  ; work         ;
 ;    |rxIndicator:inst4|           ; 27 (27)     ; 12 (12)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 13 (13)          ; |FPGA_UART_Servo_Controller|rxIndicator:inst4           ; rxIndicator                ; work         ;
-;    |servoPWMDriver:PWM_X_DRIVER| ; 53 (53)     ; 23 (23)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 30 (30)      ; 2 (2)             ; 21 (21)          ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoPWMDriver:PWM_Y_DRIVER| ; 20 (20)     ; 10 (10)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 10 (10)          ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoSelectController:inst3| ; 32 (32)     ; 22 (22)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 22 (22)           ; 1 (1)            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
-;    |uartReciever:inst2|          ; 37 (37)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 12 (12)           ; 20 (20)          ; |FPGA_UART_Servo_Controller|uartReciever:inst2          ; uartReciever               ; work         ;
+;    |servoPWMDriver:PWM_X_DRIVER| ; 59 (59)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 33 (33)      ; 4 (4)             ; 22 (22)          ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoPWMDriver:PWM_Y_DRIVER| ; 26 (26)     ; 13 (13)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 12 (12)      ; 0 (0)             ; 14 (14)          ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoSelectController:inst3| ; 43 (43)     ; 31 (31)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 12 (12)      ; 29 (29)           ; 2 (2)            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
+;    |uartReciever:inst2|          ; 38 (38)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 14 (14)           ; 18 (18)          ; |FPGA_UART_Servo_Controller|uartReciever:inst2          ; uartReciever               ; work         ;
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------------------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1000,13 +1000,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------------+---------------+-----------------------+-----+------+
 ; GPIO_15  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO_17  ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; LED[7]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; LED[6]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; LED[5]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; LED[4]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; LED[3]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; LED[2]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; LED[1]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LED[0]   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; CLOCK_50 ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; GPIO_24  ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
@@ -1020,20 +1013,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------+-------------------+---------+
 ; CLOCK_50                                  ;                   ;         ;
 ; GPIO_24                                   ;                   ;         ;
-;      - uartReciever:inst2|rxDataTemp[1]~0 ; 0                 ; 6       ;
 ;      - uartReciever:inst2|baudCount~2     ; 0                 ; 6       ;
-;      - uartReciever:inst2|baudCount~3     ; 0                 ; 6       ;
+;      - uartReciever:inst2|baudCount~4     ; 0                 ; 6       ;
 ;      - uartReciever:inst2|baudCount~5     ; 0                 ; 6       ;
+;      - uartReciever:inst2|Selector1~2     ; 0                 ; 6       ;
+;      - uartReciever:inst2|Selector1~3     ; 0                 ; 6       ;
+;      - uartReciever:inst2|Selector2~2     ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[4]~0 ; 0                 ; 6       ;
 ;      - uartReciever:inst2|rxDataTemp[7]~1 ; 0                 ; 6       ;
 ;      - uartReciever:inst2|rxDataTemp[6]~2 ; 0                 ; 6       ;
 ;      - uartReciever:inst2|rxDataTemp[5]~3 ; 0                 ; 6       ;
-;      - uartReciever:inst2|Selector1~0     ; 0                 ; 6       ;
-;      - uartReciever:inst2|Selector1~1     ; 0                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[0]~4 ; 0                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[4]~5 ; 0                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[3]~6 ; 0                 ; 6       ;
-;      - uartReciever:inst2|rxDataTemp[2]~7 ; 0                 ; 6       ;
-;      - uartReciever:inst2|Selector2~2     ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[3]~4 ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[2]~5 ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[1]~6 ; 0                 ; 6       ;
+;      - uartReciever:inst2|rxDataTemp[0]~7 ; 0                 ; 6       ;
 ;      - uartReciever:inst2|baudCount~6     ; 0                 ; 6       ;
 ;      - uartReciever:inst2|Selector2~3     ; 0                 ; 6       ;
 +-------------------------------------------+-------------------+---------+
@@ -1045,16 +1038,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                    ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 ; CLOCK_50                                ; PIN_R8             ; 14      ; Clock        ; yes    ; Global Clock         ; GCLK18           ; --                        ;
-; baudClkGen:inst|LessThan0~1             ; LCCOMB_X1_Y16_N20  ; 8       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; baudClkGen:inst|baudClk                 ; FF_X1_Y16_N27      ; 44      ; Clock        ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; pwmClkGen:inst1|LessThan0~1             ; LCCOMB_X25_Y33_N24 ; 5       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; pwmClkGen:inst1|pwmClk                  ; FF_X25_Y33_N13     ; 33      ; Clock        ; yes    ; Global Clock         ; GCLK11           ; --                        ;
-; rxIndicator:inst4|count~1               ; LCCOMB_X39_Y28_N24 ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; servoSelectController:inst3|xPWMStore~0 ; LCCOMB_X45_Y24_N30 ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; servoSelectController:inst3|yPWMStore~0 ; LCCOMB_X46_Y24_N18 ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uartReciever:inst2|Equal1~0             ; LCCOMB_X44_Y28_N18 ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uartReciever:inst2|rxCompleteFlag       ; FF_X40_Y28_N5      ; 22      ; Clock        ; yes    ; Global Clock         ; GCLK13           ; --                        ;
-; uartReciever:inst2|rxData[1]~1          ; LCCOMB_X44_Y28_N10 ; 9       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; baudClkGen:inst|LessThan0~1             ; LCCOMB_X25_Y33_N24 ; 8       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; baudClkGen:inst|baudClk                 ; FF_X25_Y33_N21     ; 44      ; Clock        ; yes    ; Global Clock         ; GCLK12           ; --                        ;
+; pwmClkGen:inst1|LessThan0~1             ; LCCOMB_X1_Y16_N26  ; 5       ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; pwmClkGen:inst1|pwmClk                  ; FF_X1_Y16_N23      ; 39      ; Clock        ; yes    ; Global Clock         ; GCLK0            ; --                        ;
+; rxIndicator:inst4|count~1               ; LCCOMB_X43_Y27_N0  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; servoSelectController:inst3|xPWMStore~0 ; LCCOMB_X36_Y25_N20 ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; servoSelectController:inst3|yPWMStore~0 ; LCCOMB_X35_Y25_N10 ; 10      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uartReciever:inst2|Equal1~0             ; LCCOMB_X41_Y25_N14 ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uartReciever:inst2|Selector1~1          ; LCCOMB_X41_Y25_N10 ; 9       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; uartReciever:inst2|rxCompleteFlag       ; FF_X44_Y27_N5      ; 31      ; Clock        ; yes    ; Global Clock         ; GCLK7            ; --                        ;
 +-----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1064,9 +1057,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                              ; Location       ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-----------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; CLOCK_50                          ; PIN_R8         ; 14      ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
-; baudClkGen:inst|baudClk           ; FF_X1_Y16_N27  ; 44      ; 8                                    ; Global Clock         ; GCLK3            ; --                        ;
-; pwmClkGen:inst1|pwmClk            ; FF_X25_Y33_N13 ; 33      ; 20                                   ; Global Clock         ; GCLK11           ; --                        ;
-; uartReciever:inst2|rxCompleteFlag ; FF_X40_Y28_N5  ; 22      ; 0                                    ; Global Clock         ; GCLK13           ; --                        ;
+; baudClkGen:inst|baudClk           ; FF_X25_Y33_N21 ; 44      ; 0                                    ; Global Clock         ; GCLK12           ; --                        ;
+; pwmClkGen:inst1|pwmClk            ; FF_X1_Y16_N23  ; 39      ; 25                                   ; Global Clock         ; GCLK0            ; --                        ;
+; uartReciever:inst2|rxCompleteFlag ; FF_X44_Y27_N5  ; 31      ; 0                                    ; Global Clock         ; GCLK7            ; --                        ;
 +-----------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1075,36 +1068,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+------------------------+
 ; Routing Resource Type ; Usage                  ;
 +-----------------------+------------------------+
-; Block interconnects   ; 213 / 71,559 ( < 1 % ) ;
-; C16 interconnects     ; 5 / 2,597 ( < 1 % )    ;
-; C4 interconnects      ; 131 / 46,848 ( < 1 % ) ;
-; Direct links          ; 65 / 71,559 ( < 1 % )  ;
+; Block interconnects   ; 238 / 71,559 ( < 1 % ) ;
+; C16 interconnects     ; 4 / 2,597 ( < 1 % )    ;
+; C4 interconnects      ; 101 / 46,848 ( < 1 % ) ;
+; Direct links          ; 67 / 71,559 ( < 1 % )  ;
 ; Global clocks         ; 4 / 20 ( 20 % )        ;
-; Local interconnects   ; 93 / 24,624 ( < 1 % )  ;
-; R24 interconnects     ; 12 / 2,496 ( < 1 % )   ;
-; R4 interconnects      ; 170 / 62,424 ( < 1 % ) ;
+; Local interconnects   ; 91 / 24,624 ( < 1 % )  ;
+; R24 interconnects     ; 2 / 2,496 ( < 1 % )    ;
+; R4 interconnects      ; 162 / 62,424 ( < 1 % ) ;
 +-----------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 12.47) ; Number of LABs  (Total = 15) ;
+; Number of Logic Elements  (Average = 14.07) ; Number of LABs  (Total = 15) ;
 +---------------------------------------------+------------------------------+
 ; 1                                           ; 0                            ;
 ; 2                                           ; 0                            ;
 ; 3                                           ; 0                            ;
-; 4                                           ; 1                            ;
-; 5                                           ; 1                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 0                            ;
 ; 6                                           ; 0                            ;
 ; 7                                           ; 0                            ;
-; 8                                           ; 1                            ;
+; 8                                           ; 0                            ;
 ; 9                                           ; 1                            ;
 ; 10                                          ; 0                            ;
 ; 11                                          ; 2                            ;
 ; 12                                          ; 0                            ;
-; 13                                          ; 1                            ;
-; 14                                          ; 0                            ;
+; 13                                          ; 2                            ;
+; 14                                          ; 2                            ;
 ; 15                                          ; 2                            ;
 ; 16                                          ; 6                            ;
 +---------------------------------------------+------------------------------+
@@ -1115,17 +1108,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------+------------------------------+
 ; LAB-wide Signals  (Average = 1.40) ; Number of LABs  (Total = 15) ;
 +------------------------------------+------------------------------+
-; 1 Clock                            ; 13                           ;
-; 1 Clock enable                     ; 5                            ;
-; 2 Clock enables                    ; 1                            ;
-; 2 Clocks                           ; 2                            ;
+; 1 Clock                            ; 12                           ;
+; 1 Clock enable                     ; 6                            ;
+; 2 Clocks                           ; 3                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 18.67) ; Number of LABs  (Total = 15) ;
+; Number of Signals Sourced  (Average = 20.67) ; Number of LABs  (Total = 15) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
@@ -1137,76 +1129,78 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 7                                            ; 0                            ;
 ; 8                                            ; 0                            ;
 ; 9                                            ; 0                            ;
-; 10                                           ; 1                            ;
+; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
-; 12                                           ; 1                            ;
-; 13                                           ; 1                            ;
+; 12                                           ; 0                            ;
+; 13                                           ; 0                            ;
 ; 14                                           ; 0                            ;
 ; 15                                           ; 1                            ;
 ; 16                                           ; 0                            ;
 ; 17                                           ; 0                            ;
 ; 18                                           ; 1                            ;
 ; 19                                           ; 1                            ;
-; 20                                           ; 0                            ;
-; 21                                           ; 1                            ;
+; 20                                           ; 1                            ;
+; 21                                           ; 0                            ;
 ; 22                                           ; 1                            ;
-; 23                                           ; 0                            ;
-; 24                                           ; 1                            ;
-; 25                                           ; 0                            ;
+; 23                                           ; 1                            ;
+; 24                                           ; 3                            ;
+; 25                                           ; 2                            ;
 ; 26                                           ; 0                            ;
-; 27                                           ; 1                            ;
-; 28                                           ; 2                            ;
-; 29                                           ; 0                            ;
-; 30                                           ; 0                            ;
-; 31                                           ; 1                            ;
+; 27                                           ; 0                            ;
+; 28                                           ; 0                            ;
+; 29                                           ; 1                            ;
+; 30                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 7.87) ; Number of LABs  (Total = 15) ;
+; Number of Signals Sourced Out  (Average = 9.27) ; Number of LABs  (Total = 15) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
 ; 1                                               ; 2                            ;
-; 2                                               ; 0                            ;
-; 3                                               ; 2                            ;
-; 4                                               ; 0                            ;
-; 5                                               ; 1                            ;
+; 2                                               ; 1                            ;
+; 3                                               ; 0                            ;
+; 4                                               ; 1                            ;
+; 5                                               ; 0                            ;
 ; 6                                               ; 0                            ;
 ; 7                                               ; 1                            ;
 ; 8                                               ; 1                            ;
-; 9                                               ; 2                            ;
-; 10                                              ; 2                            ;
+; 9                                               ; 0                            ;
+; 10                                              ; 0                            ;
 ; 11                                              ; 1                            ;
-; 12                                              ; 1                            ;
-; 13                                              ; 0                            ;
+; 12                                              ; 5                            ;
+; 13                                              ; 1                            ;
 ; 14                                              ; 1                            ;
-; 15                                              ; 1                            ;
+; 15                                              ; 0                            ;
+; 16                                              ; 0                            ;
+; 17                                              ; 0                            ;
+; 18                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 10.20) ; Number of LABs  (Total = 15) ;
+; Number of Distinct Inputs  (Average = 12.33) ; Number of LABs  (Total = 15) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 2                            ;
 ; 2                                            ; 0                            ;
 ; 3                                            ; 0                            ;
 ; 4                                            ; 1                            ;
-; 5                                            ; 1                            ;
-; 6                                            ; 1                            ;
-; 7                                            ; 0                            ;
-; 8                                            ; 1                            ;
+; 5                                            ; 0                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 1                            ;
+; 8                                            ; 0                            ;
 ; 9                                            ; 0                            ;
-; 10                                           ; 3                            ;
+; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
 ; 12                                           ; 2                            ;
-; 13                                           ; 2                            ;
-; 14                                           ; 0                            ;
-; 15                                           ; 0                            ;
+; 13                                           ; 5                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 1                            ;
 ; 16                                           ; 0                            ;
 ; 17                                           ; 0                            ;
 ; 18                                           ; 0                            ;
@@ -1215,7 +1209,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 21                                           ; 0                            ;
 ; 22                                           ; 0                            ;
 ; 23                                           ; 0                            ;
-; 24                                           ; 2                            ;
+; 24                                           ; 0                            ;
+; 25                                           ; 0                            ;
+; 26                                           ; 0                            ;
+; 27                                           ; 2                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -1275,19 +1272,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 ; Pin/Rules          ; IO_000001 ; IO_000002    ; IO_000003 ; IO_000004    ; IO_000005    ; IO_000006 ; IO_000007 ; IO_000008    ; IO_000009 ; IO_000010 ; IO_000011    ; IO_000012    ; IO_000013    ; IO_000014    ; IO_000015    ; IO_000018    ; IO_000019    ; IO_000020    ; IO_000021    ; IO_000022    ; IO_000023    ; IO_000024    ; IO_000026    ; IO_000027    ; IO_000045    ; IO_000046    ; IO_000047    ; IO_000033 ; IO_000034    ; IO_000042    ;
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
-; Total Pass         ; 12        ; 0            ; 12        ; 0            ; 0            ; 12        ; 12        ; 0            ; 12        ; 12        ; 0            ; 0            ; 0            ; 0            ; 2            ; 0            ; 0            ; 2            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 12        ; 0            ; 0            ;
+; Total Pass         ; 5         ; 0            ; 5         ; 0            ; 0            ; 5         ; 5         ; 0            ; 5         ; 5         ; 0            ; 0            ; 0            ; 0            ; 2            ; 0            ; 0            ; 2            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 5         ; 0            ; 0            ;
 ; Total Unchecked    ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
-; Total Inapplicable ; 0         ; 12           ; 0         ; 12           ; 12           ; 0         ; 0         ; 12           ; 0         ; 0         ; 12           ; 12           ; 12           ; 12           ; 10           ; 12           ; 12           ; 10           ; 12           ; 12           ; 12           ; 12           ; 12           ; 12           ; 12           ; 12           ; 12           ; 0         ; 12           ; 12           ;
+; Total Inapplicable ; 0         ; 5            ; 0         ; 5            ; 5            ; 0         ; 0         ; 5            ; 0         ; 0         ; 5            ; 5            ; 5            ; 5            ; 3            ; 5            ; 5            ; 3            ; 5            ; 5            ; 5            ; 5            ; 5            ; 5            ; 5            ; 5            ; 5            ; 0         ; 5            ; 5            ;
 ; Total Fail         ; 0         ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
 ; GPIO_15            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO_17            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; LED[7]             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; LED[6]             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; LED[5]             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; LED[4]             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; LED[3]             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; LED[2]             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; LED[1]             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; LED[0]             ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; CLOCK_50           ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO_24            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -1335,9 +1325,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------+-----------------------------------+-------------------+
 ; Source Clock(s)                                           ; Destination Clock(s)              ; Delay Added in ns ;
 +-----------------------------------------------------------+-----------------------------------+-------------------+
-; baudClkGen:inst|baudClk                                   ; baudClkGen:inst|baudClk           ; 46.5              ;
-; uartReciever:inst2|rxCompleteFlag,baudClkGen:inst|baudClk ; uartReciever:inst2|rxCompleteFlag ; 12.2              ;
-; baudClkGen:inst|baudClk                                   ; uartReciever:inst2|rxCompleteFlag ; 6.7               ;
+; baudClkGen:inst|baudClk                                   ; baudClkGen:inst|baudClk           ; 49.6              ;
+; uartReciever:inst2|rxCompleteFlag,baudClkGen:inst|baudClk ; uartReciever:inst2|rxCompleteFlag ; 13.6              ;
+; baudClkGen:inst|baudClk                                   ; uartReciever:inst2|rxCompleteFlag ; 8.0               ;
 ; CLOCK_50                                                  ; CLOCK_50                          ; 4.9               ;
 +-----------------------------------------------------------+-----------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
@@ -1349,56 +1339,59 @@ This will disable optimization of problematic paths and expose them for further 
 +--------------------------------------------+--------------------------------------------+-------------------+
 ; Source Register                            ; Destination Register                       ; Delay Added in ns ;
 +--------------------------------------------+--------------------------------------------+-------------------+
-; pwmClkGen:inst1|pwmClk                     ; pwmClkGen:inst1|pwmClk                     ; 2.515             ;
-; baudClkGen:inst|baudClk                    ; baudClkGen:inst|baudClk                    ; 2.420             ;
-; uartReciever:inst2|rxCompleteFlag          ; rxIndicator:inst4|rxLED                    ; 2.342             ;
-; rxIndicator:inst4|count[1]                 ; rxIndicator:inst4|rxLED                    ; 1.703             ;
-; rxIndicator:inst4|count[2]                 ; rxIndicator:inst4|rxLED                    ; 1.703             ;
-; rxIndicator:inst4|count[0]                 ; rxIndicator:inst4|rxLED                    ; 1.703             ;
-; uartReciever:inst2|rxData[4]               ; servoSelectController:inst3|lowData[4]     ; 1.364             ;
-; uartReciever:inst2|rxData[0]               ; servoSelectController:inst3|highData[0]    ; 1.362             ;
-; uartReciever:inst2|rxData[2]               ; servoSelectController:inst3|lowData[2]     ; 1.359             ;
-; uartReciever:inst2|rxData[1]               ; servoSelectController:inst3|lowData[1]     ; 1.359             ;
-; uartReciever:inst2|rxData[7]               ; servoSelectController:inst3|lastServoWrite ; 1.227             ;
-; uartReciever:inst2|rxData[6]               ; servoSelectController:inst3|lastServoWrite ; 1.221             ;
-; rxIndicator:inst4|count[3]                 ; rxIndicator:inst4|count[3]                 ; 1.202             ;
-; uartReciever:inst2|rxData[5]               ; servoSelectController:inst3|lastServoWrite ; 1.199             ;
-; rxIndicator:inst4|count[8]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
-; rxIndicator:inst4|count[7]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
-; rxIndicator:inst4|count[5]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
-; rxIndicator:inst4|count[4]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
-; rxIndicator:inst4|count[6]                 ; rxIndicator:inst4|count[8]                 ; 1.079             ;
-; uartReciever:inst2|rxData[3]               ; servoSelectController:inst3|lowData[3]     ; 1.060             ;
-; pwmClkGen:inst1|count[3]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
-; pwmClkGen:inst1|count[2]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
-; pwmClkGen:inst1|count[0]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
-; pwmClkGen:inst1|count[4]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
-; pwmClkGen:inst1|count[1]                   ; pwmClkGen:inst1|pwmClk                     ; 0.859             ;
-; uartReciever:inst2|state.stopBit           ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
-; uartReciever:inst2|baudCount[3]            ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
-; uartReciever:inst2|baudCount[2]            ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
-; uartReciever:inst2|baudCount[1]            ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
-; uartReciever:inst2|state.idle              ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
-; uartReciever:inst2|baudCount[0]            ; uartReciever:inst2|rxCompleteFlag          ; 0.812             ;
-; rxIndicator:inst4|count[9]                 ; rxIndicator:inst4|count[10]                ; 0.764             ;
-; rxIndicator:inst4|count[10]                ; rxIndicator:inst4|count[10]                ; 0.764             ;
-; servoSelectController:inst3|lowData[2]     ; servoSelectController:inst3|lowData[2]     ; 0.722             ;
-; servoSelectController:inst3|lowData[1]     ; servoSelectController:inst3|lowData[1]     ; 0.722             ;
-; servoSelectController:inst3|lowData[0]     ; servoSelectController:inst3|lowData[0]     ; 0.722             ;
-; servoSelectController:inst3|lastServoWrite ; servoSelectController:inst3|lowData[2]     ; 0.722             ;
-; servoSelectController:inst3|highData[0]    ; servoSelectController:inst3|highData[0]    ; 0.712             ;
-; servoSelectController:inst3|lowData[3]     ; servoSelectController:inst3|lowData[3]     ; 0.703             ;
-; servoSelectController:inst3|highData[1]    ; servoSelectController:inst3|xPWMStore[6]   ; 0.691             ;
-; servoSelectController:inst3|lowData[4]     ; servoSelectController:inst3|lowData[4]     ; 0.690             ;
-; baudClkGen:inst|count[6]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
-; baudClkGen:inst|count[5]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
-; baudClkGen:inst|count[4]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
-; baudClkGen:inst|count[2]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
-; baudClkGen:inst|count[1]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
-; baudClkGen:inst|count[0]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
-; baudClkGen:inst|count[3]                   ; baudClkGen:inst|baudClk                    ; 0.552             ;
+; pwmClkGen:inst1|pwmClk                     ; pwmClkGen:inst1|pwmClk                     ; 2.517             ;
+; uartReciever:inst2|rxCompleteFlag          ; rxIndicator:inst4|rxLED                    ; 2.488             ;
+; baudClkGen:inst|baudClk                    ; baudClkGen:inst|baudClk                    ; 2.417             ;
+; rxIndicator:inst4|count[1]                 ; rxIndicator:inst4|rxLED                    ; 1.793             ;
+; rxIndicator:inst4|count[2]                 ; rxIndicator:inst4|rxLED                    ; 1.793             ;
+; rxIndicator:inst4|count[0]                 ; rxIndicator:inst4|rxLED                    ; 1.793             ;
+; rxIndicator:inst4|count[4]                 ; rxIndicator:inst4|count[4]                 ; 1.405             ;
+; rxIndicator:inst4|count[3]                 ; rxIndicator:inst4|count[4]                 ; 1.405             ;
+; uartReciever:inst2|rxData[4]               ; servoSelectController:inst3|xPWMStore[4]   ; 1.237             ;
+; uartReciever:inst2|rxData[1]               ; servoSelectController:inst3|xPWMStore[1]   ; 1.237             ;
+; uartReciever:inst2|rxData[0]               ; servoSelectController:inst3|yPWMStore[5]   ; 1.204             ;
+; uartReciever:inst2|rxData[2]               ; servoSelectController:inst3|yPWMStore[2]   ; 1.201             ;
+; uartReciever:inst2|rxData[3]               ; servoSelectController:inst3|yPWMStore[8]   ; 1.201             ;
+; rxIndicator:inst4|count[8]                 ; rxIndicator:inst4|count[8]                 ; 1.147             ;
+; rxIndicator:inst4|count[7]                 ; rxIndicator:inst4|count[8]                 ; 1.147             ;
+; rxIndicator:inst4|count[5]                 ; rxIndicator:inst4|count[8]                 ; 1.147             ;
+; rxIndicator:inst4|count[6]                 ; rxIndicator:inst4|count[8]                 ; 1.147             ;
+; pwmClkGen:inst1|count[3]                   ; pwmClkGen:inst1|pwmClk                     ; 0.872             ;
+; pwmClkGen:inst1|count[2]                   ; pwmClkGen:inst1|pwmClk                     ; 0.872             ;
+; pwmClkGen:inst1|count[0]                   ; pwmClkGen:inst1|pwmClk                     ; 0.872             ;
+; pwmClkGen:inst1|count[4]                   ; pwmClkGen:inst1|pwmClk                     ; 0.872             ;
+; pwmClkGen:inst1|count[1]                   ; pwmClkGen:inst1|pwmClk                     ; 0.872             ;
+; uartReciever:inst2|rxData[7]               ; servoSelectController:inst3|lastServoWrite ; 0.868             ;
+; uartReciever:inst2|rxData[6]               ; servoSelectController:inst3|lastServoWrite ; 0.866             ;
+; uartReciever:inst2|rxData[5]               ; servoSelectController:inst3|lastServoWrite ; 0.854             ;
+; rxIndicator:inst4|count[9]                 ; rxIndicator:inst4|count[9]                 ; 0.830             ;
+; rxIndicator:inst4|count[10]                ; rxIndicator:inst4|count[10]                ; 0.740             ;
+; servoSelectController:inst3|lowData[4]     ; servoSelectController:inst3|xPWMStore[4]   ; 0.710             ;
+; servoSelectController:inst3|lowData[1]     ; servoSelectController:inst3|xPWMStore[1]   ; 0.710             ;
+; servoSelectController:inst3|lastServoWrite ; servoSelectController:inst3|xPWMStore[4]   ; 0.710             ;
+; uartReciever:inst2|state.stopBit           ; uartReciever:inst2|rxCompleteFlag          ; 0.701             ;
+; uartReciever:inst2|baudCount[3]            ; uartReciever:inst2|rxCompleteFlag          ; 0.701             ;
+; uartReciever:inst2|state.idle              ; uartReciever:inst2|rxCompleteFlag          ; 0.701             ;
+; uartReciever:inst2|baudCount[0]            ; uartReciever:inst2|rxCompleteFlag          ; 0.701             ;
+; uartReciever:inst2|baudCount[1]            ; uartReciever:inst2|rxCompleteFlag          ; 0.701             ;
+; uartReciever:inst2|baudCount[2]            ; uartReciever:inst2|rxCompleteFlag          ; 0.701             ;
+; servoSelectController:inst3|lowData[2]     ; servoSelectController:inst3|yPWMStore[2]   ; 0.661             ;
+; servoSelectController:inst3|highData[0]    ; servoSelectController:inst3|yPWMStore[5]   ; 0.659             ;
+; servoSelectController:inst3|lowData[0]     ; servoSelectController:inst3|lowData[0]     ; 0.642             ;
+; servoSelectController:inst3|highData[3]    ; servoSelectController:inst3|yPWMStore[8]   ; 0.637             ;
+; servoSelectController:inst3|highData[2]    ; servoSelectController:inst3|yPWMStore[7]   ; 0.637             ;
+; servoSelectController:inst3|lowData[3]     ; servoSelectController:inst3|lowData[3]     ; 0.578             ;
+; servoSelectController:inst3|highData[1]    ; servoSelectController:inst3|highData[1]    ; 0.569             ;
+; baudClkGen:inst|count[6]                   ; baudClkGen:inst|baudClk                    ; 0.551             ;
+; baudClkGen:inst|count[5]                   ; baudClkGen:inst|baudClk                    ; 0.551             ;
+; baudClkGen:inst|count[4]                   ; baudClkGen:inst|baudClk                    ; 0.551             ;
+; baudClkGen:inst|count[2]                   ; baudClkGen:inst|baudClk                    ; 0.551             ;
+; baudClkGen:inst|count[1]                   ; baudClkGen:inst|baudClk                    ; 0.551             ;
+; baudClkGen:inst|count[0]                   ; baudClkGen:inst|baudClk                    ; 0.551             ;
+; baudClkGen:inst|count[3]                   ; baudClkGen:inst|baudClk                    ; 0.551             ;
+; servoSelectController:inst3|highData[4]    ; servoSelectController:inst3|yPWMStore[9]   ; 0.397             ;
 +--------------------------------------------+--------------------------------------------+-------------------+
-Note: This table only shows the top 48 path(s) that have the largest delay added for hold.
+Note: This table only shows the top 51 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -1595,6 +1588,13 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "I2C_SDAT" is assigned to location or region, but does not exist in design
     Warning (15706): Node "KEY[0]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "KEY[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LED[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LED[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LED[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LED[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LED[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LED[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LED[7]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "SW[0]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "SW[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "SW[2]" is assigned to location or region, but does not exist in design
@@ -1612,7 +1612,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.37 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.31 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1623,11 +1623,11 @@ Warning (169177): 2 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2
     Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at R8
     Info (169178): Pin GPIO_24 uses I/O standard 3.3-V LVTTL at C15
 Info (144001): Generated suppressed messages file C:/Users/danie/Documents/GitHub/ENEL891_Ball_Plate/FPGA/FPGA_UART_Servo_Controller/output_files/FPGA_UART_Servo_Controller.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 153 warnings
-    Info: Peak virtual memory: 5527 megabytes
-    Info: Processing ended: Wed Aug 18 11:02:16 2021
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:09
+Info: Quartus Prime Fitter was successful. 0 errors, 160 warnings
+    Info: Peak virtual memory: 5526 megabytes
+    Info: Processing ended: Wed Aug 18 12:51:25 2021
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +----------------------------+

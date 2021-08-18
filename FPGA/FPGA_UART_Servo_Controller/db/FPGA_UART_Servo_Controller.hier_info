@@ -5,13 +5,6 @@ CLOCK_50 => baudClkGen:inst.clk50MHz
 GPIO_24 => uartReciever:inst2.rxIn
 GPIO_17 <= servoPWMDriver:PWM_Y_DRIVER.pulse
 LED[0] <= rxIndicator:inst4.rxLED
-LED[1] <= servoSelectController:inst3.xPWM[0]
-LED[2] <= servoSelectController:inst3.xPWM[1]
-LED[3] <= servoSelectController:inst3.xPWM[2]
-LED[4] <= servoSelectController:inst3.xPWM[3]
-LED[5] <= servoSelectController:inst3.xPWM[4]
-LED[6] <= servoSelectController:inst3.xPWM[5]
-LED[7] <= servoSelectController:inst3.xPWM[6]
 
 
 |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER

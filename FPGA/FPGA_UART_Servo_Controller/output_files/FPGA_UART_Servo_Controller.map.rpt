@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_UART_Servo_Controller
-Wed Aug 18 11:02:08 2021
+Wed Aug 18 12:51:18 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -47,16 +47,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Aug 18 11:02:08 2021       ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 18 12:51:18 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_UART_Servo_Controller                  ;
 ; Top-level Entity Name              ; FPGA_UART_Servo_Controller                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 180                                         ;
-;     Total combinational functions  ; 149                                         ;
-;     Dedicated logic registers      ; 113                                         ;
-; Total registers                    ; 113                                         ;
-; Total pins                         ; 12                                          ;
+; Total logic elements               ; 199                                         ;
+;     Total combinational functions  ; 162                                         ;
+;     Dedicated logic registers      ; 128                                         ;
+; Total registers                    ; 128                                         ;
+; Total pins                         ; 5                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -183,36 +183,36 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                           ;
-+---------------------------------------------+-------------------------+
-; Resource                                    ; Usage                   ;
-+---------------------------------------------+-------------------------+
-; Estimated Total logic elements              ; 180                     ;
-;                                             ;                         ;
-; Total combinational functions               ; 149                     ;
-; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 50                      ;
-;     -- 3 input functions                    ; 33                      ;
-;     -- <=2 input functions                  ; 66                      ;
-;                                             ;                         ;
-; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 85                      ;
-;     -- arithmetic mode                      ; 64                      ;
-;                                             ;                         ;
-; Total registers                             ; 113                     ;
-;     -- Dedicated logic registers            ; 113                     ;
-;     -- I/O registers                        ; 0                       ;
-;                                             ;                         ;
-; I/O pins                                    ; 12                      ;
-;                                             ;                         ;
-; Embedded Multiplier 9-bit elements          ; 0                       ;
-;                                             ;                         ;
-; Maximum fan-out node                        ; baudClkGen:inst|baudClk ;
-; Maximum fan-out                             ; 45                      ;
-; Total fan-out                               ; 717                     ;
-; Average fan-out                             ; 2.51                    ;
-+---------------------------------------------+-------------------------+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                     ;
++---------------------------------------------+-----------------------------------+
+; Resource                                    ; Usage                             ;
++---------------------------------------------+-----------------------------------+
+; Estimated Total logic elements              ; 199                               ;
+;                                             ;                                   ;
+; Total combinational functions               ; 162                               ;
+; Logic element usage by number of LUT inputs ;                                   ;
+;     -- 4 input functions                    ; 50                                ;
+;     -- 3 input functions                    ; 41                                ;
+;     -- <=2 input functions                  ; 71                                ;
+;                                             ;                                   ;
+; Logic elements by mode                      ;                                   ;
+;     -- normal mode                          ; 88                                ;
+;     -- arithmetic mode                      ; 74                                ;
+;                                             ;                                   ;
+; Total registers                             ; 128                               ;
+;     -- Dedicated logic registers            ; 128                               ;
+;     -- I/O registers                        ; 0                                 ;
+;                                             ;                                   ;
+; I/O pins                                    ; 5                                 ;
+;                                             ;                                   ;
+; Embedded Multiplier 9-bit elements          ; 0                                 ;
+;                                             ;                                   ;
+; Maximum fan-out node                        ; uartReciever:inst2|rxCompleteFlag ;
+; Maximum fan-out                             ; 45                                ;
+; Total fan-out                               ; 773                               ;
+; Average fan-out                             ; 2.58                              ;
++---------------------------------------------+-----------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -220,13 +220,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name                ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
-; |FPGA_UART_Servo_Controller      ; 149 (0)             ; 113 (0)                   ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
+; |FPGA_UART_Servo_Controller      ; 162 (0)             ; 128 (0)                   ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |FPGA_UART_Servo_Controller                             ; FPGA_UART_Servo_Controller ; work         ;
 ;    |baudClkGen:inst|             ; 10 (10)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|baudClkGen:inst             ; baudClkGen                 ; work         ;
 ;    |pwmClkGen:inst1|             ; 8 (8)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|pwmClkGen:inst1             ; pwmClkGen                  ; work         ;
 ;    |rxIndicator:inst4|           ; 27 (27)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|rxIndicator:inst4           ; rxIndicator                ; work         ;
-;    |servoPWMDriver:PWM_X_DRIVER| ; 51 (51)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoPWMDriver:PWM_Y_DRIVER| ; 20 (20)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
-;    |servoSelectController:inst3| ; 10 (10)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
+;    |servoPWMDriver:PWM_X_DRIVER| ; 55 (55)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_X_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoPWMDriver:PWM_Y_DRIVER| ; 26 (26)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoPWMDriver:PWM_Y_DRIVER ; servoPWMDriver             ; work         ;
+;    |servoSelectController:inst3| ; 13 (13)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|servoSelectController:inst3 ; servoSelectController      ; work         ;
 ;    |uartReciever:inst2|          ; 23 (23)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_UART_Servo_Controller|uartReciever:inst2          ; uartReciever               ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -259,15 +259,6 @@ Encoding Type:  One-Hot
 +-----------------------------------------+------------------------------------------------------+
 ; servoPWMDriver:PWM_Y_DRIVER|mark[12]    ; Stuck at GND due to stuck port data_in               ;
 ; servoPWMDriver:PWM_X_DRIVER|mark[12]    ; Stuck at GND due to stuck port data_in               ;
-; servoPWMDriver:PWM_Y_DRIVER|mark[10]    ; Stuck at VCC due to stuck port data_in               ;
-; servoPWMDriver:PWM_Y_DRIVER|mark[11]    ; Stuck at GND due to stuck port data_in               ;
-; servoPWMDriver:PWM_X_DRIVER|mark[10]    ; Stuck at VCC due to stuck port data_in               ;
-; servoPWMDriver:PWM_X_DRIVER|mark[11]    ; Stuck at GND due to stuck port data_in               ;
-; servoSelectController:inst3|xPWM[6]     ; Merged with servoSelectController:inst3|xPWMStore[6] ;
-; servoSelectController:inst3|xPWM[5]     ; Merged with servoSelectController:inst3|xPWMStore[5] ;
-; servoSelectController:inst3|xPWM[4]     ; Merged with servoSelectController:inst3|xPWMStore[4] ;
-; servoSelectController:inst3|xPWM[1]     ; Merged with servoSelectController:inst3|xPWMStore[1] ;
-; servoSelectController:inst3|xPWM[0]     ; Merged with servoSelectController:inst3|xPWMStore[0] ;
 ; servoPWMDriver:PWM_Y_DRIVER|counter[12] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[12]  ;
 ; servoPWMDriver:PWM_Y_DRIVER|counter[11] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[11]  ;
 ; servoPWMDriver:PWM_Y_DRIVER|counter[10] ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[10]  ;
@@ -281,17 +272,26 @@ Encoding Type:  One-Hot
 ; servoPWMDriver:PWM_Y_DRIVER|counter[2]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[2]   ;
 ; servoPWMDriver:PWM_Y_DRIVER|counter[1]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[1]   ;
 ; servoPWMDriver:PWM_Y_DRIVER|counter[0]  ; Merged with servoPWMDriver:PWM_X_DRIVER|counter[0]   ;
-; servoSelectController:inst3|yPWM[0]     ; Merged with servoSelectController:inst3|yPWMStore[0] ;
-; servoSelectController:inst3|yPWM[1]     ; Merged with servoSelectController:inst3|yPWMStore[1] ;
-; servoSelectController:inst3|yPWM[2]     ; Merged with servoSelectController:inst3|yPWMStore[2] ;
-; servoSelectController:inst3|yPWM[5]     ; Merged with servoSelectController:inst3|yPWMStore[5] ;
+; servoSelectController:inst3|xPWM[9]     ; Merged with servoSelectController:inst3|xPWMStore[9] ;
+; servoSelectController:inst3|xPWM[6]     ; Merged with servoSelectController:inst3|xPWMStore[6] ;
+; servoSelectController:inst3|xPWM[5]     ; Merged with servoSelectController:inst3|xPWMStore[5] ;
+; servoSelectController:inst3|xPWM[4]     ; Merged with servoSelectController:inst3|xPWMStore[4] ;
+; servoSelectController:inst3|xPWM[1]     ; Merged with servoSelectController:inst3|xPWMStore[1] ;
+; servoSelectController:inst3|xPWM[0]     ; Merged with servoSelectController:inst3|xPWMStore[0] ;
+; servoSelectController:inst3|yPWM[9]     ; Merged with servoSelectController:inst3|yPWMStore[9] ;
 ; servoSelectController:inst3|yPWM[6]     ; Merged with servoSelectController:inst3|yPWMStore[6] ;
-; servoSelectController:inst3|xPWM[3]     ; Merged with servoSelectController:inst3|xPWMStore[3] ;
-; servoSelectController:inst3|xPWM[2]     ; Merged with servoSelectController:inst3|xPWMStore[2] ;
+; servoSelectController:inst3|yPWM[5]     ; Merged with servoSelectController:inst3|yPWMStore[5] ;
 ; servoSelectController:inst3|yPWM[4]     ; Merged with servoSelectController:inst3|yPWMStore[4] ;
+; servoSelectController:inst3|yPWM[1]     ; Merged with servoSelectController:inst3|yPWMStore[1] ;
+; servoSelectController:inst3|yPWM[0]     ; Merged with servoSelectController:inst3|yPWMStore[0] ;
+; servoSelectController:inst3|xPWM[8]     ; Merged with servoSelectController:inst3|xPWMStore[8] ;
+; servoSelectController:inst3|xPWM[3]     ; Merged with servoSelectController:inst3|xPWMStore[3] ;
+; servoSelectController:inst3|yPWM[8]     ; Merged with servoSelectController:inst3|yPWMStore[8] ;
 ; servoSelectController:inst3|yPWM[3]     ; Merged with servoSelectController:inst3|yPWMStore[3] ;
-; servoPWMDriver:PWM_Y_DRIVER|mark[9]     ; Stuck at VCC due to stuck port data_in               ;
-; servoPWMDriver:PWM_X_DRIVER|mark[9]     ; Stuck at VCC due to stuck port data_in               ;
+; servoSelectController:inst3|xPWM[7]     ; Merged with servoSelectController:inst3|xPWMStore[7] ;
+; servoSelectController:inst3|xPWM[2]     ; Merged with servoSelectController:inst3|xPWMStore[2] ;
+; servoSelectController:inst3|yPWM[7]     ; Merged with servoSelectController:inst3|yPWMStore[7] ;
+; servoSelectController:inst3|yPWM[2]     ; Merged with servoSelectController:inst3|yPWMStore[2] ;
 ; uartReciever:inst2|state~13             ; Lost fanout                                          ;
 ; uartReciever:inst2|state~14             ; Lost fanout                                          ;
 ; uartReciever:inst2|state~15             ; Lost fanout                                          ;
@@ -305,12 +305,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 113   ;
+; Total registers                              ; 128   ;
 ; Number of registers using Synchronous Clear  ; 12    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 37    ;
+; Number of registers using Clock Enable       ; 43    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -320,7 +320,7 @@ Encoding Type:  One-Hot
 +--------------------------------------------+---------+
 ; Inverted Register                          ; Fan out ;
 +--------------------------------------------+---------+
-; servoSelectController:inst3|lastServoWrite ; 9       ;
+; servoSelectController:inst3|lastServoWrite ; 12      ;
 ; Total number of inverted registers = 1     ;         ;
 +--------------------------------------------+---------+
 
@@ -350,25 +350,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 12                          ;
-; cycloneiii_ff         ; 113                         ;
-;     ENA               ; 37                          ;
+; boundary_port         ; 5                           ;
+; cycloneiii_ff         ; 128                         ;
+;     ENA               ; 43                          ;
 ;     SCLR              ; 12                          ;
-;     plain             ; 64                          ;
-; cycloneiii_lcell_comb ; 149                         ;
-;     arith             ; 64                          ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 36                          ;
-;         3 data inputs ; 26                          ;
-;     normal            ; 85                          ;
+;     plain             ; 73                          ;
+; cycloneiii_lcell_comb ; 162                         ;
+;     arith             ; 74                          ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 32                          ;
+;     normal            ; 88                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 21                          ;
-;         3 data inputs ; 7                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 9                           ;
 ;         4 data inputs ; 50                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.80                        ;
-; Average LUT depth     ; 2.70                        ;
+; Max LUT depth         ; 6.10                        ;
+; Average LUT depth     ; 2.90                        ;
 +-----------------------+-----------------------------+
 
 
@@ -387,7 +386,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Aug 18 11:01:57 2021
+    Info: Processing started: Wed Aug 18 12:51:08 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_UART_Servo_Controller -c FPGA_UART_Servo_Controller
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -422,14 +421,14 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 209 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 229 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 197 logic cells
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 224 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
     Info: Peak virtual memory: 4775 megabytes
-    Info: Processing ended: Wed Aug 18 11:02:08 2021
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Processing ended: Wed Aug 18 12:51:18 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:24
 
 
