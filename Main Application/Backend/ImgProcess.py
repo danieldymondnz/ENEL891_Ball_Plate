@@ -5,7 +5,7 @@ from time import time
 from math import sqrt
 from Backend.ImageFrame import ImageFrame as ImageFrame
 
-class ImageProcessor(threading.Thread):
+class ImgProcess(threading.Thread):
 
     # Camera Viewport Specifications
     viewWidth = 640
@@ -64,7 +64,7 @@ class ImageProcessor(threading.Thread):
         nContours = 0
         for contour in circFind:
             circArea = cv.contourArea(contour)
-            if circArea >= ImageProcessor.lowArea and circArea <= ImageProcessor.uppArea:
+            if circArea >= ImgProcess.lowArea and circArea <= ImgProcess.uppArea:
                 nContours += 1
                 x, y, w, h = cv.boundingRect(contour)
                 # Ball position in pixel co-ords
@@ -87,19 +87,52 @@ class ImageProcessor(threading.Thread):
         
         return ballFound, img, BP_x, BP_y, ball_x, ball_y
 
+        # Calculate the elapsed time since the last frame
+    def calculateElapsedTime(self):
+
+        # Get current time
+        currTime = time()
+
+        # If this is the first run of the controller, return the default 30fps
+        if (self.firstRun):
+            self.lastTime = currTime
+            return (1/30)
+        
+        # Otherwise, compare clock times
+        else:
+            timeElapsed = currTime - self.lastTime
+            self.lastTime = currTime
+            return timeElapsed
+
+
  # Collects and returns the data needed by the Director
     def getData(self):
 
         velocity = 0
-        elapsedTime = 0
+        
 
         # Obtain frame and contours to get Ball Position
         ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY = self.generateContours()
 
+        # Determine the time elapsed, unless this is the first frame
+        elapsedTime = self.calculateElapsedTime()
+
+         # Generate scalar velocity of ball
+        if (ballFound):
+            distanceTravelled = sqrt((self.prevX - BP_x) ** 2 + (self.prevY - BP_y) ** 2)
+            velocity = distanceTravelled / elapsedTime
+
+        # Append current position to cache
+        self.prevX = BP_x
+        self.prevY = BP_y
+
+
         # Debug Info
         if self.enableVerbose:
+            print("Time elapsed : {}".format(elapsedTime))
             print("Ball Located? : {}".format(ballFound))
             print("Ball position: {} , {}".format(BP_x,BP_y))
+            print("Ball Velocity: {} ms-1".format(velocity))
         
         return ballFound, cameraImage, BP_x, BP_y, pixelX, pixelY, elapsedTime, velocity
 
