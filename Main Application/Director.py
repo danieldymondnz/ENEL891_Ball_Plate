@@ -3,6 +3,7 @@
 # For testing purposes on Laptop, set for that situation
 ##
 
+from Backend.ImgProcess import ImgProcess
 import threading
 from queue import Queue
 import cv2 as cv
@@ -33,7 +34,8 @@ class Director(threading.Thread):
 
         # Initialise the Image Processor Thread
         self.imgQueue = Queue()
-        self.imgProc = ImageProcessor.ImageProcessor(cameraID, self.imgQueue, False)
+        #self.imgProc = ImageProcessor.ImageProcessor(cameraID, self.imgQueue, False)
+        self.imgProc = ImgProcess.ImgProcess(cameraID, self.imgQueue, False)
         self.imgProc.start()
 
         # Initialise the Augmentation System and start Thread
