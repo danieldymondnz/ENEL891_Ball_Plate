@@ -1,23 +1,20 @@
+from GUIs.BallDetection import BallDetection
 import sys
 import numpy as np
 import cv2 as cv
-from PyQt5 import QtCore as qtc
-from PyQt5 import QtWidgets as qtw
-from PyQt5 import QtGui as qtg
-from PyQt5.QtWidgets import QMainWindow
-
+from PyQt5 import QtCore
+from PyQt5 import QtWidgets
+from PyQt5 import QtGui
 
 from mockup import Ui_MainWindow
 
 
-class MyGUI(qtw.QMainWindow):
-
-
+class MyGUI(QtWidgets.QMainWindow):
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.main_win = QMainWindow()
         self.ui = Ui_MainWindow()
-        self.ui.setupUi(self.main_win)
+        self.ui.setupUi(self)
         self.ui.stackedWidget.setCurrentWidget(self.ui.MainMenu_pg)
 
         # Main Menu Buttons to navigate to another page
@@ -44,14 +41,24 @@ class MyGUI(qtw.QMainWindow):
         self.ui.Joystick_BallCont_btn.clicked.connect(self.JoystickBallSetup)
         self.ui.Joystick_PlateCont_btn.clicked.connect(self.JoystickPlateSetup)
 
-    def show(self):
-        self.main_win.show()
+        self.Worker1 = Worker1()
+        self.Worker1.ImageUpdate.connect(self.ImageUpdateSlot)
+        self.Worker1.start()
 
-    def ImageUpdate(self,img):
-        img = cv.cvtColor(img, cv.COLOR_BGR2RGB)  
-        img = qtg.QImage(img, img.shape[1], img.shape[0], qtg.QImage.Format_RGB888)
-        piximg = qtg.QPixmap.fromImage(img)
+    def ImageUpdateSlot(self,img):
+        piximg = QtGui.QPixmap.fromImage(img)
         self.ui.frames_lbl.setPixmap(piximg)
+        # self.ui.frames)lbl.setPixmap(QPixmap.fromImage(img))
+        
+
+
+    def closeEvent(self, event):
+        print('Close event fired')
+        self.Worker1.Capture.release()  # not checked this
+        self.Worker1.stop()
+        cv.destroyAllWindows()
+        event.accept()
+
 
     def showMainMenu(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.MainMenu_pg)  
@@ -113,6 +120,9 @@ class MyGUI(qtw.QMainWindow):
         self.ui.Joystick_BallCont_btn.setStyleSheet(unclickedbtn_stylesheet)
         self.ui.Joystick_PlateCont_btn.setStyleSheet(clickedbtn_stylesheet)
 
+
+
+
 unclickedbtn_stylesheet = """
 QPushButton {
 border-width: 2px;
@@ -136,9 +146,24 @@ background-color: rgb(165, 244, 121);
 }
 """
 
+class Worker1(QtCore.QThread):
+    ImageUpdate = QtCore.pyqtSignal(QtGui.QImage)
+    def run(self):
+        self.ThreadActive = True
+        self.Capture = cv.VideoCapture(0)
+        while self.ThreadActive:
+            ret, frame = self.Capture.read()
+            if ret:
+                img = cv.cvtColor(frame, cv.COLOR_BGR2RGB)  
+                img = QtGui.QImage(img, img.shape[1], img.shape[0], QtGui.QImage.Format_RGB888)
+                self.ImageUpdate.emit(img)
+
+    def stop(self):
+        self.ThreadActive = False
+        self.quit()
+
 if __name__ == '__main__':
-    app = qtw.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     main_win = MyGUI()
     main_win.show()
-    
     sys.exit(app.exec_())
