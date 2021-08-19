@@ -29,7 +29,8 @@ class UART:
         yAngleBits = UART.__convertAngle__(servoYAngle + UART.Y_ANGLE_TUNER)
         yByte = UART.__generateUARTData__(yAngleBits, 0)
         UART.__uartTX__(yByte)
-
+        
+    @staticmethod 
     def __convertAngle__(angle):
 
         ''' Converts a Given Angle into the 7-bit value required by the FPGA '''
@@ -52,6 +53,7 @@ class UART:
         binaryPos = int(binaryPos)
         return binaryPos
 
+    @staticmethod 
     def __generateUARTData__(binaryPosition, isYServo):
         ''' Takes the Binary Position Data and Servo Select and generates the 8-bit value '''
         # Assembles the byte
@@ -64,6 +66,7 @@ class UART:
 
         return bytearray(byte)
 
+    @staticmethod
     def __uartTX__(data):
         ''' Performs the UART TX for some given data '''
         global serialPort
