@@ -12,33 +12,24 @@ from Backend import *
 
 # Serial Port
 BAUD_RATE = 9600
-NUM_OF_BITS = 10
-
-# Initial Values for angles
-P_aX = 0 # plate angle X initial value
-P_aY = 0 # plate angle Y initial value
-S_angleX = 0  # initial angle of servos
-S_angleY = 0  # initial angle of servos
-
-d = 0.045 # servo arm length
-Length = 0.06 # distance from servo plate connection to centre pivot point
+NUM_OF_BITS = 8
 
 # PID Specifications
-Kp = 20 #2.768
-Ki = 1.08
-Kd = 15
-
-# Aim for the Setpoint in the Center of the Plate
-setpoint = [0,0]
+KP = 20 #2.768
+KI = 1.08
+KD = 15
 
 class Director(threading.Thread):
 
     # Initialise components for the Director
     def __init__(self, cameraID, serialAddress, verbose):
 
+        # Aim for the setpoint in the Center of the Plate
+        self.setpoint = [0,0]
+
         # PID Controllers for the Servos
-        self.xAxis = PID.PID(Kp, Ki, Kd, setpoint[0], False)
-        self.yAxis = PID.PID(Kp, Ki, Kd, setpoint[1], False)
+        self.xAxis = PID.PID(KP, KI, KD, self.setpoint[0], False)
+        self.yAxis = PID.PID(KP, KI, KD, self.setpoint[1], False)
 
         # Initialise the Image Processor Thread
         self.imgQueue = Queue()
@@ -55,19 +46,19 @@ class Director(threading.Thread):
 
         # Mode
         # self.patternMode = PatternTypes.CENTER
-
+    
     # The main loop for this thread
     def run(self):
 
         # Keep running this loop of code until the the "terminate" method is called
         while(self.keepRunning):
-            self.performLoopIteration()
+            self.__performLoopIteration__()
         
         # Safely destroy the image processor
         self.imgProc.destroyProcessor()
 
     # Method checks the queue and gets the latest frame
-    def getNextQueueImage(self):
+    def __getNextQueueImage__(self):
 
         # Review the current number of items in the queue
         queueSize = self.imgQueue.qsize()
@@ -87,10 +78,10 @@ class Director(threading.Thread):
             return self.imgQueue.get_nowait()
 
     # Performs the logic needed for the Director to sequence the classes
-    def performLoopIteration(self):
+    def __performLoopIteration__(self):
 
         # Grab the next Image from the Queue
-        nextImg = self.getNextQueueImage()
+        nextImg = self.__getNextQueueImage__()
 
         # If no image is queued, return.
         if nextImg == None:
