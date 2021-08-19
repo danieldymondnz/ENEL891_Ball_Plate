@@ -3,8 +3,7 @@
 # For testing purposes on Laptop, set for that situation
 ##
 
-import queue
-import time
+import threading
 from queue import Queue
 import cv2 as cv
 from Backend import *
@@ -32,7 +31,7 @@ Kd = 15
 # Aim for the Setpoint in the Center of the Plate
 setpoint = [0,0]
 
-class Director:
+class Director(threading.Thread):
 
     # Initialise components for the Director
     def __init__(self, cameraID, serialAddress, verbose):
@@ -58,17 +57,14 @@ class Director:
         # self.patternMode = PatternTypes.CENTER
 
     # The main loop for this thread
-    def main(self):
+    def run(self):
 
         # Keep running this loop of code until the the "terminate" method is called
         while(self.keepRunning):
             self.performLoopIteration()
-            if cv.waitKey(1) == ord('q'):
-                self.keepRunning = False
         
         # Safely destroy the image processor
         self.imgProc.destroyProcessor()
-
 
     # Method checks the queue and gets the latest frame
     def getNextQueueImage(self):
@@ -95,11 +91,20 @@ class Director:
 
         # Grab the next Image from the Queue
         nextImg = self.getNextQueueImage()
-        
+
         # If no image is queued, return.
         if nextImg == None:
             if self.enableVerbose:
                 print("No Frame in Queue to Process")
+            return
+
+        # Transmit the frame of the ball to the GUI
+        # TODO
+        
+        # If plate is being overriden to flat, then set servo position
+        if self.returnPlateToFlat == True:
+            if self.enableVerbose:
+                print("Plate set to flatten")
             return
 
         # Otherwise, if image is returned...
@@ -113,9 +118,7 @@ class Director:
             BP_x, BP_y = nextImg.getBallPosition()
             timestamp = nextImg.getTimeStamp()
 
-            # Transmit the frame of the ball to the GUI
-            # TODO
-        
+            
             # Send position data to the PID Controllers and determine the desired Plate Angles
             P_aX = self.xAxis.compute(BP_x, timestamp)
             P_aY = self.yAxis.compute(BP_y, timestamp)
@@ -151,6 +154,20 @@ class Director:
         # Return if execution complete
         return True
 
-    # Sets the flag to terminate this Director object and it's threads
-    def terminate(self):
+    def holdPlate(self):
+        ''' Hold the plate in the current position. '''
+        self.augmentation.hold()
+
+    def releasePlate(self):
+        ''' Release any active hold acting on the plate and resume control. '''
+        self.augmentation.resume()
+        self.returnPlateToFlat = False
+
+    def flattenPlate(self):
+        ''' Returns the plate to the flat position. '''
+        self.augmentation.setNextAngle(0,0)
+        self.returnPlateToFlat = True
+
+    def kill(self):
+        ''' Destroys the director thread and all child objects. '''
         self.keepRunning = False

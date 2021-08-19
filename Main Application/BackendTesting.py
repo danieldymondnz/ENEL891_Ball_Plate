@@ -4,4 +4,4 @@ from Director import Director
 director = Director(0, "COM6", True)
 
 # Start the director
-director.main()
+director.run()
