@@ -95,6 +95,14 @@ class ServoPlateAugmentationSystem(threading.Thread):
         ''' Terminate the '''
         self.keepRunning = False
 
+    def hold(self):
+        ''' Hold the movement of the plate without terminating the thread. '''
+        self.pause = True
+
+    def resume(self):
+        ''' Resume the movement of the plate without terminating the thread. '''
+        self.pause = False
+
     def pauseResume(self):
         ''' Pause/Resume the movement of the plate without terminating the thread. '''
         self.pause = not self.pause
