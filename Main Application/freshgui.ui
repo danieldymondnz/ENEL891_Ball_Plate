@@ -39,7 +39,7 @@
      <string notr="true">background-color: rgb(189, 213, 234);</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="joystick_pg">
      <property name="styleSheet">
@@ -47,7 +47,7 @@
 
 </string>
      </property>
-     <widget class="QLabel" name="header_Joystick_lbl">
+     <widget class="QLabel" name="lbl_header_joystick">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -84,7 +84,7 @@ background-color: rgb(23, 45, 69);</string>
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="menu_Pos_btn_3">
+     <widget class="QPushButton" name="btn_joystick_menu">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -142,7 +142,7 @@ background-color: rgb(251, 251, 255);</string>
         <number>10</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushButton_14">
+        <widget class="QPushButton" name="btn_stick_position">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -175,7 +175,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_15">
+        <widget class="QPushButton" name="btn_stick_angle">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -209,7 +209,7 @@ color: #0c1b33;
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton_18">
+     <widget class="QPushButton" name="btn_stick_reset">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -254,7 +254,7 @@ color: #0c1b33;
 
 </string>
      </property>
-     <widget class="QLabel" name="header_Pattern_lbl">
+     <widget class="QLabel" name="lbl_header_pattern">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -291,7 +291,7 @@ background-color: rgb(23, 45, 69);</string>
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="menu_Pos_btn_2">
+     <widget class="QPushButton" name="btn_patt_menu">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -349,7 +349,7 @@ background-color: rgb(251, 251, 255);</string>
         <number>10</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushButton_11">
+        <widget class="QPushButton" name="btn_patt_rectangle">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -382,7 +382,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_10">
+        <widget class="QPushButton" name="btn_patt_circle">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -421,7 +421,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_12">
+        <widget class="QPushButton" name="btn_patt_infinity">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -454,7 +454,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_13">
+        <widget class="QPushButton" name="btn_patt_center">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -488,7 +488,7 @@ color: #0c1b33;
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton_16">
+     <widget class="QPushButton" name="btn_patt_reset">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -533,7 +533,7 @@ color: #0c1b33;
 
 </string>
      </property>
-     <widget class="QLabel" name="header_Position_lbl">
+     <widget class="QLabel" name="lbl_header_position">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -576,7 +576,7 @@ background-color: rgb(23, 45, 69);</string>
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="menu_Pos_btn">
+     <widget class="QPushButton" name="btn_pos_menu">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -631,7 +631,7 @@ background-color: rgb(251, 251, 255);</string>
         <number>1</number>
        </property>
        <item row="3" column="1">
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="btn_pos_xminus">
          <property name="maximumSize">
           <size>
            <width>40</width>
@@ -666,7 +666,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="lbl_pos_ypos">
          <property name="maximumSize">
           <size>
            <width>100</width>
@@ -685,7 +685,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="4" column="2">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="lbl_pos_showypos">
          <property name="maximumSize">
           <size>
            <width>80</width>
@@ -698,7 +698,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="4" column="3">
-        <widget class="QPushButton" name="pushButton_9">
+        <widget class="QPushButton" name="btn_pos_yplus">
          <property name="maximumSize">
           <size>
            <width>40</width>
@@ -733,7 +733,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="lbl_pos_showxpos">
          <property name="minimumSize">
           <size>
            <width>80</width>
@@ -752,7 +752,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QPushButton" name="pushButton_7">
+        <widget class="QPushButton" name="btn_pos_yminus">
          <property name="maximumSize">
           <size>
            <width>40</width>
@@ -787,7 +787,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_7">
+        <widget class="QLabel" name="lbl_pos_xpos">
          <property name="maximumSize">
           <size>
            <width>100</width>
@@ -806,7 +806,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="1" column="0" colspan="4">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="lbl_pos_setpos">
          <property name="font">
           <font>
            <family>Verdana</family>
@@ -819,7 +819,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="3" column="3">
-        <widget class="QPushButton" name="pushButton_8">
+        <widget class="QPushButton" name="btn_pos_xplus">
          <property name="maximumSize">
           <size>
            <width>40</width>
@@ -885,7 +885,7 @@ color: #0c1b33;
         <number>10</number>
        </property>
        <item row="1" column="0">
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="btn_pos_position">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -918,7 +918,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="btn_pos_center">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -954,7 +954,7 @@ color: #0c1b33;
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton_17">
+     <widget class="QPushButton" name="btn_pos_reset">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -994,7 +994,7 @@ color: #0c1b33;
      </widget>
     </widget>
     <widget class="QWidget" name="main_pg">
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="lbl_header_mainmenu">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -1037,7 +1037,7 @@ background-color: rgb(23, 45, 69);</string>
         <number>15</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="btn_main_position">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1070,7 +1070,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="btn_main_pattern">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1103,7 +1103,7 @@ color: #0c1b33;
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="btn_main_joystick">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1139,7 +1139,7 @@ color: #0c1b33;
      </widget>
     </widget>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="lbl_frames">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -1157,7 +1157,7 @@ border-color: rgb(179, 179, 179);</string>
      <string>For Frames</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="lbl_ballStats">
     <property name="geometry">
      <rect>
       <x>310</x>

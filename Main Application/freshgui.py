@@ -28,31 +28,31 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.joystick_pg.setObjectName("joystick_pg")
-        self.header_Joystick_lbl = QtWidgets.QLabel(self.joystick_pg)
-        self.header_Joystick_lbl.setGeometry(QtCore.QRect(0, 0, 311, 50))
-        self.header_Joystick_lbl.setMinimumSize(QtCore.QSize(0, 35))
+        self.lbl_header_joystick = QtWidgets.QLabel(self.joystick_pg)
+        self.lbl_header_joystick.setGeometry(QtCore.QRect(0, 0, 311, 50))
+        self.lbl_header_joystick.setMinimumSize(QtCore.QSize(0, 35))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(14)
-        self.header_Joystick_lbl.setFont(font)
-        self.header_Joystick_lbl.setStyleSheet("border-width: 1px;\n"
+        self.lbl_header_joystick.setFont(font)
+        self.lbl_header_joystick.setStyleSheet("border-width: 1px;\n"
 "border-color: rgb(103, 103, 103);\n"
 "border-style: solid;\n"
 "border-radius: 1;\n"
 "padding: 1px;\n"
 "color: rgb(251, 251, 255);\n"
 "background-color: rgb(23, 45, 69);")
-        self.header_Joystick_lbl.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.header_Joystick_lbl.setObjectName("header_Joystick_lbl")
-        self.menu_Pos_btn_3 = QtWidgets.QPushButton(self.joystick_pg)
-        self.menu_Pos_btn_3.setGeometry(QtCore.QRect(230, 8, 65, 32))
-        self.menu_Pos_btn_3.setMinimumSize(QtCore.QSize(65, 0))
-        self.menu_Pos_btn_3.setMaximumSize(QtCore.QSize(65, 16777215))
+        self.lbl_header_joystick.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.lbl_header_joystick.setObjectName("lbl_header_joystick")
+        self.btn_joystick_menu = QtWidgets.QPushButton(self.joystick_pg)
+        self.btn_joystick_menu.setGeometry(QtCore.QRect(230, 8, 65, 32))
+        self.btn_joystick_menu.setMinimumSize(QtCore.QSize(65, 0))
+        self.btn_joystick_menu.setMaximumSize(QtCore.QSize(65, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.menu_Pos_btn_3.setFont(font)
-        self.menu_Pos_btn_3.setStyleSheet("border-width: 2px;\n"
+        self.btn_joystick_menu.setFont(font)
+        self.btn_joystick_menu.setStyleSheet("border-width: 2px;\n"
 "border-style: solid;\n"
 "border-radius: 7;\n"
 "padding: 3px;\n"
@@ -60,20 +60,20 @@ class Ui_MainWindow(object):
 "color: rgb(12, 27, 51);\n"
 "border-color: rgb(12, 27, 51);\n"
 "background-color: rgb(251, 251, 255);")
-        self.menu_Pos_btn_3.setObjectName("menu_Pos_btn_3")
+        self.btn_joystick_menu.setObjectName("btn_joystick_menu")
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.joystick_pg)
         self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(0, 50, 311, 191))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
         self.verticalLayout_3.setContentsMargins(10, 0, 10, 0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.pushButton_14 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
-        self.pushButton_14.setMinimumSize(QtCore.QSize(0, 40))
+        self.btn_stick_position = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.btn_stick_position.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
-        self.pushButton_14.setFont(font)
-        self.pushButton_14.setStyleSheet("QPushButton {\n"
+        self.btn_stick_position.setFont(font)
+        self.btn_stick_position.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -85,15 +85,15 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_14.setObjectName("pushButton_14")
-        self.verticalLayout_3.addWidget(self.pushButton_14)
-        self.pushButton_15 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
-        self.pushButton_15.setMinimumSize(QtCore.QSize(0, 40))
+        self.btn_stick_position.setObjectName("btn_stick_position")
+        self.verticalLayout_3.addWidget(self.btn_stick_position)
+        self.btn_stick_angle = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.btn_stick_angle.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
-        self.pushButton_15.setFont(font)
-        self.pushButton_15.setStyleSheet("QPushButton {\n"
+        self.btn_stick_angle.setFont(font)
+        self.btn_stick_angle.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -105,17 +105,17 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_15.setObjectName("pushButton_15")
-        self.verticalLayout_3.addWidget(self.pushButton_15)
-        self.pushButton_18 = QtWidgets.QPushButton(self.joystick_pg)
-        self.pushButton_18.setGeometry(QtCore.QRect(10, 380, 101, 31))
+        self.btn_stick_angle.setObjectName("btn_stick_angle")
+        self.verticalLayout_3.addWidget(self.btn_stick_angle)
+        self.btn_stick_reset = QtWidgets.QPushButton(self.joystick_pg)
+        self.btn_stick_reset.setGeometry(QtCore.QRect(10, 380, 101, 31))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_18.setFont(font)
-        self.pushButton_18.setStyleSheet("QPushButton {\n"
+        self.btn_stick_reset.setFont(font)
+        self.btn_stick_reset.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -130,38 +130,38 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_18.setObjectName("pushButton_18")
+        self.btn_stick_reset.setObjectName("btn_stick_reset")
         self.stackedWidget.addWidget(self.joystick_pg)
         self.pattern_pg = QtWidgets.QWidget()
         self.pattern_pg.setStyleSheet("background-color: #fbfbff;\n"
 "\n"
 "")
         self.pattern_pg.setObjectName("pattern_pg")
-        self.header_Pattern_lbl = QtWidgets.QLabel(self.pattern_pg)
-        self.header_Pattern_lbl.setGeometry(QtCore.QRect(0, 0, 311, 50))
-        self.header_Pattern_lbl.setMinimumSize(QtCore.QSize(0, 35))
+        self.lbl_header_pattern = QtWidgets.QLabel(self.pattern_pg)
+        self.lbl_header_pattern.setGeometry(QtCore.QRect(0, 0, 311, 50))
+        self.lbl_header_pattern.setMinimumSize(QtCore.QSize(0, 35))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(14)
-        self.header_Pattern_lbl.setFont(font)
-        self.header_Pattern_lbl.setStyleSheet("border-width: 1px;\n"
+        self.lbl_header_pattern.setFont(font)
+        self.lbl_header_pattern.setStyleSheet("border-width: 1px;\n"
 "border-color: rgb(103, 103, 103);\n"
 "border-style: solid;\n"
 "border-radius: 1;\n"
 "padding: 1px;\n"
 "color: rgb(251, 251, 255);\n"
 "background-color: rgb(23, 45, 69);")
-        self.header_Pattern_lbl.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.header_Pattern_lbl.setObjectName("header_Pattern_lbl")
-        self.menu_Pos_btn_2 = QtWidgets.QPushButton(self.pattern_pg)
-        self.menu_Pos_btn_2.setGeometry(QtCore.QRect(230, 8, 65, 32))
-        self.menu_Pos_btn_2.setMinimumSize(QtCore.QSize(65, 0))
-        self.menu_Pos_btn_2.setMaximumSize(QtCore.QSize(65, 16777215))
+        self.lbl_header_pattern.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.lbl_header_pattern.setObjectName("lbl_header_pattern")
+        self.btn_patt_menu = QtWidgets.QPushButton(self.pattern_pg)
+        self.btn_patt_menu.setGeometry(QtCore.QRect(230, 8, 65, 32))
+        self.btn_patt_menu.setMinimumSize(QtCore.QSize(65, 0))
+        self.btn_patt_menu.setMaximumSize(QtCore.QSize(65, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.menu_Pos_btn_2.setFont(font)
-        self.menu_Pos_btn_2.setStyleSheet("border-width: 2px;\n"
+        self.btn_patt_menu.setFont(font)
+        self.btn_patt_menu.setStyleSheet("border-width: 2px;\n"
 "border-style: solid;\n"
 "border-radius: 7;\n"
 "padding: 3px;\n"
@@ -169,20 +169,20 @@ class Ui_MainWindow(object):
 "color: rgb(12, 27, 51);\n"
 "border-color: rgb(12, 27, 51);\n"
 "background-color: rgb(251, 251, 255);")
-        self.menu_Pos_btn_2.setObjectName("menu_Pos_btn_2")
+        self.btn_patt_menu.setObjectName("btn_patt_menu")
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.pattern_pg)
         self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(0, 50, 311, 321))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setContentsMargins(10, 0, 10, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.pushButton_11 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_11.setMinimumSize(QtCore.QSize(0, 40))
+        self.btn_patt_rectangle = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.btn_patt_rectangle.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
-        self.pushButton_11.setFont(font)
-        self.pushButton_11.setStyleSheet("QPushButton {\n"
+        self.btn_patt_rectangle.setFont(font)
+        self.btn_patt_rectangle.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -194,17 +194,17 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_11.setObjectName("pushButton_11")
-        self.verticalLayout_2.addWidget(self.pushButton_11)
-        self.pushButton_10 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_10.setMinimumSize(QtCore.QSize(0, 40))
+        self.btn_patt_rectangle.setObjectName("btn_patt_rectangle")
+        self.verticalLayout_2.addWidget(self.btn_patt_rectangle)
+        self.btn_patt_circle = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.btn_patt_circle.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.pushButton_10.setFont(font)
-        self.pushButton_10.setStyleSheet("QPushButton {\n"
+        self.btn_patt_circle.setFont(font)
+        self.btn_patt_circle.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -220,15 +220,15 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_10.setObjectName("pushButton_10")
-        self.verticalLayout_2.addWidget(self.pushButton_10)
-        self.pushButton_12 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_12.setMinimumSize(QtCore.QSize(0, 40))
+        self.btn_patt_circle.setObjectName("btn_patt_circle")
+        self.verticalLayout_2.addWidget(self.btn_patt_circle)
+        self.btn_patt_infinity = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.btn_patt_infinity.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
-        self.pushButton_12.setFont(font)
-        self.pushButton_12.setStyleSheet("QPushButton {\n"
+        self.btn_patt_infinity.setFont(font)
+        self.btn_patt_infinity.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -240,15 +240,15 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_12.setObjectName("pushButton_12")
-        self.verticalLayout_2.addWidget(self.pushButton_12)
-        self.pushButton_13 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_13.setMinimumSize(QtCore.QSize(0, 40))
+        self.btn_patt_infinity.setObjectName("btn_patt_infinity")
+        self.verticalLayout_2.addWidget(self.btn_patt_infinity)
+        self.btn_patt_center = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.btn_patt_center.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
-        self.pushButton_13.setFont(font)
-        self.pushButton_13.setStyleSheet("QPushButton {\n"
+        self.btn_patt_center.setFont(font)
+        self.btn_patt_center.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -260,17 +260,17 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_13.setObjectName("pushButton_13")
-        self.verticalLayout_2.addWidget(self.pushButton_13)
-        self.pushButton_16 = QtWidgets.QPushButton(self.pattern_pg)
-        self.pushButton_16.setGeometry(QtCore.QRect(10, 380, 101, 31))
+        self.btn_patt_center.setObjectName("btn_patt_center")
+        self.verticalLayout_2.addWidget(self.btn_patt_center)
+        self.btn_patt_reset = QtWidgets.QPushButton(self.pattern_pg)
+        self.btn_patt_reset.setGeometry(QtCore.QRect(10, 380, 101, 31))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_16.setFont(font)
-        self.pushButton_16.setStyleSheet("QPushButton {\n"
+        self.btn_patt_reset.setFont(font)
+        self.btn_patt_reset.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -285,39 +285,39 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_16.setObjectName("pushButton_16")
+        self.btn_patt_reset.setObjectName("btn_patt_reset")
         self.stackedWidget.addWidget(self.pattern_pg)
         self.position_pg = QtWidgets.QWidget()
         self.position_pg.setStyleSheet("background-color: #fbfbff;\n"
 "\n"
 "")
         self.position_pg.setObjectName("position_pg")
-        self.header_Position_lbl = QtWidgets.QLabel(self.position_pg)
-        self.header_Position_lbl.setGeometry(QtCore.QRect(0, 0, 311, 50))
-        self.header_Position_lbl.setMinimumSize(QtCore.QSize(0, 50))
-        self.header_Position_lbl.setMaximumSize(QtCore.QSize(16777215, 50))
+        self.lbl_header_position = QtWidgets.QLabel(self.position_pg)
+        self.lbl_header_position.setGeometry(QtCore.QRect(0, 0, 311, 50))
+        self.lbl_header_position.setMinimumSize(QtCore.QSize(0, 50))
+        self.lbl_header_position.setMaximumSize(QtCore.QSize(16777215, 50))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(14)
-        self.header_Position_lbl.setFont(font)
-        self.header_Position_lbl.setStyleSheet("border-width: 1px;\n"
+        self.lbl_header_position.setFont(font)
+        self.lbl_header_position.setStyleSheet("border-width: 1px;\n"
 "border-color: rgb(103, 103, 103);\n"
 "border-style: solid;\n"
 "border-radius: 1;\n"
 "padding: 1px;\n"
 "color: rgb(251, 251, 255);\n"
 "background-color: rgb(23, 45, 69);")
-        self.header_Position_lbl.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.header_Position_lbl.setObjectName("header_Position_lbl")
-        self.menu_Pos_btn = QtWidgets.QPushButton(self.position_pg)
-        self.menu_Pos_btn.setGeometry(QtCore.QRect(230, 8, 65, 32))
-        self.menu_Pos_btn.setMinimumSize(QtCore.QSize(65, 0))
-        self.menu_Pos_btn.setMaximumSize(QtCore.QSize(65, 16777215))
+        self.lbl_header_position.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.lbl_header_position.setObjectName("lbl_header_position")
+        self.btn_pos_menu = QtWidgets.QPushButton(self.position_pg)
+        self.btn_pos_menu.setGeometry(QtCore.QRect(230, 8, 65, 32))
+        self.btn_pos_menu.setMinimumSize(QtCore.QSize(65, 0))
+        self.btn_pos_menu.setMaximumSize(QtCore.QSize(65, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.menu_Pos_btn.setFont(font)
-        self.menu_Pos_btn.setStyleSheet("border-width: 2px;\n"
+        self.btn_pos_menu.setFont(font)
+        self.btn_pos_menu.setStyleSheet("border-width: 2px;\n"
 "border-style: solid;\n"
 "border-radius: 7;\n"
 "padding: 3px;\n"
@@ -325,22 +325,22 @@ class Ui_MainWindow(object):
 "color: rgb(12, 27, 51);\n"
 "border-color: rgb(12, 27, 51);\n"
 "background-color: rgb(251, 251, 255);")
-        self.menu_Pos_btn.setObjectName("menu_Pos_btn")
+        self.btn_pos_menu.setObjectName("btn_pos_menu")
         self.gridLayoutWidget = QtWidgets.QWidget(self.position_pg)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 240, 311, 121))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setContentsMargins(0, 0, 1, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.pushButton_6 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_6.setMaximumSize(QtCore.QSize(40, 16777215))
+        self.btn_pos_xminus = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.btn_pos_xminus.setMaximumSize(QtCore.QSize(40, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_6.setFont(font)
-        self.pushButton_6.setStyleSheet("QPushButton {\n"
+        self.btn_pos_xminus.setFont(font)
+        self.btn_pos_xminus.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -352,29 +352,29 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.gridLayout.addWidget(self.pushButton_6, 3, 1, 1, 1)
-        self.label_8 = QtWidgets.QLabel(self.gridLayoutWidget)
-        self.label_8.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.btn_pos_xminus.setObjectName("btn_pos_xminus")
+        self.gridLayout.addWidget(self.btn_pos_xminus, 3, 1, 1, 1)
+        self.lbl_pos_ypos = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.lbl_pos_ypos.setMaximumSize(QtCore.QSize(100, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.label_8.setFont(font)
-        self.label_8.setObjectName("label_8")
-        self.gridLayout.addWidget(self.label_8, 4, 0, 1, 1)
-        self.label_10 = QtWidgets.QLabel(self.gridLayoutWidget)
-        self.label_10.setMaximumSize(QtCore.QSize(80, 16777215))
-        self.label_10.setObjectName("label_10")
-        self.gridLayout.addWidget(self.label_10, 4, 2, 1, 1)
-        self.pushButton_9 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_9.setMaximumSize(QtCore.QSize(40, 16777215))
+        self.lbl_pos_ypos.setFont(font)
+        self.lbl_pos_ypos.setObjectName("lbl_pos_ypos")
+        self.gridLayout.addWidget(self.lbl_pos_ypos, 4, 0, 1, 1)
+        self.lbl_pos_showypos = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.lbl_pos_showypos.setMaximumSize(QtCore.QSize(80, 16777215))
+        self.lbl_pos_showypos.setObjectName("lbl_pos_showypos")
+        self.gridLayout.addWidget(self.lbl_pos_showypos, 4, 2, 1, 1)
+        self.btn_pos_yplus = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.btn_pos_yplus.setMaximumSize(QtCore.QSize(40, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_9.setFont(font)
-        self.pushButton_9.setStyleSheet("QPushButton {\n"
+        self.btn_pos_yplus.setFont(font)
+        self.btn_pos_yplus.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -386,22 +386,22 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_9.setObjectName("pushButton_9")
-        self.gridLayout.addWidget(self.pushButton_9, 4, 3, 1, 1)
-        self.label_9 = QtWidgets.QLabel(self.gridLayoutWidget)
-        self.label_9.setMinimumSize(QtCore.QSize(80, 0))
-        self.label_9.setMaximumSize(QtCore.QSize(80, 16777215))
-        self.label_9.setObjectName("label_9")
-        self.gridLayout.addWidget(self.label_9, 3, 2, 1, 1)
-        self.pushButton_7 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_7.setMaximumSize(QtCore.QSize(40, 16777215))
+        self.btn_pos_yplus.setObjectName("btn_pos_yplus")
+        self.gridLayout.addWidget(self.btn_pos_yplus, 4, 3, 1, 1)
+        self.lbl_pos_showxpos = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.lbl_pos_showxpos.setMinimumSize(QtCore.QSize(80, 0))
+        self.lbl_pos_showxpos.setMaximumSize(QtCore.QSize(80, 16777215))
+        self.lbl_pos_showxpos.setObjectName("lbl_pos_showxpos")
+        self.gridLayout.addWidget(self.lbl_pos_showxpos, 3, 2, 1, 1)
+        self.btn_pos_yminus = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.btn_pos_yminus.setMaximumSize(QtCore.QSize(40, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_7.setFont(font)
-        self.pushButton_7.setStyleSheet("QPushButton {\n"
+        self.btn_pos_yminus.setFont(font)
+        self.btn_pos_yminus.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -413,32 +413,32 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_7.setObjectName("pushButton_7")
-        self.gridLayout.addWidget(self.pushButton_7, 4, 1, 1, 1)
-        self.label_7 = QtWidgets.QLabel(self.gridLayoutWidget)
-        self.label_7.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.btn_pos_yminus.setObjectName("btn_pos_yminus")
+        self.gridLayout.addWidget(self.btn_pos_yminus, 4, 1, 1, 1)
+        self.lbl_pos_xpos = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.lbl_pos_xpos.setMaximumSize(QtCore.QSize(100, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.label_7.setFont(font)
-        self.label_7.setObjectName("label_7")
-        self.gridLayout.addWidget(self.label_7, 3, 0, 1, 1)
-        self.label_6 = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.lbl_pos_xpos.setFont(font)
+        self.lbl_pos_xpos.setObjectName("lbl_pos_xpos")
+        self.gridLayout.addWidget(self.lbl_pos_xpos, 3, 0, 1, 1)
+        self.lbl_pos_setpos = QtWidgets.QLabel(self.gridLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.label_6.setFont(font)
-        self.label_6.setObjectName("label_6")
-        self.gridLayout.addWidget(self.label_6, 1, 0, 1, 4)
-        self.pushButton_8 = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton_8.setMaximumSize(QtCore.QSize(40, 16777215))
+        self.lbl_pos_setpos.setFont(font)
+        self.lbl_pos_setpos.setObjectName("lbl_pos_setpos")
+        self.gridLayout.addWidget(self.lbl_pos_setpos, 1, 0, 1, 4)
+        self.btn_pos_xplus = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.btn_pos_xplus.setMaximumSize(QtCore.QSize(40, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_8.setFont(font)
-        self.pushButton_8.setStyleSheet("QPushButton {\n"
+        self.btn_pos_xplus.setFont(font)
+        self.btn_pos_xplus.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -450,8 +450,8 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_8.setObjectName("pushButton_8")
-        self.gridLayout.addWidget(self.pushButton_8, 3, 3, 1, 1)
+        self.btn_pos_xplus.setObjectName("btn_pos_xplus")
+        self.gridLayout.addWidget(self.btn_pos_xplus, 3, 3, 1, 1)
         self.line = QtWidgets.QFrame(self.gridLayoutWidget)
         self.line.setStyleSheet("background-color: rgb(12, 27, 51);\n"
 "\n"
@@ -467,13 +467,13 @@ class Ui_MainWindow(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.gridLayoutWidget_2)
         self.gridLayout_2.setContentsMargins(10, 0, 10, 0)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.pushButton_5 = QtWidgets.QPushButton(self.gridLayoutWidget_2)
-        self.pushButton_5.setMinimumSize(QtCore.QSize(0, 40))
+        self.btn_pos_position = QtWidgets.QPushButton(self.gridLayoutWidget_2)
+        self.btn_pos_position.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
-        self.pushButton_5.setFont(font)
-        self.pushButton_5.setStyleSheet("QPushButton {\n"
+        self.btn_pos_position.setFont(font)
+        self.btn_pos_position.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -485,15 +485,15 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.gridLayout_2.addWidget(self.pushButton_5, 1, 0, 1, 1)
-        self.pushButton_4 = QtWidgets.QPushButton(self.gridLayoutWidget_2)
-        self.pushButton_4.setMinimumSize(QtCore.QSize(0, 40))
+        self.btn_pos_position.setObjectName("btn_pos_position")
+        self.gridLayout_2.addWidget(self.btn_pos_position, 1, 0, 1, 1)
+        self.btn_pos_center = QtWidgets.QPushButton(self.gridLayoutWidget_2)
+        self.btn_pos_center.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("QPushButton {\n"
+        self.btn_pos_center.setFont(font)
+        self.btn_pos_center.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -507,17 +507,17 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.gridLayout_2.addWidget(self.pushButton_4, 0, 0, 1, 1)
-        self.pushButton_17 = QtWidgets.QPushButton(self.position_pg)
-        self.pushButton_17.setGeometry(QtCore.QRect(10, 380, 101, 31))
+        self.btn_pos_center.setObjectName("btn_pos_center")
+        self.gridLayout_2.addWidget(self.btn_pos_center, 0, 0, 1, 1)
+        self.btn_pos_reset = QtWidgets.QPushButton(self.position_pg)
+        self.btn_pos_reset.setGeometry(QtCore.QRect(10, 380, 101, 31))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_17.setFont(font)
-        self.pushButton_17.setStyleSheet("QPushButton {\n"
+        self.btn_pos_reset.setFont(font)
+        self.btn_pos_reset.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -532,33 +532,33 @@ class Ui_MainWindow(object):
 "color: #0c1b33;\n"
 "\n"
 "}")
-        self.pushButton_17.setObjectName("pushButton_17")
+        self.btn_pos_reset.setObjectName("btn_pos_reset")
         self.stackedWidget.addWidget(self.position_pg)
         self.main_pg = QtWidgets.QWidget()
         self.main_pg.setObjectName("main_pg")
-        self.label_2 = QtWidgets.QLabel(self.main_pg)
-        self.label_2.setGeometry(QtCore.QRect(0, 0, 311, 50))
+        self.lbl_header_mainmenu = QtWidgets.QLabel(self.main_pg)
+        self.lbl_header_mainmenu.setGeometry(QtCore.QRect(0, 0, 311, 50))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(16)
-        self.label_2.setFont(font)
-        self.label_2.setStyleSheet("color: rgb(251, 251, 255);\n"
+        self.lbl_header_mainmenu.setFont(font)
+        self.lbl_header_mainmenu.setStyleSheet("color: rgb(251, 251, 255);\n"
 "background-color: rgb(23, 45, 69);")
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
+        self.lbl_header_mainmenu.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_header_mainmenu.setObjectName("lbl_header_mainmenu")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.main_pg)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 50, 311, 321))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(20, 0, 15, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton.setMinimumSize(QtCore.QSize(0, 50))
+        self.btn_main_position = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.btn_main_position.setMinimumSize(QtCore.QSize(0, 50))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.btn_main_position.setFont(font)
+        self.btn_main_position.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -570,15 +570,15 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "")
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout.addWidget(self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 50))
+        self.btn_main_position.setObjectName("btn_main_position")
+        self.verticalLayout.addWidget(self.btn_main_position)
+        self.btn_main_pattern = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.btn_main_pattern.setMinimumSize(QtCore.QSize(0, 50))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
+        self.btn_main_pattern.setFont(font)
+        self.btn_main_pattern.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -590,15 +590,15 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.verticalLayout.addWidget(self.pushButton_2)
-        self.pushButton_3 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_3.setMinimumSize(QtCore.QSize(0, 50))
+        self.btn_main_pattern.setObjectName("btn_main_pattern")
+        self.verticalLayout.addWidget(self.btn_main_pattern)
+        self.btn_main_joystick = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.btn_main_joystick.setMinimumSize(QtCore.QSize(0, 50))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
-        self.pushButton_3.setFont(font)
-        self.pushButton_3.setStyleSheet("QPushButton {\n"
+        self.btn_main_joystick.setFont(font)
+        self.btn_main_joystick.setStyleSheet("QPushButton {\n"
 "border-width: 2px;\n"
 "border-style: outset;\n"
 "border-radius: 7;\n"
@@ -610,62 +610,62 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.verticalLayout.addWidget(self.pushButton_3)
+        self.btn_main_joystick.setObjectName("btn_main_joystick")
+        self.verticalLayout.addWidget(self.btn_main_joystick)
         self.stackedWidget.addWidget(self.main_pg)
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(310, 0, 494, 370))
-        self.label.setStyleSheet("border-style: dashed; \n"
+        self.lbl_frames = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_frames.setGeometry(QtCore.QRect(310, 0, 494, 370))
+        self.lbl_frames.setStyleSheet("border-style: dashed; \n"
 "border-width: 2px;\n"
 "border-color: rgb(179, 179, 179);")
-        self.label.setObjectName("label")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(310, 370, 491, 51))
-        self.label_3.setStyleSheet("border-style: dashed; \n"
+        self.lbl_frames.setObjectName("lbl_frames")
+        self.lbl_ballStats = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_ballStats.setGeometry(QtCore.QRect(310, 370, 491, 51))
+        self.lbl_ballStats.setStyleSheet("border-style: dashed; \n"
 "border-width: 2px;\n"
 "border-color: rgb(179, 179, 179);")
-        self.label_3.setObjectName("label_3")
+        self.lbl_ballStats.setObjectName("lbl_ballStats")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.header_Joystick_lbl.setText(_translate("MainWindow", " Joystick Control"))
-        self.menu_Pos_btn_3.setText(_translate("MainWindow", "Menu"))
-        self.pushButton_14.setText(_translate("MainWindow", "Control ball position"))
-        self.pushButton_15.setText(_translate("MainWindow", "Control plate angle"))
-        self.pushButton_18.setText(_translate("MainWindow", "RESET"))
-        self.header_Pattern_lbl.setText(_translate("MainWindow", "Follow a pattern"))
-        self.menu_Pos_btn_2.setText(_translate("MainWindow", "Menu"))
-        self.pushButton_11.setText(_translate("MainWindow", "Rectangle"))
-        self.pushButton_10.setText(_translate("MainWindow", "Circle"))
-        self.pushButton_12.setText(_translate("MainWindow", "Infinity"))
-        self.pushButton_13.setText(_translate("MainWindow", "Center"))
-        self.pushButton_16.setText(_translate("MainWindow", "RESET"))
-        self.header_Position_lbl.setText(_translate("MainWindow", "Balance at a position"))
-        self.menu_Pos_btn.setText(_translate("MainWindow", "Menu"))
-        self.pushButton_6.setText(_translate("MainWindow", "-"))
-        self.label_8.setText(_translate("MainWindow", "Y position:"))
-        self.label_10.setText(_translate("MainWindow", "angle Y"))
-        self.pushButton_9.setText(_translate("MainWindow", "+"))
-        self.label_9.setText(_translate("MainWindow", "angle X"))
-        self.pushButton_7.setText(_translate("MainWindow", "-"))
-        self.label_7.setText(_translate("MainWindow", "X position:"))
-        self.label_6.setText(_translate("MainWindow", "Set desired ball position"))
-        self.pushButton_8.setText(_translate("MainWindow", "+"))
-        self.pushButton_5.setText(_translate("MainWindow", "Balance at position"))
-        self.pushButton_4.setText(_translate("MainWindow", "Balance at center"))
-        self.pushButton_17.setText(_translate("MainWindow", "RESET"))
-        self.label_2.setText(_translate("MainWindow", "Main Menu"))
-        self.pushButton.setText(_translate("MainWindow", "Position"))
-        self.pushButton_2.setText(_translate("MainWindow", "Patterns"))
-        self.pushButton_3.setText(_translate("MainWindow", "Joystick"))
-        self.label.setText(_translate("MainWindow", "For Frames"))
-        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p>Ball X: ..........Ball Y:............ Velocity:</p></body></html>"))
+        self.lbl_header_joystick.setText(_translate("MainWindow", " Joystick Control"))
+        self.btn_joystick_menu.setText(_translate("MainWindow", "Menu"))
+        self.btn_stick_position.setText(_translate("MainWindow", "Control ball position"))
+        self.btn_stick_angle.setText(_translate("MainWindow", "Control plate angle"))
+        self.btn_stick_reset.setText(_translate("MainWindow", "RESET"))
+        self.lbl_header_pattern.setText(_translate("MainWindow", "Follow a pattern"))
+        self.btn_patt_menu.setText(_translate("MainWindow", "Menu"))
+        self.btn_patt_rectangle.setText(_translate("MainWindow", "Rectangle"))
+        self.btn_patt_circle.setText(_translate("MainWindow", "Circle"))
+        self.btn_patt_infinity.setText(_translate("MainWindow", "Infinity"))
+        self.btn_patt_center.setText(_translate("MainWindow", "Center"))
+        self.btn_patt_reset.setText(_translate("MainWindow", "RESET"))
+        self.lbl_header_position.setText(_translate("MainWindow", "Balance at a position"))
+        self.btn_pos_menu.setText(_translate("MainWindow", "Menu"))
+        self.btn_pos_xminus.setText(_translate("MainWindow", "-"))
+        self.lbl_pos_ypos.setText(_translate("MainWindow", "Y position:"))
+        self.lbl_pos_showypos.setText(_translate("MainWindow", "angle Y"))
+        self.btn_pos_yplus.setText(_translate("MainWindow", "+"))
+        self.lbl_pos_showxpos.setText(_translate("MainWindow", "angle X"))
+        self.btn_pos_yminus.setText(_translate("MainWindow", "-"))
+        self.lbl_pos_xpos.setText(_translate("MainWindow", "X position:"))
+        self.lbl_pos_setpos.setText(_translate("MainWindow", "Set desired ball position"))
+        self.btn_pos_xplus.setText(_translate("MainWindow", "+"))
+        self.btn_pos_position.setText(_translate("MainWindow", "Balance at position"))
+        self.btn_pos_center.setText(_translate("MainWindow", "Balance at center"))
+        self.btn_pos_reset.setText(_translate("MainWindow", "RESET"))
+        self.lbl_header_mainmenu.setText(_translate("MainWindow", "Main Menu"))
+        self.btn_main_position.setText(_translate("MainWindow", "Position"))
+        self.btn_main_pattern.setText(_translate("MainWindow", "Patterns"))
+        self.btn_main_joystick.setText(_translate("MainWindow", "Joystick"))
+        self.lbl_frames.setText(_translate("MainWindow", "For Frames"))
+        self.lbl_ballStats.setText(_translate("MainWindow", "<html><head/><body><p>Ball X: ..........Ball Y:............ Velocity:</p></body></html>"))
 
 
 if __name__ == "__main__":
