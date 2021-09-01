@@ -10,11 +10,15 @@ from PyQt5 import QtGui as qtg
 from freshgui import Ui_MainWindow
 
 class ballgui(qtw.QMainWindow):
+    xpos_counter = 0
+    ypos_counter = 0
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)
+        
 
         # Main Menu btns to navigate to another page
         self.ui.btn_main_position.clicked.connect(self.showPosition_pg)
@@ -30,6 +34,10 @@ class ballgui(qtw.QMainWindow):
         self.ui.btn_pos_center.clicked.connect(self.setup_posCenter)
         self.ui.btn_pos_position.clicked.connect(self.setup_posPoint)
         self.ui.btn_pos_reset.clicked.connect(self.setup_posReset)
+        self.ui.btn_pos_xplus.clicked.connect(self.Xplus)
+        self.ui.btn_pos_xminus.clicked.connect(self.Xminus)
+        self.ui.btn_pos_yplus.clicked.connect(self.Yplus)
+        self.ui.btn_pos_yminus.clicked.connect(self.Yminus)
 
         # Patterns page btn event set up
         self.ui.btn_patt_rectangle.clicked.connect(self.setup_pattRectangle)
@@ -49,6 +57,8 @@ class ballgui(qtw.QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.position_pg)
         self.ui.btn_pos_center.setStyleSheet(neutralbtn)
         self.ui.btn_pos_position.setStyleSheet(neutralbtn)
+        self.ui.lbl_pos_showxpos.setText(str(self.xpos_counter))
+        self.ui.lbl_pos_showypos.setText(str(self.ypos_counter))
         
     def showPattern_pg(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.pattern_pg)
@@ -79,6 +89,32 @@ class ballgui(qtw.QMainWindow):
         self.ui.btn_pos_menu.setStyleSheet(whitebtn)
         self.ui.btn_pos_center.setStyleSheet(neutralbtn)
         self.ui.btn_pos_position.setStyleSheet(neutralbtn)
+
+    def Xplus(self):
+        self.xpos_counter += 2  # 2cm steps
+        if self.xpos_counter >= 25:
+            self.xpos_counter = 24
+        self.ui.lbl_pos_showxpos.setText(str(self.xpos_counter))
+        
+    def Xminus(self):
+        self.xpos_counter -= 2  # 2cm steps
+        if self.xpos_counter <= -25:
+            self.xpos_counter = -24
+        self.ui.lbl_pos_showxpos.setText(str(self.xpos_counter))
+        
+    def Yplus(self):
+        self.ypos_counter += 2  # 2cm steps
+        if self.ypos_counter >= 15:
+            self.ypos_counter = 14
+        self.ui.lbl_pos_showypos.setText(str(self.ypos_counter))
+        
+    def Yminus(self):
+        self.ypos_counter -= 2  # 2cm steps
+        if self.ypos_counter <= -15:
+            self.ypos_counter = -14
+        self.ui.lbl_pos_showypos.setText(str(self.ypos_counter))
+        
+        
 
     def setup_pattRectangle(self):
         self.ui.btn_patt_rectangle.setStyleSheet(clickedbtn)
