@@ -6,8 +6,9 @@
 from Backend.ImgProcess import ImgProcess
 import threading
 from queue import Queue
-import cv2 as cv
+import numpy as np
 from Backend import *
+from PyQt5 import QtCore as qtc
 
 # CONFIG
 
@@ -21,6 +22,8 @@ KI = 1.08
 KD = 15
 
 class Director(threading.Thread):
+
+    imageUpdate = qtc.pyqtSignal(object)
 
     # Initialise components for the Director
     def __init__(self, cameraID, serialAddress, verbose):
@@ -45,6 +48,8 @@ class Director(threading.Thread):
         # Flags for this Class
         self.enableVerbose = verbose
         self.keepRunning = True
+
+        # Create a Signal for the GUI
 
         # Mode
         # self.patternMode = PatternTypes.CENTER
@@ -92,7 +97,7 @@ class Director(threading.Thread):
             return
 
         # Transmit the frame of the ball to the GUI
-        # TODO
+        self.imageUpdate.emit(nextImg)
         
         # If plate is being overriden to flat, then set servo position
         if self.returnPlateToFlat == True:
@@ -111,7 +116,6 @@ class Director(threading.Thread):
             BP_x, BP_y = nextImg.getBallPosition()
             timestamp = nextImg.getTimeStamp()
 
-            
             # Send position data to the PID Controllers and determine the desired Plate Angles
             P_aX = self.xAxis.compute(BP_x, timestamp)
             P_aY = self.yAxis.compute(BP_y, timestamp)

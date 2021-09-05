@@ -3,7 +3,7 @@
 import sys
 import numpy as np
 import cv2 as cv
-from PyQt5 import QtCore as qtc
+from PyQt5 import QtCore
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
 from Director import Director
@@ -19,6 +19,9 @@ class ballgui(qtw.QMainWindow):
         self.ui.setupUi(self)
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)
         self.director = director
+
+        # Link director to GUI
+        self.director.imageUpdate.connect(self.ImageUpdateSlot)
         
         # Main Menu btns to navigate to another page
         self.ui.btn_main_position.clicked.connect(self.showPosition_pg)
@@ -49,7 +52,6 @@ class ballgui(qtw.QMainWindow):
         # Joystick page btn event set up
 
     
-
     def showMain_pg(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)  
         
@@ -114,8 +116,6 @@ class ballgui(qtw.QMainWindow):
             self.ypos_counter = -14
         self.ui.lbl_pos_showypos.setText(str(self.ypos_counter))
         
-        
-
     def setup_pattRectangle(self):
         self.ui.btn_patt_rectangle.setStyleSheet(clickedbtn)
         self.ui.btn_patt_circle.setStyleSheet(neutralbtn)
@@ -156,6 +156,15 @@ class ballgui(qtw.QMainWindow):
         self.ui.btn_patt_infinity.setStyleSheet(neutralbtn)
         self.ui.btn_patt_center.setStyleSheet(neutralbtn)
 
+    def ImageUpdateSlot(self, imageFrame):
+        
+        # Frame is type of ImageFrame
+        img = imageFrame.getCameraFrame()
+
+        image = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+        image = qtg.QImage(image, image.shape[1], image.shape[0], qtg.QImage.Format_RGB888) # format as QImage
+        image = qtg.QPixmap.fromImage(image) # convert to QPixmap
+        self.ui.lbl_frames.setPixmap(image)
         
 
 
