@@ -23,10 +23,11 @@ KD = 15
 
 class Director(threading.Thread):
 
-    imageUpdate = qtc.pyqtSignal()
-    
     # Initialise components for the Director
-    def __init__(self, cameraID, serialAddress, verbose):
+    def __init__(self, cameraID, serialAddress, frameCollector, verbose):
+        
+        # Run super class
+        threading.Thread.__init__(self)
 
         # Aim for the setpoint in the Center of the Plate
         self.setpoint = [0,0]
@@ -47,10 +48,11 @@ class Director(threading.Thread):
 
         # Flags for this Class
         self.enableVerbose = verbose
+        self.returnPlateToFlat = False
         self.keepRunning = True
 
-        # Create a Signal for the GUI
-
+        # Link Frame Collector
+        self.frameCollector = frameCollector
         # Mode
         # self.patternMode = PatternTypes.CENTER
     
@@ -96,8 +98,8 @@ class Director(threading.Thread):
                 print("No Frame in Queue to Process")
             return
 
-        # Transmit that new frame is in to the GUI
-        self.imageUpdate.emit()
+        # Transmit the frame of the ball to the GUI
+        self.frameCollector.addFrame(nextImg)
         
         # If plate is being overriden to flat, then set servo position
         if self.returnPlateToFlat == True:
