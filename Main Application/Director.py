@@ -21,6 +21,9 @@ KP = 20 #2.768
 KI = 1.08
 KD = 15
 
+MAX_X = 25
+MAX_Y = 15
+
 class Director(threading.Thread):
 
     # Initialise components for the Director
@@ -152,6 +155,21 @@ class Director(threading.Thread):
 
         # Return if execution complete
         return True
+
+    def setSetposition(self, posX, posY):
+        ''' Go to a set position in cms '''
+        # Check X
+        if abs(posX) > Director.MAX_X:
+            Exception("X Position exceeds maximum.")
+            return
+
+        # Check Y
+        if abs(posY) > Director.MAX_Y:
+            Exception("Y Position exceeds maximum.")
+            return
+
+        # Otherwise, update the setpoint
+        self.setpoint = [posX, posY]
 
     def holdPlate(self):
         ''' Hold the plate in the current position. '''
