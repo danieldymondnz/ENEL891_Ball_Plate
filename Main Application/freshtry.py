@@ -6,20 +6,20 @@ import cv2 as cv
 from PyQt5 import QtCore as qtc
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
-
+from Director import Director
 from freshgui import Ui_MainWindow
 
 class ballgui(qtw.QMainWindow):
     xpos_counter = 0
     ypos_counter = 0
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, director, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)
+        self.director = director
         
-
         # Main Menu btns to navigate to another page
         self.ui.btn_main_position.clicked.connect(self.showPosition_pg)
         self.ui.btn_main_pattern.clicked.connect(self.showPattern_pg)
@@ -204,7 +204,8 @@ background-color: rgb(251, 251, 255);
 """
 
 if __name__ == '__main__':
+    directorObj = Director(0, 'COM9', True)
     app = qtw.QApplication(sys.argv)
-    main_win = ballgui()
+    main_win = ballgui(directorObj)
     main_win.show()
     sys.exit(app.exec_())

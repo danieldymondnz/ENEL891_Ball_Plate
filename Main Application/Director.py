@@ -34,8 +34,8 @@ class Director(threading.Thread):
 
         # Initialise the Image Processor Thread
         self.imgQueue = Queue()
-        #self.imgProc = ImageProcessor.ImageProcessor(cameraID, self.imgQueue, False)
-        self.imgProc = ImgProcess.ImgProcess(cameraID, self.imgQueue, False)
+        # self.imgProc = ImageProcessor.ImageProcessor(cameraID, self.imgQueue, False)
+        self.imgProc = ImgProcess(cameraID, self.imgQueue, verbose)
         self.imgProc.start()
 
         # Initialise the Augmentation System and start Thread

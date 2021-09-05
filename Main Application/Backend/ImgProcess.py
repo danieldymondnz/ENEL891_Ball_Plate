@@ -95,6 +95,7 @@ class ImgProcess(threading.Thread):
 
         # If this is the first run of the controller, return the default 30fps
         if (self.firstRun):
+            self.firstRun = False
             self.lastTime = currTime
             return (1/30)
         
