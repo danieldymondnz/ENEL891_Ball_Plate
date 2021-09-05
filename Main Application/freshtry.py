@@ -156,15 +156,21 @@ class ballgui(qtw.QMainWindow):
         self.ui.btn_patt_infinity.setStyleSheet(neutralbtn)
         self.ui.btn_patt_center.setStyleSheet(neutralbtn)
 
-    def ImageUpdateSlot(self, imageFrame):
-        
-        # Frame is type of ImageFrame
-        img = imageFrame.getCameraFrame()
+    def ImageUpdateSlot(self):
+        # cant access at same time as director img queque 
+        # director will make a separate queque and pass on img object to it, 
+        # after director queque is done with it.
+        print("Yay Signal here")
 
+
+        # Frame is type of ImageFrame
+    """def displayFrame(self):
+        ## Need to draw some stuff on the frame before display
         image = cv.cvtColor(img, cv.COLOR_BGR2RGB)
         image = qtg.QImage(image, image.shape[1], image.shape[0], qtg.QImage.Format_RGB888) # format as QImage
         image = qtg.QPixmap.fromImage(image) # convert to QPixmap
         self.ui.lbl_frames.setPixmap(image)
+    """   
         
 
 

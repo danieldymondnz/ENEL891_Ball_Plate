@@ -23,8 +23,8 @@ KD = 15
 
 class Director(threading.Thread):
 
-    imageUpdate = qtc.pyqtSignal(object)
-
+    imageUpdate = qtc.pyqtSignal()
+    
     # Initialise components for the Director
     def __init__(self, cameraID, serialAddress, verbose):
 
@@ -96,8 +96,8 @@ class Director(threading.Thread):
                 print("No Frame in Queue to Process")
             return
 
-        # Transmit the frame of the ball to the GUI
-        self.imageUpdate.emit(nextImg)
+        # Transmit that new frame is in to the GUI
+        self.imageUpdate.emit()
         
         # If plate is being overriden to flat, then set servo position
         if self.returnPlateToFlat == True:
