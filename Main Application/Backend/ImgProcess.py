@@ -22,7 +22,7 @@ class ImgProcess(threading.Thread):
     def __init__(self, cameraID, imgQueue, enableVerbose):
         threading.Thread.__init__(self)
         self.imgQueue = imgQueue
-        self.cap = cv.VideoCapture(cameraID)
+        self.cap = cv.VideoCapture(cameraID, cv.CAP_DSHOW)
         self.generateViewportSpec()
         self.lastTime = -1
         self.prevX = -1
