@@ -8,20 +8,22 @@ from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
 from Director import Director
 from freshgui import Ui_MainWindow
+from FrameCollector import FrameCollector
 
 class ballgui(qtw.QMainWindow):
     xpos_counter = 0
     ypos_counter = 0
 
-    def __init__(self, director, *args, **kwargs):
+    def __init__(self, director, frameCollector, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)
         self.director = director
+        self.frameCollector = frameCollector
 
         # Link director to GUI
-        self.director.imageUpdate.connect(self.ImageUpdateSlot)
+        self.frameCollector.imageUpdate.connect(self.ImageUpdateSlot)
         
         # Main Menu btns to navigate to another page
         self.ui.btn_main_position.clicked.connect(self.showPosition_pg)
@@ -161,16 +163,23 @@ class ballgui(qtw.QMainWindow):
         # director will make a separate queque and pass on img object to it, 
         # after director queque is done with it.
         print("Yay Signal here")
+        imageFrame = self.frameCollector.getFrame()
 
+        # Ignore if none
+        if imageFrame is None:
+            return
 
-        # Frame is type of ImageFrame
-    """def displayFrame(self):
+        # Get the image
+        image = imageFrame.getCameraFrame()
+        self.displayFrame(image)
+        
+    # Frame is type of ImageFrame
+    def displayFrame(self, img):
         ## Need to draw some stuff on the frame before display
         image = cv.cvtColor(img, cv.COLOR_BGR2RGB)
         image = qtg.QImage(image, image.shape[1], image.shape[0], qtg.QImage.Format_RGB888) # format as QImage
         image = qtg.QPixmap.fromImage(image) # convert to QPixmap
-        self.ui.lbl_frames.setPixmap(image)
-    """   
+        self.ui.lbl_frames.setPixmap(image)   
         
 
 
@@ -219,8 +228,10 @@ background-color: rgb(251, 251, 255);
 """
 
 if __name__ == '__main__':
-    directorObj = Director(0, 'COM9', True)
+    frameCollectorObj = FrameCollector()
+    directorObj = Director(0, 'COM9', frameCollectorObj, False)
+    directorObj.start()
     app = qtw.QApplication(sys.argv)
-    main_win = ballgui(directorObj)
+    main_win = ballgui(directorObj, frameCollectorObj)
     main_win.show()
     sys.exit(app.exec_())
