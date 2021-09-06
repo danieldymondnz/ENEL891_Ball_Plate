@@ -229,7 +229,7 @@ background-color: rgb(251, 251, 255);
 
 if __name__ == '__main__':
     frameCollectorObj = FrameCollector()
-    directorObj = Director(0, 'COM9', frameCollectorObj, False)
+    directorObj = Director(0, 'COM1', frameCollectorObj, False)
     directorObj.start()
     app = qtw.QApplication(sys.argv)
     main_win = ballgui(directorObj, frameCollectorObj)
