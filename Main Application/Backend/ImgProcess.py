@@ -163,7 +163,7 @@ class ImgProcess(threading.Thread):
                     cv.circle(cameraImage, (int(pixelX), int(pixelY)), 30, (255, 0, 255), 2)
                     cv.circle(cameraImage, (int(pixelX), int(pixelY)), 3, (255, 0, 255), -1)
 
-                cv.imshow("Frame", cameraImage)
+                #cv.imshow("Frame", cameraImage)
 
                 if cv.waitKey(1) == ord('q'):
                     self.keepRunning = False
