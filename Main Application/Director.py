@@ -3,6 +3,7 @@
 # For testing purposes on Laptop, set for that situation
 ##
 
+from typing import ValuesView
 from Backend.ImgProcess import ImgProcess
 import threading
 from queue import Queue
@@ -36,6 +37,10 @@ class Director(threading.Thread):
         self.setpoint = [0,0]
 
         # PID Controllers for the Servos
+        self.P_aX = 0
+        self.P_aY = 0
+        self.BP_x = 0
+        self.BP_y = 0
         self.xAxis = PID.PID(KP, KI, KD, self.setpoint[0], False)
         self.yAxis = PID.PID(KP, KI, KD, self.setpoint[1], False)
 
@@ -118,20 +123,20 @@ class Director(threading.Thread):
                 print("Ball Found in Frame")
 
             # Get Information
-            BP_x, BP_y = nextImg.getBallPosition()
+            self.BP_x, self.BP_y = nextImg.getBallPosition()
             timestamp = nextImg.getTimeStamp()
 
             # Send position data to the PID Controllers and determine the desired Plate Angles
-            P_aX = self.xAxis.compute(BP_x, timestamp)
-            P_aY = self.yAxis.compute(BP_y, timestamp)
+            self.P_aX = self.xAxis.compute(self.BP_x, timestamp)
+            self.P_aY = self.yAxis.compute(self.BP_y, timestamp)
 
             # Send the desired angle to SPAS for Augmentation and Tx
-            self.augmentation.setNextAngle(P_aX, P_aY)
+            self.augmentation.setNextAngle(self.P_aX, self.P_aY)
 
             # Print Verbose if Desired
             if (self.enableVerbose):
-                print("Ball Pos X, Y: {}, {}".format(BP_x, BP_y))
-                print("Plate Angle X, Y: {}, {}".format(P_aX, P_aY))
+                print("Ball Pos X, Y: {}, {}".format(self.BP_x, self.BP_y))
+                print("Plate Angle X, Y: {}, {}".format(self.P_aX, self.P_aY))
 
         else:
             if self.enableVerbose:
@@ -156,8 +161,18 @@ class Director(threading.Thread):
         # Return if execution complete
         return True
 
+    def getCurrentError(self):
+        ''' Calculate and return the current error of the ball position'''
+        xError = abs(self.BP_x - self.setpoint[0])
+        yError = abs(self.BP_y - self.setpoint[1])
+        return [xError, yError]
+
+    def getPIDAngles(self):
+        ''' Return the servo angles from the PID controller'''
+        return [self.P_aX, self.P_aY]
+
     def setSetposition(self, posX, posY):
-        ''' Go to a set position in cms '''
+        ''' Go to a set position in cms from the center. '''
         # Check X
         if abs(posX) > Director.MAX_X:
             Exception("X Position exceeds maximum.")
@@ -170,6 +185,10 @@ class Director(threading.Thread):
 
         # Otherwise, update the setpoint
         self.setpoint = [posX, posY]
+
+    def getSetposition(self):
+        ''' Get the current setpoint for the ball. '''
+        return self.setpoint
 
     def holdPlate(self):
         ''' Hold the plate in the current position. '''
