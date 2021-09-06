@@ -21,6 +21,8 @@ class ballgui(qtw.QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)
         self.director = director
         self.frameCollector = frameCollector
+        
+        
 
         # Link director to GUI
         self.frameCollector.imageUpdate.connect(self.ImageUpdateSlot)
@@ -176,12 +178,27 @@ class ballgui(qtw.QMainWindow):
 
         # Get the image
         image = imageFrame.getCameraFrame()
-        self.displayFrame(image)
+        self.displayFrame(image, imageFrame)
         
     # Frame is type of ImageFrame
-    def displayFrame(self, img):
+    def displayFrame(self, img, imageFrame):
         ## Need to draw some stuff on the frame before display
-        image = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+        ballFound = imageFrame.isBallFound()
+        (h, w, c) = img.shape
+        scale = 1.3
+        width = int(w / scale)
+        height = int(h / scale)
+        dim = (width, height)
+        image = cv.resize(img, dim, interpolation=cv.INTER_AREA)
+        cv.line(image, ((width//2),0), ((width//2),height), (0,255,0), 1)  # Green colour
+        cv.line(image, (0,(height//2)), (width,(height//2)), (0,255,0), 1) # Green colour
+        cv.circle(image, ((width//2),(height//2)), 6, (0,0,255), 2)  # Red colour
+        if ballFound:
+            pixelX, pixelY = imageFrame.getPixelPosition()
+            cv.circle(image, (int(pixelX), int(pixelY)), 30, (255, 0, 255), 2)
+            cv.circle(image, (int(pixelX), int(pixelY)), 3, (255, 0, 255), -1)
+
+        image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
         image = qtg.QImage(image, image.shape[1], image.shape[0], qtg.QImage.Format_RGB888) # format as QImage
         image = qtg.QPixmap.fromImage(image) # convert to QPixmap
         self.ui.lbl_frames.setPixmap(image)   
