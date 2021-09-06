@@ -53,6 +53,11 @@ class ballgui(qtw.QMainWindow):
 
         # Joystick page btn event set up
 
+    # CloseEvent known by gui, will perform instructions prior to closing
+    def closeEvent(self, event):
+        print('Close event fired')
+        self.director.kill()
+        event.accept()
     
     def showMain_pg(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)  
