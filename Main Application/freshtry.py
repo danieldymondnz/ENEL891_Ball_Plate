@@ -184,20 +184,31 @@ class ballgui(qtw.QMainWindow):
     def displayFrame(self, img, imageFrame):
         ## Need to draw some stuff on the frame before display
         ballFound = imageFrame.isBallFound()
+        
+        # The following will always been drawn on frame
+        cv.line(img, (320,0), (320,480), (0,255,0), 1)  # Green colour
+        cv.line(img, (0,240), (640,240), (0,255,0), 1) # Green colour
+        cv.circle(img, (320,240), 6, (0,0,255), 2)  # Red colour
+
+        if ballFound:
+            pixelX, pixelY = imageFrame.getPixelPosition()
+            ballX, ballY = imageFrame.getBallPosition()
+            cv.circle(img, (int(pixelX), int(pixelY)), 30, (255, 0, 255), 2)
+            cv.circle(img, (int(pixelX), int(pixelY)), 3, (255, 0, 255), -1)
+            ballX = int(ballX * 100) # Ball X from meters into cm
+            ballY = int(ballY * 100) # Ball Y from meters into cm
+            self.ui.lbl_ballStats.setText("Ball X: {}  Ball Y: {} ".format(ballX, ballY))
+
+        # To resize the image to fit into label area
+        # This must be the last alteration to the image
+        # All things drawn on image must be doen prior
         (h, w, c) = img.shape
         scale = 1.3
         width = int(w / scale)
         height = int(h / scale)
         dim = (width, height)
         image = cv.resize(img, dim, interpolation=cv.INTER_AREA)
-        cv.line(image, ((width//2),0), ((width//2),height), (0,255,0), 1)  # Green colour
-        cv.line(image, (0,(height//2)), (width,(height//2)), (0,255,0), 1) # Green colour
-        cv.circle(image, ((width//2),(height//2)), 6, (0,0,255), 2)  # Red colour
-        if ballFound:
-            pixelX, pixelY = imageFrame.getPixelPosition()
-            cv.circle(image, (int(pixelX), int(pixelY)), 30, (255, 0, 255), 2)
-            cv.circle(image, (int(pixelX), int(pixelY)), 3, (255, 0, 255), -1)
-
+        # Convert image (np.ndarray) into format for PyQt5 for display
         image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
         image = qtg.QImage(image, image.shape[1], image.shape[0], qtg.QImage.Format_RGB888) # format as QImage
         image = qtg.QPixmap.fromImage(image) # convert to QPixmap
