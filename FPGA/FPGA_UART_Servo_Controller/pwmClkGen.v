@@ -7,8 +7,8 @@ module pwmClkGen (input clk50MHz,
 			
 			// Servo operates at 333Hz
 			// For 1024 bits resolution over 40*, totals 4608 ticks/frame
-			// 50 / (4608 * 333) = 37
-			if (count > 18) begin
+			// 50 / (4608 * 333 * 2) - 1= 15
+			if (count > 15) begin
 				count = 5'd0;
 				pwmClk = !pwmClk;
 			end
