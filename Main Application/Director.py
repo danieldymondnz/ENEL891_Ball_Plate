@@ -4,7 +4,10 @@
 ##
 
 from typing import ValuesView
-from Backend.ImgProcess import ImgProcess
+# Binary colour detection
+#from Backend.ImgProcess import ImgProcess
+# Orange colour detection
+from Backend.ImageProcessor import ImageProcessor as ImgProcess
 import threading
 from queue import Queue
 import numpy as np

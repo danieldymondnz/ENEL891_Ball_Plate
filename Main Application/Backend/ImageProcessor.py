@@ -24,7 +24,7 @@ class ImageProcessor(threading.Thread):
     def __init__(self, cameraID, imgQueue, enableVerbose):
         threading.Thread.__init__(self)
         self.imgQueue = imgQueue
-        self.cap = cv.VideoCapture(cameraID)
+        self.cap = cv.VideoCapture(cameraID, cv.CAP_DSHOW)
         self.generateViewportSpec()
         self.lastTime = -1
         self.prevX = -1
@@ -156,7 +156,7 @@ class ImageProcessor(threading.Thread):
                     cv.circle(cameraImage, (int(pixelX), int(pixelY)), 30, (255, 0, 255), 2)
                     cv.circle(cameraImage, (int(pixelX), int(pixelY)), 3, (255, 0, 255), -1)
 
-                cv.imshow("Frame", cameraImage)
+                #cv.imshow("Frame", cameraImage)
 
                 if cv.waitKey(1) == ord('q'):
                     self.keepRunning = False

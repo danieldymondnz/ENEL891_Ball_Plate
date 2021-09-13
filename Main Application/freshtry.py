@@ -21,6 +21,8 @@ class ballgui(qtw.QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)
         self.director = director
         self.frameCollector = frameCollector
+        
+        
 
         # Link director to GUI
         self.frameCollector.imageUpdate.connect(self.ImageUpdateSlot)
@@ -53,6 +55,11 @@ class ballgui(qtw.QMainWindow):
 
         # Joystick page btn event set up
 
+    # CloseEvent known by gui, will perform instructions prior to closing
+    def closeEvent(self, event):
+        print('Close event fired')
+        self.director.kill()
+        event.accept()
     
     def showMain_pg(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)  
@@ -171,12 +178,38 @@ class ballgui(qtw.QMainWindow):
 
         # Get the image
         image = imageFrame.getCameraFrame()
-        self.displayFrame(image)
+        self.displayFrame(image, imageFrame)
         
     # Frame is type of ImageFrame
-    def displayFrame(self, img):
+    def displayFrame(self, img, imageFrame):
         ## Need to draw some stuff on the frame before display
-        image = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+        ballFound = imageFrame.isBallFound()
+        
+        # The following will always been drawn on frame
+        cv.line(img, (320,0), (320,480), (0,255,0), 1)  # Green colour
+        cv.line(img, (0,240), (640,240), (0,255,0), 1) # Green colour
+        cv.circle(img, (320,240), 6, (0,0,255), 2)  # Red colour
+
+        if ballFound:
+            pixelX, pixelY = imageFrame.getPixelPosition()
+            ballX, ballY = imageFrame.getBallPosition()
+            cv.circle(img, (int(pixelX), int(pixelY)), 30, (255, 0, 255), 2)
+            cv.circle(img, (int(pixelX), int(pixelY)), 3, (255, 0, 255), -1)
+            ballX = int(ballX * 100) # Ball X from meters into cm
+            ballY = int(ballY * 100) # Ball Y from meters into cm
+            self.ui.lbl_ballStats.setText("Ball X: {}  Ball Y: {} ".format(ballX, ballY))
+
+        # To resize the image to fit into label area
+        # This must be the last alteration to the image
+        # All things drawn on image must be doen prior
+        (h, w, c) = img.shape
+        scale = 1.3
+        width = int(w / scale)
+        height = int(h / scale)
+        dim = (width, height)
+        image = cv.resize(img, dim, interpolation=cv.INTER_AREA)
+        # Convert image (np.ndarray) into format for PyQt5 for display
+        image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
         image = qtg.QImage(image, image.shape[1], image.shape[0], qtg.QImage.Format_RGB888) # format as QImage
         image = qtg.QPixmap.fromImage(image) # convert to QPixmap
         self.ui.lbl_frames.setPixmap(image)   
@@ -229,7 +262,7 @@ background-color: rgb(251, 251, 255);
 
 if __name__ == '__main__':
     frameCollectorObj = FrameCollector()
-    directorObj = Director(0, 'COM9', frameCollectorObj, False)
+    directorObj = Director(0, 'COM1', frameCollectorObj, False)
     directorObj.start()
     app = qtw.QApplication(sys.argv)
     main_win = ballgui(directorObj, frameCollectorObj)
