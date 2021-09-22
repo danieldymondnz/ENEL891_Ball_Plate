@@ -6,8 +6,8 @@ import serial
 class UART:
 
     # Constants for maximum angle deflection from 90 degrees
-    MAX_DEFLECTION = 32
-    X_ANGLE_TUNER =  -2.5 * 2      # Values for ANGLE_TUNER is [desired angle] * 2
+    MAX_DEFLECTION = 20
+    X_ANGLE_TUNER =  0 * 2      # Values for ANGLE_TUNER is [desired angle] * 2
     Y_ANGLE_TUNER = 0 * 2
 
     def __init__(self, uartDevicePath):
@@ -45,11 +45,11 @@ class UART:
             raise ValueError("The angle specified is outside the scope of this servo.")
 
         # If angle is greater than bound, then set to the maximum
-        if (abs(angle - 32) < UART.MAX_DEFLECTION):
+        if (abs(angle - 90) < UART.MAX_DEFLECTION):
             angle = angle / abs(angle) * UART.MAX_DEFLECTION
 
         # If value is okay, then convert into closest binary representation
-        binaryPos = ((angle - 58) / 0.5) - 1
+        binaryPos = ((angle - 70) / 0.5)
         binaryPos = int(binaryPos)
         return binaryPos
 
