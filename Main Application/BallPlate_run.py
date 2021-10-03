@@ -7,7 +7,7 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
 from Director import Director
-from freshgui import Ui_MainWindow
+from BallPlateGUI import Ui_MainWindow
 from FrameCollector import FrameCollector
 
 class ballgui(qtw.QMainWindow):
@@ -193,12 +193,18 @@ class ballgui(qtw.QMainWindow):
         if ballFound:
             pixelX, pixelY = imageFrame.getPixelPosition()
             ballX, ballY = imageFrame.getBallPosition()
-            cv.circle(img, (int(pixelX), int(pixelY)), 30, (255, 0, 255), 2)
-            cv.circle(img, (int(pixelX), int(pixelY)), 3, (255, 0, 255), -1)
-            ballX = int(ballX * 100) # Ball X from meters into cm
-            ballY = int(ballY * 100) # Ball Y from meters into cm
-            self.ui.lbl_ballStats.setText("Ball X: {}  Ball Y: {} ".format(ballX, ballY))
-
+            cv.circle(img, (int(pixelX), int(pixelY)), 30, (230, 38, 0), 2)
+            cv.circle(img, (int(pixelX), int(pixelY)), 3, (230, 38, 0), -1)
+            ballX = round((ballX * 100),2) # Ball X from meters into cm
+            ballY = round((ballY * 100),2) # Ball Y from meters into cm
+            PAX, PAY = self.director.getPIDAngles()
+            xError, yError = self.director.getCurrentError()
+            xError = round((xError * 100), 2)
+            yError = round((yError * 100), 2)
+            PAX = round(PAX, 2)
+            PAY = round(PAY, 2)
+            self.ui.lbl_ballStats.setText("Ball X: {} cm.  X Error: {}.  PID output X: {}.  \nBall Y: {} cm.   Y Error: {}.  PID output Y: {} ".format(ballX, xError, PAX, ballY, yError, PAY))
+            
         # To resize the image to fit into label area
         # This must be the last alteration to the image
         # All things drawn on image must be doen prior
@@ -262,7 +268,7 @@ background-color: rgb(251, 251, 255);
 
 if __name__ == '__main__':
     frameCollectorObj = FrameCollector()
-    directorObj = Director(0, 'COM1', frameCollectorObj, False)
+    directorObj = Director(0, 'COM2', frameCollectorObj, False)
     directorObj.start()
     app = qtw.QApplication(sys.argv)
     main_win = ballgui(directorObj, frameCollectorObj)
