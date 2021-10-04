@@ -12,10 +12,10 @@ class ImageProcessor(threading.Thread):
     viewHeight = 480
     midWidth = 320
     midHeight = 240
-    pxMetric = 7.5 # pixelperMetric for pixels to cm
+    pxMetric = 7.6 # pixelperMetric for pixels to cm
 
     # Profile for Ball
-    lowOrange = np.array([ 2, 120, 140])
+    lowOrange = np.array([ 2, 147, 161])
     uppOrange = np.array([ 24, 255, 255])
     lowArea = 1000
     uppArea = 3000
