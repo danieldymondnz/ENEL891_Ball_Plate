@@ -3,7 +3,7 @@
 import sys
 import numpy as np
 import cv2 as cv
-from PyQt5 import QtCore
+from PyQt5 import QtCore as qtc
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
 from Director import Director
@@ -21,8 +21,7 @@ class ballgui(qtw.QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.main_pg)
         self.director = director
         self.frameCollector = frameCollector
-        
-        
+        self.pos_setpoint = False
 
         # Link director to GUI
         self.frameCollector.imageUpdate.connect(self.ImageUpdateSlot)
@@ -71,6 +70,7 @@ class ballgui(qtw.QMainWindow):
         self.ui.lbl_pos_showxpos.setText(str(self.xpos_counter))
         self.ui.lbl_pos_showypos.setText(str(self.ypos_counter))
         
+        
     def showPattern_pg(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.pattern_pg)
         self.ui.btn_patt_rectangle.setStyleSheet(neutralbtn)
@@ -88,42 +88,65 @@ class ballgui(qtw.QMainWindow):
         self.ui.btn_pos_position.setStyleSheet(neutralbtn)
         self.ui.btn_pos_menu.setEnabled(False)
         self.ui.btn_pos_menu.setStyleSheet(disablebtn)
+        self.pos_setpoint = False
 
     def setup_posPoint(self):
         self.ui.btn_pos_position.setStyleSheet(clickedbtn)
         self.ui.btn_pos_center.setStyleSheet(neutralbtn)
         self.ui.btn_pos_menu.setEnabled(False)
         self.ui.btn_pos_menu.setStyleSheet(disablebtn)
+        self.pos_setpoint = True
+        self.xpos_counter = 0
+        self.ypos_counter = 0
 
     def setup_posReset(self):
         self.ui.btn_pos_menu.setEnabled(True)
         self.ui.btn_pos_menu.setStyleSheet(whitebtn)
         self.ui.btn_pos_center.setStyleSheet(neutralbtn)
         self.ui.btn_pos_position.setStyleSheet(neutralbtn)
+        self.xpos_counter = 0
+        self.ypos_counter = 0
+        self.ui.lbl_pos_showxpos.setText(str(self.xpos_counter))
+        self.ui.lbl_pos_showypos.setText(str(self.ypos_counter))
+        self.director.setSetposition(0,0)
+        self.pos_setpoint = False
+
 
     def Xplus(self):
         self.xpos_counter += 2  # 2cm steps
         if self.xpos_counter >= 25:
             self.xpos_counter = 24
         self.ui.lbl_pos_showxpos.setText(str(self.xpos_counter))
+        self.showX_SP = (self.xpos_counter / 100)
+        self.showY_SP = (self.ypos_counter / 100)
+        self.director.setSetposition(self.showX_SP, self.showY_SP)
         
     def Xminus(self):
         self.xpos_counter -= 2  # 2cm steps
         if self.xpos_counter <= -25:
             self.xpos_counter = -24
         self.ui.lbl_pos_showxpos.setText(str(self.xpos_counter))
+        self.showX_SP = (self.xpos_counter / 100)
+        self.showY_SP = (self.ypos_counter / 100)
+        self.director.setSetposition(self.showX_SP, self.showY_SP)
         
     def Yplus(self):
         self.ypos_counter += 2  # 2cm steps
         if self.ypos_counter >= 15:
             self.ypos_counter = 14
         self.ui.lbl_pos_showypos.setText(str(self.ypos_counter))
+        self.showX_SP = (self.xpos_counter / 100)
+        self.showY_SP = (self.ypos_counter / 100)
+        self.director.setSetposition(self.showX_SP, self.showY_SP)
         
     def Yminus(self):
         self.ypos_counter -= 2  # 2cm steps
         if self.ypos_counter <= -15:
             self.ypos_counter = -14
         self.ui.lbl_pos_showypos.setText(str(self.ypos_counter))
+        self.showX_SP = (self.xpos_counter / 100)
+        self.showY_SP = (self.ypos_counter / 100)
+        self.director.setSetposition(self.showX_SP, self.showY_SP)
         
     def setup_pattRectangle(self):
         self.ui.btn_patt_rectangle.setStyleSheet(clickedbtn)
@@ -189,6 +212,11 @@ class ballgui(qtw.QMainWindow):
         cv.line(img, (320,0), (320,480), (0,255,0), 1)  # Green colour
         cv.line(img, (0,240), (640,240), (0,255,0), 1) # Green colour
         cv.circle(img, (320,240), 6, (0,0,255), 2)  # Red colour
+
+        if self.pos_setpoint == True:
+            self.showX = int((self.xpos_counter * 7.6) + 320)
+            self.showY = int((self.ypos_counter * 7.6) + 240)
+            cv.circle(img, (self.showX, self.showY), 6, (255,0,0), -1)  # Red colour
 
         if ballFound:
             pixelX, pixelY = imageFrame.getPixelPosition()
@@ -268,7 +296,7 @@ background-color: rgb(251, 251, 255);
 
 if __name__ == '__main__':
     frameCollectorObj = FrameCollector()
-    directorObj = Director(0, 'COM2', frameCollectorObj, False)
+    directorObj = Director(2, 'COM2', frameCollectorObj, False)
     directorObj.start()
     app = qtw.QApplication(sys.argv)
     main_win = ballgui(directorObj, frameCollectorObj)
