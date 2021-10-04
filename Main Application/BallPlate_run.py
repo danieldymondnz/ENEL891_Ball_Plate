@@ -215,8 +215,8 @@ class ballgui(qtw.QMainWindow):
 
         if self.pos_setpoint == True:
             self.showX = int((self.xpos_counter * 7.6) + 320)
-            self.showY = int((self.ypos_counter * 7.6) + 240)
-            cv.circle(img, (self.showX, self.showY), 6, (255,0,0), -1)  # Red colour
+            self.showY = int(240 - (self.ypos_counter * 7.6))
+            cv.circle(img, (self.showX, self.showY), 7, (0,255,255), -1)  # Red colour
 
         if ballFound:
             pixelX, pixelY = imageFrame.getPixelPosition()
