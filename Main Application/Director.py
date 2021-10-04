@@ -176,6 +176,7 @@ class Director(threading.Thread):
 
     def setSetposition(self, posX, posY):
         ''' Go to a set position in cms from the center. '''
+        """
         # Check X
         if abs(posX) > Director.MAX_X:
             Exception("X Position exceeds maximum.")
@@ -185,7 +186,7 @@ class Director(threading.Thread):
         if abs(posY) > Director.MAX_Y:
             Exception("Y Position exceeds maximum.")
             return
-
+        """
         # Otherwise, update the setpoint
         self.setpoint = [posX, posY]
         self.xAxis.setTarget(posX)
