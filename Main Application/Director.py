@@ -188,6 +188,8 @@ class Director(threading.Thread):
 
         # Otherwise, update the setpoint
         self.setpoint = [posX, posY]
+        self.xAxis.setTarget(posX)
+        self.yAxis.setTarget(posY)
 
     def getSetposition(self):
         ''' Get the current setpoint for the ball. '''
