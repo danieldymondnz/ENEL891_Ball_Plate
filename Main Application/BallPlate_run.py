@@ -22,6 +22,8 @@ class ballgui(qtw.QMainWindow):
         self.director = director
         self.frameCollector = frameCollector
         self.pos_setpoint = False
+        self.drawRect = False
+        self.drawCirc = False
 
         # Link director to GUI
         self.frameCollector.imageUpdate.connect(self.ImageUpdateSlot)
@@ -155,6 +157,8 @@ class ballgui(qtw.QMainWindow):
         self.ui.btn_patt_center.setStyleSheet(neutralbtn)
         self.ui.btn_patt_menu.setEnabled(False)
         self.ui.btn_patt_menu.setStyleSheet(disablebtn)
+        self.drawRect = True
+        self.drawCirc = False
 
     def setup_pattCircle(self):
         self.ui.btn_patt_circle.setStyleSheet(clickedbtn)
@@ -163,6 +167,8 @@ class ballgui(qtw.QMainWindow):
         self.ui.btn_patt_center.setStyleSheet(neutralbtn)
         self.ui.btn_patt_menu.setEnabled(False)
         self.ui.btn_patt_menu.setStyleSheet(disablebtn)
+        self.drawCirc = True
+        self.drawRect = False
 
     def setup_pattInfinity(self):
         self.ui.btn_patt_infinity.setStyleSheet(clickedbtn)
@@ -187,6 +193,8 @@ class ballgui(qtw.QMainWindow):
         self.ui.btn_patt_circle.setStyleSheet(neutralbtn)
         self.ui.btn_patt_infinity.setStyleSheet(neutralbtn)
         self.ui.btn_patt_center.setStyleSheet(neutralbtn)
+        self.drawCirc = False
+        self.drawRect = False
 
     def ImageUpdateSlot(self):
         # cant access at same time as director img queque 
@@ -217,6 +225,12 @@ class ballgui(qtw.QMainWindow):
             self.showX = int((self.xpos_counter * 7.6) + 320)
             self.showY = int(240 - (self.ypos_counter * 7.6))
             cv.circle(img, (self.showX, self.showY), 7, (0,255,255), -1)  # Red colour
+
+        if self.drawCirc == True:
+            cv.circle(img, (320, 240), 200, (0,255,255), 2)
+        
+        if self.drawRect == True:
+            cv.rectangle(img, (80, 60), (560,420), (0,255,255), 2)
 
         if ballFound:
             pixelX, pixelY = imageFrame.getPixelPosition()
