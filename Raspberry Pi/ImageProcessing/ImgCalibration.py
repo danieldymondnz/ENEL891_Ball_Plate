@@ -8,7 +8,7 @@ def nothing(x):
     pass
 
 # To adjust HSV values and find Pixel Metric
-cap = cv.VideoCapture(2, cv.CAP_DSHOW)
+cap = cv.VideoCapture(0, cv.CAP_DSHOW)
 camWidth = cap.get(3)
 camHeight = cap.get(4)
 cap.set(10,50)
