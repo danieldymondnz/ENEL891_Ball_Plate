@@ -227,10 +227,10 @@ class ballgui(qtw.QMainWindow):
             cv.circle(img, (self.showX, self.showY), 7, (0,255,255), -1)  # Red colour
 
         if self.drawCirc == True:
-            cv.circle(img, (320, 240), 200, (0,255,255), 2)
+            cv.circle(img, (320, 240), 100, (0,255,255), 2)
         
         if self.drawRect == True:
-            cv.rectangle(img, (80, 60), (560,420), (0,255,255), 2)
+            cv.rectangle(img, (320-100, 240-85), (320+100,240+85), (0,255,255), 2)
 
         if ballFound:
             pixelX, pixelY = imageFrame.getPixelPosition()
@@ -310,7 +310,7 @@ background-color: rgb(251, 251, 255);
 
 if __name__ == '__main__':
     frameCollectorObj = FrameCollector()
-    directorObj = Director(2, 'COM2', frameCollectorObj, False)
+    directorObj = Director(0, 'COM2', frameCollectorObj, False)
     directorObj.start()
     app = qtw.QApplication(sys.argv)
     main_win = ballgui(directorObj, frameCollectorObj)
